@@ -6,8 +6,16 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/Shop/shop-module.js"></script>
+
+    @RenderSection("JavascriptInHead")
 </head>
-<body>
+<body ng-app="shopModule">
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -16,13 +24,31 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("PhotoB", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Photo List", "PhotoList", "Photo")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bootstrap Styles<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="styleMenuItem" href="#" data-styleName="">default</a></li>
+                            <li><a class="styleMenuItem" href="#" data-styleName="-cerulean">cerulean</a></li>
+                            <li><a class="styleMenuItem" href="#" data-styleName="-cosmo">cosmo</a></li>
+                            <li><a class="styleMenuItem" href="#" data-styleName="-flatly">flatly</a></li>
+                            <li><a class="styleMenuItem" href="#" data-styleName="-lumen">lumen</a></li>
+                            <li><a class="styleMenuItem" href="#" data-styleName="-paper">paper</a></li>
+                            <li><a class="styleMenuItem" href="#" data-styleName="-readable">readable</a></li>
+                            <li><a class="styleMenuItem" href="#" data-styleName="-sandstone">sandstone</a></li>
+                            <li><a class="styleMenuItem" href="#" data-styleName="-simplex">simplex</a></li>
+                            <li><a class="styleMenuItem" href="#" data-styleName="-slate">slate</a></li>
+                            <li><a class="styleMenuItem" href="#" data-styleName="-superhero">superhero</a></li>
+                            <li><a class="styleMenuItem" href="#" data-styleName="-yeti">yeti</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -33,10 +59,18 @@
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    </div>    
+    
+    
 </body>
 </html>
+
+<script>
+    $(document).ready(function () {
+
+        $('.styleMenuItem').click(function () {
+            var styleName = "/Content/bootstrap" + $(this).attr('data-styleName') + ".css";
+            $('link[href*="bootstrap"]').attr('href', styleName);
+        });
+    });
+</script>

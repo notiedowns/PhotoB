@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Photo List";
+}
+
+@section JavascriptInHead
+{
+    <script src="~/Scripts/Photos/photos-controller.js"></script>
+    <script src="~/Scripts/Menu/menu-controller.js"></script>
+    <script src="~/Scripts/Photos/photo-repository.js"></script>
+    <script src="~/Scripts/Menu/menu-repository.js"></script>
+
+}
+
+
+<h2 style="margin-top: 70px;">Photo List {{2 + 2}}</h2>
+
+<div class="navbar navbar-default" style="margin-top: 50px;" ng-controller="MenuController">
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li ng-repeat="menuItem in menuItems">
+                <a href="{{menuItem.url}}">{{menuItem.displayName}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<a href="/Photo/CreatePhoto">Create Photo</a>
+
+<div class="container" ng-controller="PhotosController">
+    <div class="row">
+        <div class="span10">
+            <table class="table table-condensed table-hover">
+                <tr>
+                    <th>Photo</th>
+                    <th>Photo Name</th>
+                    <th>Author</th>
+                </tr>
+                <tr ng-repeat="photo in photos">
+                    <td>{{photo.number}}</td>
+                    <td>{{photo.name}}</td>
+                    <td>{{photo.author}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Photo List";
+}
+
+@section JavascriptInHead
+{
+    <script src="~/Scripts/Photos/photos-controller.js"></script>
+    <script src="~/Scripts/Authors/authors-controller.js"></script>
+    <script type="text/javascript">
+        @*registrationModule.factory('bootstrappedData', function() {
+            return {
+                photos: @Html.Raw(Model.Photos),
+                authors: @Html.Raw(Model.Authors)
+            };
+        });*@
+    </script>
+}
+
+<h2 style="margin-top: 70px;">Shop</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="navbar navbar-default">
+            <div class="navbar-header">
+                <ul class="nav navbar-nav">
+                    <li><span class="navbar-brand">PhotoB</span></li>
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/Photo/List">Photos</a></li>
+                    <li><a href="/Author/List">Authors</a></li>
+                </ul>
+            </div>
+        </div>            
+    </div>
+
+    <div ng-view></div>
+</div>
+

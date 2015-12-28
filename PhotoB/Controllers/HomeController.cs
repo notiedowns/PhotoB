@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhotoB.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace PhotoB.Controllers
 {
     public class HomeController : Controller
     {
+        private ShopVmBuilder _shopVmBuilder = new ShopVmBuilder();
+                   
         public ActionResult Index()
         {
             return View();

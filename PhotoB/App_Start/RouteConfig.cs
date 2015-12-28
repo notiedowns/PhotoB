@@ -13,6 +13,12 @@ namespace PhotoB
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.MapRoute(
+            //    name: "shop",
+            //    url: "Shop/{*blah}",
+            //    defaults: new { controller = "Shop", action = "List" }
+            //);
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

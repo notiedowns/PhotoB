@@ -1,0 +1,20 @@
+﻿<h2 style="margin-top: 70px;">Photo List {{2 + 2}}</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="span10">
+            <table class="table table-condensed table-hover">
+                <tr>
+                    <th>Photo</th>
+                    <th>Photo Name</th>
+                    <th>Author</th>
+                </tr>
+                <tr ng-repeat="photo in photos">
+                    <td>{{photo.number}}</td>
+                    <td>{{photo.name}}</td>
+                    <td>{{photo.author}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
