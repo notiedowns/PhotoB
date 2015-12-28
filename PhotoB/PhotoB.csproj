@@ -133,7 +133,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\PhotoController.cs" />
@@ -173,7 +172,6 @@
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular.js" />
-    <Content Include="Scripts\Authors\authors-controller.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\Menu\menu-controller.js" />
@@ -203,13 +201,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Json\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Photo\PhotoList.cshtml" />
-    <Content Include="Views\Author\List.cshtml" />
     <Content Include="Views\Shop\List.cshtml" />
     <Content Include="Views\Photo\CreatePhoto.cshtml" />
   </ItemGroup>

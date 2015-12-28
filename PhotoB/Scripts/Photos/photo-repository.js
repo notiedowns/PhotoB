@@ -1,19 +1,16 @@
-﻿
-shopModule.factory('photoRepository', function ($http, $q) {
+﻿(function () {
 
-    return {
-        get: function () {
-            var deferred = $q.defer();
-            $http.get('/Photo/GetPhotos').success(deferred.resolve).error(deferred.reject);
-            return deferred.promise;
-        },
+    angular.module('shopModule').factory('photoRepository', function ($http) {
 
-        createPhoto: function (photo) {
-            //var deferred = $q.defer();
-            //$http.post('/Photo/CreatePhoto', photo).success(function () { deferred.resolve(); }).error(function () { deferred.reject(); });
-            //return deferred.promise;
+        return {
+            get: function () {
+                return $http.get('/Photo/GetPhotos');
+            },
 
-            return $http.post('/Photo/CreatePhoto', photo);
-        }    
-    }
-});
+            createPhoto: function (photo) {
+                return $http.post('/Photo/CreatePhoto', photo);
+            }
+        }
+    });
+
+})();

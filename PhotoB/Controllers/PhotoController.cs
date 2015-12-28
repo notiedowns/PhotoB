@@ -54,7 +54,7 @@ namespace PhotoB.Controllers
                 return new JsonResult();
             }
 
-            Response.StatusCode = 400;
+            Response.StatusCode = (int)HttpStatusCode.BadRequest;
             return Json(GetErrorMessages(), JsonRequestBehavior.AllowGet);
         }
 
