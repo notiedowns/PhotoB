@@ -16,7 +16,11 @@ namespace PhotoB.Models.Products
         [MaxLength(50, ErrorMessage = "Name can be maximum 50 characters")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Please enter a Manufacturer")]
-        public string Manufacturer { get; set; }
+        public decimal Price { get; set; }
+
+        public DateTime DateListed { get; set; }
+
+        [Required(ErrorMessage = "Please enter an Author")]
+        public string Author { get; set; }
     }
 }

@@ -11,19 +11,19 @@
         $scope.createPhoto = function (photo) {
             $scope.errorMessage = '';
             photoRepository.createPhoto(photo).then(
-                success,
-                error);
+                onCreatePhotoSuccess,
+                onCreatePhotoError);
         };
 
-        function success(response) {
+        function onCreatePhotoSuccess(response) {
             window.location = '/Photo/PhotoList';
         }
 
-        function error(response) {
-            createFallbackErrorMessage(response.data);
+        function onCreatePhotoError(response) {
+            createErrorMessage(response.data);
         }
 
-        function createFallbackErrorMessage(errorMessages) {
+        function createErrorMessage(errorMessages) {
             if (errorMessages) {
                 if (errorMessages.length > 0) {
                     for (var i = 0; i < errorMessages.length; i++) {
