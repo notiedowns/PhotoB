@@ -1,11 +1,19 @@
 ﻿(function () {
 
-    angular.module('shopModule').factory('menuRepository', function ($http) {
+    var menuRepository = function ($http) {
+
+        var getMenu = function () {
+            return $http.get('/Photo/GetMenu').then(function (response) {
+                return response.data;
+            });
+        };
+
         return {
-            get: function () {
-                return $http.get('/Photo/GetMenu');
-            }
+            getMenu: getMenu
         }
-    });
+    };
+
+
+    angular.module('shopModule').factory('menuRepository', menuRepository);
 
 })();

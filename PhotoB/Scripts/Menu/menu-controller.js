@@ -3,8 +3,8 @@
     'use strict'
 
     var menuController = function ($scope, menuRepository) {
-        menuRepository.get().then(function (response) {
-            $scope.menuItems = response.data;
+        menuRepository.getMenu().then(function (data) {
+            $scope.menuItems = data;
         });
     };
 

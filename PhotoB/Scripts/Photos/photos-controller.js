@@ -2,13 +2,17 @@
 
     'use strict'
 
-    var photoController = function ($scope, photoRepository) {
-        photoRepository.get().then(function (response) {
-            $scope.photos = response.data;
+    var photoController = function ($scope, photoRepository, $interval, $log) {
+        photoRepository.getPhotos().then(function (data) {
+            $scope.photos = data;
         });
 
 
-        $scope.createPhoto = function (photo) {
+        $scope.productSortOrder = '-dateListed';
+        $scope.sessionTimeoutSeconds = 60 * 2; //20 min
+
+
+        $scope.createPhoto = function (photo) {            
             $scope.errorMessage = '';
             photoRepository.createPhoto(photo).then(
                 onCreatePhotoSuccess,
@@ -16,10 +20,12 @@
         };
 
         function onCreatePhotoSuccess(response) {
+            $log.info('New photo created');
             window.location = '/Photo/PhotoList';
         }
 
         function onCreatePhotoError(response) {
+            $log.info('Validation errors found');
             createErrorMessage(response.data);
         }
 
@@ -37,10 +43,17 @@
             }
         }
 
+        var startSessionCountdown = function(){
+            $interval(function () { $scope.sessionTimeoutSeconds -= 1 }, 1000, $scope.sessionTimeoutSeconds);
+        }
+        startSessionCountdown();
     }
 
     // Pass in the names of the dependencies e.g. "$scope", so that a minifier can change the names in the controller
     // parameters without breaking dependecy injection.
-    angular.module('shopModule').controller("PhotoController", ["$scope", "photoRepository", photoController]);
+
+    // $interval is an angular service that can replace the standard js interval function. Using services like this as
+    // dependancies means that modules and services are more testable (can replace with mock)
+    angular.module('shopModule').controller("PhotoController", ["$scope", "photoRepository", "$interval", "$log", photoController]);
 
 })();
