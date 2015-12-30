@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Photo List";
+    ViewBag.Title = "Photographic Shop";
 }
 
 <script type="text/javascript">
@@ -14,19 +14,13 @@
 <h2 style="margin-top: 70px;">Shop</h2>
 
 <div class="container">
-    <div class="row">
-        <div class="navbar navbar-default">
-            <div class="navbar-header">
-                <ul class="nav navbar-nav">
-                    <li><span class="navbar-brand">PhotoB</span></li>
-                </ul>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/Shop/#/PhotoList/">Photo List</a></li>
-                    <li><a href="/Shop/#/CreatePhoto">Create New Photo</a></li>
-                </ul>
-            </div>
+    <div class="navbar navbar-default" ng-controller="MenuController">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li ng-repeat="menuItem in menuItems">
+                    <a href="{{menuItem.url}}">{{menuItem.displayName}}</a>
+                </li>
+            </ul>
         </div>
     </div>
 

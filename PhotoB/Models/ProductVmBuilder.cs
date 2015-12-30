@@ -25,8 +25,8 @@ namespace PhotoB.Models
         {
             var menuItems = new[]
             {
-                new MenuItemVm { DisplayName = "Menu1", Url = "Controller1/Action1"},
-                new MenuItemVm { DisplayName = "Menu1", Url = "Controller1/Action1"}
+                new MenuItemVm { DisplayName = "Photo List", Url = "/Shop/#/PhotoList/"},
+                new MenuItemVm { DisplayName = "Create New Photo", Url = "/Shop/#/CreatePhoto"}
             };
 
             return menuItems;

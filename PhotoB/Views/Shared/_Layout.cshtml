@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - By Wayne Holmes</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -12,7 +12,8 @@
     @RenderSection("scripts", required: false)
 
     <script src="~/Scripts/Shop/shop-module.js"></script>
-    <script src="~/Scripts/Photos/photos-controller.js"></script>
+    <script src="~/Scripts/Photos/photolist-controller.js"></script>
+    <script src="~/Scripts/Photos/photocreate-controller.js"></script>
     <script src="~/Scripts/Menu/menu-controller.js"></script>
     <script src="~/Scripts/Photos/photo-repository.js"></script>
     <script src="~/Scripts/Menu/menu-repository.js"></script>
@@ -33,7 +34,6 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Shop start", "Index", "Shop")</li>
-                    <li>@Html.ActionLink("Photo List", "PhotoList", "Photo")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li class="dropdown">

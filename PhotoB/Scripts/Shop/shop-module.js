@@ -7,11 +7,11 @@
         $routeProvider
             .when("/PhotoList", {
                 templateUrl: "/templates/photoListDetails.html",
-                controller: "PhotoController"
+                controller: "PhotolistController"
             })
             .when("/CreatePhoto", {
                 templateUrl: "/templates/createPhotoDetails.html",
-                controller: "PhotoController"
+                controller: "PhotoCreateController"
             })
         .otherwise({ redirectTo: "/Start" });
     });

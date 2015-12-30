@@ -178,7 +178,8 @@
     <Content Include="Scripts\Menu\menu-repository.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Photos\photo-repository.js" />
-    <Content Include="Scripts\Photos\photos-controller.js" />
+    <Content Include="Scripts\Photos\photocreate-controller.js" />
+    <Content Include="Scripts\Photos\photolist-controller.js" />
     <Content Include="Scripts\Shop\shop-module.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\_references.js" />
@@ -205,9 +206,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Views\Photo\PhotoList.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
-    <Content Include="Views\Photo\CreatePhoto.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
