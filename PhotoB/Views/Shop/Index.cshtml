@@ -2,19 +2,14 @@
     ViewBag.Title = "Photo List";
 }
 
-@section JavascriptInHead
-{
-    <script src="~/Scripts/Photos/photos-controller.js"></script>
-    <script src="~/Scripts/Authors/authors-controller.js"></script>
-    <script type="text/javascript">
-        @*registrationModule.factory('bootstrappedData', function() {
+<script type="text/javascript">
+    @*registrationModule.factory('bootstrappedData', function() {
             return {
                 photos: @Html.Raw(Model.Photos),
                 authors: @Html.Raw(Model.Authors)
             };
         });*@
-    </script>
-}
+</script>
 
 <h2 style="margin-top: 70px;">Shop</h2>
 
@@ -28,11 +23,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/Photo/List">Photos</a></li>
-                    <li><a href="/Author/List">Authors</a></li>
+                    <li><a href="/Shop/#/PhotoList/">Photo List</a></li>
+                    <li><a href="/Shop/#/CreatePhoto">Create New Photo</a></li>
                 </ul>
             </div>
-        </div>            
+        </div>
     </div>
 
     <div ng-view></div>

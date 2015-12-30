@@ -2,12 +2,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section JavascriptInHead
-{
-    <script src="~/Scripts/Photos/photos-controller.js"></script>
-    <script src="~/Scripts/Photos/photo-repository.js"></script>
-
-}
 
 <div class="row" style="margin-top:50px;">
     <div class="col-md-10">
@@ -15,24 +9,6 @@
     </div>
 </div>
 
-<div class="row" ng-controller="PhotoController">
-    <div class="col-md-3">
-        <div class="form-group">
-            <label>Number</label>
-            <input type="text" ng-model="photo.number" class="form-control"/>
-        </div>
-        <div class="form-group">
-            <label>Name</label>
-            <input type="text" ng-model="photo.name" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label>Author</label>
-            <input type="text" ng-model="photo.author" class="form-control" />
-        </div>
-        <button class="btn btn-default" ng-click="createPhoto(photo)">Create Photo</button>
-        @*<div style="color: red;" ng-show="errors.length > 0" ng-repeat="error in errors">{{error}}</div>*@
-        <div style="color: red;" >{{errorMessage}}</div>
-    </div>
-</div>
+<div ng-include="'/Templates/createPhotoDetails.html'"></div>
 
 

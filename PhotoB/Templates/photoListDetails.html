@@ -1,10 +1,12 @@
 ﻿<div class="container" ng-controller="PhotoController">
 
+    <h2>Photo List {{2 + 2}}</h2>
+
     <h4 ng-show="sessionTimeoutSeconds <= 60 && sessionTimeoutSeconds !== 0">Session timeout: {{sessionTimeoutSeconds}}</h4>
     <h4 ng-show="sessionTimeoutSeconds === 0" class="text-danger">Session timed out</h4>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-sm-4">
             <div class="form-group">
                 <label>Sort Order</label>
                 <select class="form-control" ng-model="productSortOrder">
@@ -41,6 +43,6 @@
     </div>
 
     <div class="row">
-        <a href="/Photo/CreatePhoto">Create Photo</a>
+        <a href="/Shop/#/CreatePhoto">Create Photo</a>
     </div>
 </div>

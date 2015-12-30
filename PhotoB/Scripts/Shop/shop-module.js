@@ -1,20 +1,19 @@
 ﻿(function () {
 
-    var shopModule = angular.module("shopModule", ['ngRoute', 'ngResource'])
+    var shopModule = angular.module("shopModule", ['ngRoute'])
 
-    shopModule.config(function () {
+    shopModule.config(function ($routeProvider) {
 
-        //$routeProvider.when("/Shop/photos", {
-        //    templateUrl: "/templates/photos.html",
-        //    controller: "PhotosController"
-        //});
-        //$routeProvider.when("/Shop/Authors", {
-        //    templateUrl: "/templates/authors.html",
-        //    controller: "AuthorsController"
-        //});
-
-        //$locationProvider.html5Mode(true);
-
-    });   
+        $routeProvider
+            .when("/PhotoList", {
+                templateUrl: "/templates/photoListDetails.html",
+                controller: "PhotoController"
+            })
+            .when("/CreatePhoto", {
+                templateUrl: "/templates/createPhotoDetails.html",
+                controller: "PhotoController"
+            })
+        .otherwise({ redirectTo: "/Start" });
+    });
 
 })();

@@ -182,8 +182,8 @@
     <Content Include="Scripts\Shop\shop-module.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Templates\createPhotoDetails.html" />
     <Content Include="Templates\photoListDetails.html" />
-    <Content Include="Templates\photos.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -206,7 +206,7 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Photo\PhotoList.cshtml" />
-    <Content Include="Views\Shop\List.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Photo\CreatePhoto.cshtml" />
   </ItemGroup>
   <PropertyGroup>

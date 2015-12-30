@@ -12,8 +12,11 @@
     @RenderSection("scripts", required: false)
 
     <script src="~/Scripts/Shop/shop-module.js"></script>
+    <script src="~/Scripts/Photos/photos-controller.js"></script>
+    <script src="~/Scripts/Menu/menu-controller.js"></script>
+    <script src="~/Scripts/Photos/photo-repository.js"></script>
+    <script src="~/Scripts/Menu/menu-repository.js"></script>
 
-    @RenderSection("JavascriptInHead")
 </head>
 <body ng-app="shopModule">
     <div class="navbar navbar-default navbar-fixed-top">
@@ -29,6 +32,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Shop start", "Index", "Shop")</li>
                     <li>@Html.ActionLink("Photo List", "PhotoList", "Photo")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
