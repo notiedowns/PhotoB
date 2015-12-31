@@ -1,0 +1,46 @@
+﻿<html>
+<head>
+    <title>Jasmine Spec Runner: Jasmine Core</title>
+
+    <link href="css/jasmine.css" rel="stylesheet" />
+    <script type="text/javascript" src="Scripts/jasmine.js"></script>
+    <script type="text/javascript" src="Scripts/jasmine-html.js"></script>
+    <script src="scripts/sinon-1.9.1.js"></script>
+
+    <script type="text/javascript" src="../PhotoB/Scripts/angular.js"></script>
+    <script type="text/javascript" src="../PhotoB/Scripts/angular-resource.js"></script>
+    <script type="text/javascript" src="../PhotoB/Scripts/angular-route.js"></script>
+    <script type="text/javascript" src="Scripts/angular-mocks.js"></script>
+
+    <script src="../PhotoB/Scripts/Shop/shop-module.js"></script>
+    <script src="../PhotoB/Scripts/Photos/photocreate-controller.js"></script>
+    <script src="../PhotoB/Scripts/Photos/photolist-controller.js"></script>
+    <script src="../PhotoB/Scripts/Photos/photo-repository.js"></script>
+
+    <script src="photo.controller-tests.js"></script>
+
+    <script type="text/javascript">
+        (function () {
+            var jasmineEnv = jasmine.getEnv();
+
+            var htmlReporter = new jasmine.TrivialReporter();
+            jasmineEnv.addReporter(htmlReporter);
+            jasmineEnv.specFilter = function (spec) {
+                return htmlReporter.specFilter(spec);
+            };
+
+            window.onload = function () {
+                execJasmine();
+            };
+
+            function execJasmine() {
+                jasmineEnv.execute();
+            }
+
+        })();
+    </script>
+
+</head>
+<body>
+</body>
+</html>

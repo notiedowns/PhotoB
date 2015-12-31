@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoB", "PhotoB\PhotoB.csproj", "{2A73C3B3-C5DF-4ADC-97D4-CAC073B56BAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoB.AngularTests", "PhotoB.AngularTests\PhotoB.AngularTests.csproj", "{088F48A8-48FA-4D31-AD5D-75E286F75EA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2A73C3B3-C5DF-4ADC-97D4-CAC073B56BAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A73C3B3-C5DF-4ADC-97D4-CAC073B56BAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A73C3B3-C5DF-4ADC-97D4-CAC073B56BAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{088F48A8-48FA-4D31-AD5D-75E286F75EA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{088F48A8-48FA-4D31-AD5D-75E286F75EA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{088F48A8-48FA-4D31-AD5D-75E286F75EA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{088F48A8-48FA-4D31-AD5D-75E286F75EA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

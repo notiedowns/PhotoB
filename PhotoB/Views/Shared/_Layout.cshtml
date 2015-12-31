@@ -11,15 +11,8 @@
     @Scripts.Render("~/bundles/angular")
     @RenderSection("scripts", required: false)
 
-    <script src="~/Scripts/Shop/shop-module.js"></script>
-    <script src="~/Scripts/Photos/photolist-controller.js"></script>
-    <script src="~/Scripts/Photos/photocreate-controller.js"></script>
-    <script src="~/Scripts/Menu/menu-controller.js"></script>
-    <script src="~/Scripts/Photos/photo-repository.js"></script>
-    <script src="~/Scripts/Menu/menu-repository.js"></script>
-
 </head>
-<body ng-app="shopModule">
+<body>
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -73,8 +66,39 @@
     $(document).ready(function () {
 
         $('.styleMenuItem').click(function () {
-            var styleName = "/Content/bootstrap" + $(this).attr('data-styleName') + ".css";
-            $('link[href*="bootstrap"]').attr('href', styleName);
-        });
+            var styleName = $(this).attr('data-styleName');
+            setStyle(styleName);
+            setCookie("photob-style-name", styleName);
+        });       
+
+
+        function setStyle(styleName) {
+            var stylePath = "/Content/bootstrap" + styleName + ".css";
+            $('link[href*="bootstrap"]').attr('href', stylePath);
+        };
+
+
+        var styleNameCookieValue = getCookie("photob-style-name");
+        setStyle(styleNameCookieValue);
+
+
+        function setCookie(cname, cvalue/*, exdays*/) {
+            //var d = new Date();
+            //d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            //var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + "; path=/";// + "; " + expires;
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
     });
 </script>

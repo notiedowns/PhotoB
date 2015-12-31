@@ -2,6 +2,13 @@
     ViewBag.Title = "Photographic Shop";
 }
 
+<script src="~/Scripts/Shop/shop-module.js"></script>
+<script src="~/Scripts/Photos/photolist-controller.js"></script>
+<script src="~/Scripts/Photos/photocreate-controller.js"></script>
+<script src="~/Scripts/Menu/menu-controller.js"></script>
+<script src="~/Scripts/Photos/photo-repository.js"></script>
+<script src="~/Scripts/Menu/menu-repository.js"></script>
+
 <script type="text/javascript">
     @*registrationModule.factory('bootstrappedData', function() {
             return {
@@ -11,18 +18,11 @@
         });*@
 </script>
 
-<h2 style="margin-top: 70px;">Shop</h2>
+<div class="container" ng-app="shopModule">
 
-<div class="container">
-    <div class="navbar navbar-default" ng-controller="MenuController">
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li ng-repeat="menuItem in menuItems">
-                    <a href="{{menuItem.url}}">{{menuItem.displayName}}</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <h2 style="margin-top: 70px;">Shop</h2>
+
+    <side-navbar></side-navbar>
 
     <div ng-view></div>
 </div>
