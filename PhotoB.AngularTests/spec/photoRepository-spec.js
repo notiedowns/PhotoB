@@ -11,7 +11,6 @@
             $httpBackend = _$httpBackend_;
         });
     });
-
     
 
     it('should retrieve a list of photos', function () {
@@ -29,8 +28,35 @@
 
         expect(responseData).toEqual(testPhotoData);
     });
+
+
+    afterEach(function () {
+        $httpBackend.verifyNoOutstandingRequest();
+    });
+
     
+    it('should handle error', function () {
+        $httpBackend.when('GET', '/Photo/GetPhotos').respond(500);
+
+        var responseData;
+        photoRepository.getPhotos().then(function (data) {
+            responseData = data;
+        })
+        .catch(function () {
+            responseData = 'Error!';
+        });
+
+        $httpBackend.flush();
+
+        expect(responseData).toEqual('Error!');
+    });
+    
+
     it('should create new photo', function () {
-        expect(photoRepository.createPhoto()).toEqual(true);
+        $httpBackend.when('POST', '/Photo/CreatePhoto').respond(200);
+
+        photoRepository.createPhoto();
+
+        expect($httpBackend.flush).not.toThrow();
     });
 });
