@@ -1,0 +1,14 @@
+﻿
+Bootstrap table for admin area i.e. categories, menus, products
+
+Side navbar placement/formatting
+
+Show all products
+
+Show filtered products
+
+Add DB
+
+SignalR
+
+Shopping cart and checkout

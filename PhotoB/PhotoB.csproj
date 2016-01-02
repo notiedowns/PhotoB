@@ -186,6 +186,7 @@
     <Content Include="Templates\Photo\photo-create.html" />
     <Content Include="Templates\Photo\photo-list.html" />
     <Content Include="Templates\Nav\side-navbar.html" />
+    <Content Include="TODO.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
