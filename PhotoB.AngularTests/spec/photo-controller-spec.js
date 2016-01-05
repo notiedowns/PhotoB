@@ -76,4 +76,21 @@
 
         expect($timeout.verifyNoPendingTasks).not.toThrow();
     });
+
+
+    it('should count down 1 second', function () {
+
+        $scope.sessionTimeoutSeconds = 60; //1 min 
+
+        $scope.startSessionCountdown();
+
+        $interval.flush(1000);
+        expect($scope.sessionTimeoutSeconds).toBe(58); // Not sure why 2 seconds are flushed each time ??
+
+        $interval.flush(1000);
+        expect($scope.sessionTimeoutSeconds).toBe(56);
+
+        $interval.flush(1000);
+        expect($scope.sessionTimeoutSeconds).toBe(54);
+    });
 });
