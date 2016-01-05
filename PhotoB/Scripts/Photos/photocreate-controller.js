@@ -4,8 +4,7 @@
 
     var photoCreateController = function ($scope, photoRepository, $location, $log) {
 
-        $scope.createPhoto = function (photo) {            
-
+        $scope.createPhoto = function (photo) {
             photoRepository.createPhoto(photo).then(
                 onCreatePhotoSuccess,
                 onCreatePhotoError);
@@ -52,7 +51,6 @@
 
     // Pass in the names of the dependencies e.g. "$scope", so that a minifier can change the names in the controller
     // parameters without breaking dependecy injection.
-
     // $interval is an angular service that can replace the standard js interval function. Using services like this as
     // dependancies means that modules and services are more testable (can replace with mock)
     angular.module('shopModule').controller("PhotoCreateController", ["$scope", "photoRepository", "$location", "$log", photoCreateController]);

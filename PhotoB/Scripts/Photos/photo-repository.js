@@ -3,9 +3,13 @@
     var photoRepository = function ($http) {
 
         var getPhotos = function () {
-            return $http.get('/Photo/GetPhotos').then(function (response) {
-                return response.data;
-            });
+            return $http.get('/Photo/GetPhotos').then(
+                function (response) {
+                    return response.data;
+                },
+                function () {
+                    return 'Error while getting photo data';
+                });
         };
 
         var createPhoto = function (photo) {

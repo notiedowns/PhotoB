@@ -41,14 +41,11 @@
         var responseData;
         photoRepository.getPhotos().then(function (data) {
             responseData = data;
-        })
-        .catch(function () {
-            responseData = 'Error!';
         });
 
         $httpBackend.flush();
 
-        expect(responseData).toEqual('Error!');
+        expect(responseData).toEqual('Error while getting photo data');
     });
     
 
