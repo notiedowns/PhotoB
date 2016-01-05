@@ -43,7 +43,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="photo.controller-tests.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\boot.js" />
     <Content Include="Scripts\console.js" />
@@ -53,7 +52,8 @@
     <Content Include="Scripts\jasmine_favicon.png" />
     <Content Include="Scripts\_references.js" />
     <Content Include="SpecRunner.html" />
-    <Content Include="spec\photoRepository-spec.js" />
+    <Content Include="spec\photo-controller-spec.js" />
+    <Content Include="spec\photo-repository-spec.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
