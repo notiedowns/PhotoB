@@ -12,9 +12,9 @@ namespace PhotoB.Models
         {
             var products = new[]
             {
-                new PhotoVm { Number = "1", Name = "Product 1", Author = "Wayne", Price = 12.9m, DateListed = DateTime.Now},
-                new PhotoVm { Number = "2", Name = "Product 2", Author = "Wayne", Price = 9.955m, DateListed = DateTime.Now.AddDays(-1)},
-                new PhotoVm { Number = "3", Name = "Product 3", Author = "Wayne", Price = 1257m, DateListed = DateTime.Now.AddMinutes(-30)}
+                new PhotoVm { Number = "1", Name = "Cats", Author = "Wayne", Price = 12.9m, DateListed = DateTime.Now},
+                new PhotoVm { Number = "2", Name = "Dogs", Author = "Wayne", Price = 9.955m, DateListed = DateTime.Now.AddDays(-1)},
+                new PhotoVm { Number = "3", Name = "Rabbits", Author = "Wayne", Price = 1257m, DateListed = DateTime.Now.AddMinutes(-30)}
             };
 
             return products; //ObjectSerializer.SerializeObject(products);

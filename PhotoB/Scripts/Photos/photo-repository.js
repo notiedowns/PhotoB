@@ -2,8 +2,8 @@
 
     var photoRepository = function ($http) {
 
-        var getPhotos = function () {
-            return $http.get('/Photo/GetPhotos').then(
+        var getPhotos = function (query) {
+            return $http({ url: '/Photo/GetPhotos', method: 'GET', params: { query: query }}).then(
                 function (response) {
                     return response.data;
                 },

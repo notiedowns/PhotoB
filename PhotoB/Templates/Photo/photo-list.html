@@ -1,4 +1,4 @@
-﻿<div class="container" ng-controller="PhotolistController">
+﻿<div class="container" ng-controller="PhotolistController" ng-init="getPhotos()">
 
     <h2>Photo List {{2 + 2}}</h2>
 
@@ -6,6 +6,13 @@
     <h4 ng-show="sessionTimeoutSeconds === 0" class="text-danger">Session timed out</h4>
 
     <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label>Search</label>
+                <input type="text" class="form-control" ng-model="query" ng-keyup="keyup()" ng-keydown="keydown()" />
+            </div>
+        </div>
+    
         <div class="col-sm-4">
             <div class="form-group">
                 <label>Sort Order</label>

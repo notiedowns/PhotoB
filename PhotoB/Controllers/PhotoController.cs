@@ -27,9 +27,14 @@ namespace PhotoB.Controllers
 
 
         // GET: Product
-        public ActionResult GetPhotos()
+        public ActionResult GetPhotos(string query)
         {
-            return Json(_shopVmBuilder.PhotoList(), JsonRequestBehavior.AllowGet);
+            var photos = _shopVmBuilder.PhotoList();
+
+            if (!string.IsNullOrWhiteSpace(query))
+                photos = photos.Where(x => x.Name.ToLower().Contains(query.ToLower())).ToArray();
+
+            return Json(photos, JsonRequestBehavior.AllowGet);
         }
 
 
