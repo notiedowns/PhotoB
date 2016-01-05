@@ -1,7 +1,5 @@
 ﻿describe('photo controller', function () {
 
-    var expectedResults = [{ "number": "1", "name": "Product 1", "price": 12.9, "dateListed": "2016-01-05T11:01:46.5203217+01:00", "author": "Wayne" }];
-    
     var $controller;
     var $q;
     var $rootScope;
@@ -23,15 +21,18 @@
             $log = _$log_;
             $q = _$q_;
             $rootScope = _$rootScope_;            
-        });        
+        });
+
+        $controller('PhotolistController', { $scope: $scope, photoRepository: photoRepository, $interval: $interval, $log: $log, $timeout: $timeout })
     });
 
 
     it('should populate photos array on $scope', function () {
 
+        var expectedResults = [{ "number": "1", "name": "Product 1", "price": 12.9, "dateListed": "2016-01-05T11:01:46.5203217+01:00", "author": "Wayne" }];
+
         // Create a mock call to getPhotos
         spyOn(photoRepository, 'getPhotos').and.callFake(function () {
-
             // Need to manually resolve the promise returned from the photoRepository call.
             // Use $q service to create an instance of a deferred object, and resolve the promise with our test data.
             // Return a promise, which provides the .then syntax in our controller code.
@@ -40,7 +41,6 @@
             return deferred.promise;
         });
 
-        $controller('PhotolistController', { $scope: $scope, photoRepository: photoRepository, $interval: $interval, $log: $log, $timeout: $timeout })
         $scope.getPhotos();
         
         // When we returned a promise from the fake call we added a new promise to an internal list of promises ready to be processed by angulars event cycle.
@@ -57,17 +57,11 @@
         var expectedSearchResults = [{ "number": "1", "name": "Product 3", "price": 12.9, "dateListed": "2016-01-05T11:01:46.5203217+01:00", "author": "Wayne" }];
 
         spyOn(photoRepository, 'getPhotos').and.callFake(function () {
-
-            // Need to manually resolve the promise returned from the photoRepository call.
-            // Use $q service to create an instance of a deferred object, and resolve the promise with our test data.
-            // Return a promise, which provides the .then syntax in our controller code.
             var deferred = $q.defer();
             deferred.resolve(expectedSearchResults);
             return deferred.promise;
         });
 
-        $controller('PhotolistController', { $scope: $scope, photoRepository: photoRepository, $interval: $interval, $log: $log, $timeout: $timeout })
-        
         $scope.query = 'Product3';
         $scope.keyup();
         $timeout.flush();
@@ -76,13 +70,7 @@
     });
 
 
-    it('should cancel timeout on keydowm', function () {
-
-        var expectedSearchResults = [{ "number": "1", "name": "Product 3", "price": 12.9, "dateListed": "2016-01-05T11:01:46.5203217+01:00", "author": "Wayne" }];
-
-        $controller('PhotolistController', { $scope: $scope, photoRepository: photoRepository, $interval: $interval, $log: $log, $timeout: $timeout })
-
-        $scope.query = 'Product3';
+    it('should cancel timeout on keydown', function () {
         $scope.keyup();
         $scope.keydown();
 
