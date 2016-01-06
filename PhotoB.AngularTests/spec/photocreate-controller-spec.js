@@ -38,6 +38,8 @@
             $scope.createPhoto('photo1');
             $rootScope.$apply();
         }).not.toThrow();
+
+        expect($log.info.logs[0]).toEqual(['New photo created']);
     });
 
 
@@ -54,6 +56,8 @@
         expect(function () {
             $rootScope.$apply();
         }).toThrow('Something went wrong');
+
+        expect($log.info.logs[0]).toEqual(['Validation errors found']);
     });
 
 });
