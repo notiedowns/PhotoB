@@ -41,7 +41,7 @@
                 <td>{{photo.number}}</td>
                 <td>{{photo.name}}</td>
                 <td>{{photo.price | currency}}</td>
-                <td>{{photo.dateListed | date:'dd-MM-yyyy hh:mm'}}</td>
+                <td>{{photo.dateListed | date:'dd-MM-yyyy hh:mm'}} {{photo.dateListed | fromNow}}</td>
                 <td>{{photo.author}}</td>
             </tr>
         </table>

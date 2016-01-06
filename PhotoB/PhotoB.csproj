@@ -173,6 +173,7 @@
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\Filters\from-now-filter.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\Menu\menu-controller.js" />
     <Content Include="Scripts\Menu\menu-repository.js" />

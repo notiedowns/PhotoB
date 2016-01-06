@@ -1,11 +1,11 @@
 ﻿
-Bootstrap table for admin area i.e. categories, menus, products
-
 Side navbar placement/formatting
 
-Show all products
+Show photo categories in side menu
 
-Show filtered products
+Photo results view - articles with image/name/price/description/reviews(pills)
+
+Bootstrap table for admin area i.e. categories, menus, products
 
 Add DB
 

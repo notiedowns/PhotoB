@@ -52,6 +52,8 @@
     <Content Include="Scripts\jasmine_favicon.png" />
     <Content Include="Scripts\_references.js" />
     <Content Include="SpecRunner.html" />
+    <Content Include="spec\from-now-filter-spec.js" />
+    <Content Include="spec\photocreate-controller-spec.js" />
     <Content Include="spec\photo-controller-spec.js" />
     <Content Include="spec\photo-repository-spec.js" />
   </ItemGroup>

@@ -2,12 +2,13 @@
 
     'use strict'
 
-    var photoCreateController = function ($scope, photoRepository, $location, $log) {
+    var photoCreateController = function ($scope, photoRepository, $exceptionHandler, $location, $log) {
 
         $scope.createPhoto = function (photo) {
             photoRepository.createPhoto(photo).then(
                 onCreatePhotoSuccess,
-                onCreatePhotoError);
+                onCreatePhotoError
+                );
         };
 
         function onCreatePhotoSuccess(response) {
@@ -17,7 +18,12 @@
 
         function onCreatePhotoError(response) {
             $log.info('Validation errors found');
-            createErrorMessage(response.data);
+
+            if (response && response.data) {
+                createErrorMessage(response.data);
+            } else {
+                $exceptionHandler('Something went wrong');
+            }
         }
 
         function createErrorMessage(errorMessages) {
@@ -53,6 +59,6 @@
     // parameters without breaking dependecy injection.
     // $interval is an angular service that can replace the standard js interval function. Using services like this as
     // dependancies means that modules and services are more testable (can replace with mock)
-    angular.module('shopModule').controller("PhotoCreateController", ["$scope", "photoRepository", "$location", "$log", photoCreateController]);
+    angular.module('shopModule').controller("PhotoCreateController", ["$scope", "photoRepository", "$exceptionHandler", "$location", "$log", photoCreateController]);
 
 })();
