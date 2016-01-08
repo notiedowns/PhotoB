@@ -1,9 +1,7 @@
-﻿<div class="navbar navbar-default" ng-controller="MenuController">
-    <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-            <li ng-repeat="menuItem in menuItems">
-                <a href="{{menuItem.url}}">{{menuItem.displayName}}</a>
-            </li>
-        </ul>
-    </div>
+﻿<div class="well" ng-controller="MenuController">
+    <ul class="nav nav-stacked" id="sidebar">
+        <li ng-repeat="menuItem in menuItems">
+            <a href="{{menuItem.url}}">{{menuItem.displayName}}</a>
+        </li>
+    </ul>
 </div>

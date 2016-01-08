@@ -17,6 +17,10 @@
                 templateUrl: "/templates/photo/photo-create.html",
                 controller: "PhotoCreateController"
             })
+            .when("/BSTable", {
+                templateUrl: "/templates/photo/photo-bs-table.html",
+                controller: "PhotoCreateController"
+            })
         .otherwise({ redirectTo: "/Start" });
     });
 

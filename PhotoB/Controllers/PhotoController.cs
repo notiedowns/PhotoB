@@ -26,6 +26,23 @@ namespace PhotoB.Controllers
         }
 
 
+        [HttpGet]
+        public JsonResult GetProductList()
+        {
+            try
+            {
+                var photos = _shopVmBuilder.PhotoList();
+
+                return Json(photos, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                //Logger.Error("Error getting product list", ex);
+                return Json(new { Result = "ERROR", ex.Message });
+            }
+        }
+
+
         // GET: Product
         public ActionResult GetPhotos(string query)
         {
@@ -34,13 +51,13 @@ namespace PhotoB.Controllers
             if (!string.IsNullOrWhiteSpace(query))
                 photos = photos.Where(x => x.Name.ToLower().Contains(query.ToLower())).ToArray();
 
-            return Json(photos, JsonRequestBehavior.AllowGet);
+            return JsonResult(photos, JsonRequestBehavior.AllowGet);
         }
 
 
         public ActionResult GetMenu()
         {
-            return Json(_shopVmBuilder.Menu(), JsonRequestBehavior.AllowGet);
+            return JsonResult(_shopVmBuilder.Menu(), JsonRequestBehavior.AllowGet);
         }
 
 
@@ -60,7 +77,7 @@ namespace PhotoB.Controllers
             }
 
             Response.StatusCode = (int)HttpStatusCode.BadRequest;
-            return Json(GetErrorMessages(), JsonRequestBehavior.AllowGet);
+            return JsonResult(GetErrorMessages(), JsonRequestBehavior.AllowGet);
         }
 
 

@@ -8,7 +8,7 @@ namespace PhotoB.Controllers
 {
     public class BaseController : Controller
     {
-        protected new ActionResult Json(object data, JsonRequestBehavior behaviour = JsonRequestBehavior.DenyGet)
+        protected ActionResult JsonResult(object data, JsonRequestBehavior behaviour = JsonRequestBehavior.DenyGet)
         {
             var jsonSerializerSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() };
 

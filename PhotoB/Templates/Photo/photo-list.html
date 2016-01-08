@@ -9,14 +9,14 @@
         <div class="col-sm-4">
             <div class="form-group">
                 <label>Search</label>
-                <input type="text" class="form-control" ng-model="query" ng-keyup="keyup()" ng-keydown="keydown()" />
+                <input type="text" class="form-control input-sm" ng-model="query" ng-keyup="keyup()" ng-keydown="keydown()" />
             </div>
         </div>
     
         <div class="col-sm-4">
             <div class="form-group">
                 <label>Sort Order</label>
-                <select class="form-control" ng-model="productSortOrder">
+                <select class="form-control input-sm" ng-model="productSortOrder">
                     <option value="+name">Name ascending</option>
                     <option value="-name">Name descending</option>
                     <option value="+price">Price ascending</option>
@@ -29,22 +29,24 @@
     </div>
 
     <div class="row">
-        <table class="table table-condensed table-hover">
-            <tr>
-                <th>Photo</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Listed</th>
-                <th>Author</th>
-            </tr>
-            <tr ng-repeat="photo in photos | orderBy:productSortOrder">
-                <td>{{photo.number}}</td>
-                <td>{{photo.name}}</td>
-                <td>{{photo.price | currency}}</td>
-                <td>{{photo.dateListed | date:'dd-MM-yyyy hh:mm'}} {{photo.dateListed | fromNow}}</td>
-                <td>{{photo.author}}</td>
-            </tr>
-        </table>
+        <div class="col-sm-8">
+            <table class="table table-condensed table-hover">
+                <tr>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Listed</th>
+                    <th>Author</th>
+                </tr>
+                <tr ng-repeat="photo in photos | orderBy:productSortOrder">
+                    <td>{{photo.number}}</td>
+                    <td>{{photo.name}}</td>
+                    <td>{{photo.price | currency}}</td>
+                    <td>{{photo.dateListed | date:'dd-MM-yyyy hh:mm'}} {{photo.dateListed | fromNow}}</td>
+                    <td>{{photo.author}}</td>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <div class="row">

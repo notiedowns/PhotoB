@@ -1,0 +1,122 @@
+﻿<div class="container">
+
+    <h2>BS Table {{2 + 2}}</h2>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <table id="photoList" class="table-condensed"></table>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function InitProductList() {
+
+        $("#photoList").bootstrapTable({
+            method: "get",
+            url: "/Photo/GetProductList",
+            cache: false,
+            striped: true,
+            search: false,
+            showRefresh: false,
+            clickToSelect: false,
+            pagination: true,
+            pageSize: 15,
+            classes: "table table-condensed table-hover",
+            idField: "ProductId",
+            columns: [
+                {
+                    field: "Number",
+                    title: "Number",
+                    align: "left",
+                    valign: "middle",
+                    sortable: true
+                },
+                {
+                    field: "Name",
+                    title: "Name",
+                    align: "left",
+                    valign: "middle",
+                    sortable: true
+                },
+                {
+                    field: "Price",
+                    title: "Price",
+                    align: "left",
+                    valign: "middle",
+                    sortable: true,
+                    formatter: priceFormatter
+                },
+                {
+                    field: "DateListed",
+                    title: "Date Listed",
+                    align: "left",
+                    valign: "middle",
+                    sortable: true,
+                    formatter: dateFormatter
+                },
+                {
+                    field: "Author",
+                    title: "Author",
+                    align: "left",
+                    valign: "middle",
+                    sortable: true
+                }
+            ],
+            onLoadError: function (status) {
+                alert("Error loading photo list");
+            }
+        })
+           .on('click-row.bs.table', function (e, row, $element) {
+               // Set style of selected row
+               $('.info').removeClass('info');
+               $($element).addClass('info');
+           });
+
+
+        // Important for correct column header widths!!
+        $(function () {
+            $('#photoList').bootstrapTable();
+
+            $(window).resize(function () {
+                $('#photoList').bootstrapTable('resetView');
+            });
+        });
+    }
+
+
+    function reloadProductData() {
+        $('#photoList').bootstrapTable('refresh', { url: "/Product/GetProductList" });
+    }
+
+
+    function dateFormatter(jsonDate) {
+
+        if (!jsonDate) return "";
+
+        var dateString = jsonDate.substr(6);
+        var currentTime = new Date(parseInt(dateString));
+        var month = ("0" + (currentTime.getMonth() + 1)).slice(-2);
+        var day = ("0" + currentTime.getDate()).slice(-2);
+        var year = currentTime.getFullYear();
+        var hour = ("0" + currentTime.getHours()).slice(-2);
+        var minute = ("0" + currentTime.getMinutes()).slice(-2);
+
+        var date = year + "-" + month + "-" + day + " " + hour + ":" + minute;
+
+        return '<i class="text"></i> ' + date;
+    }
+
+    function priceFormatter(data) {
+        return '$' + data.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');;
+    }
+
+
+    $(document).ready(function () {
+        InitProductList();
+    });
+
+
+</script>
