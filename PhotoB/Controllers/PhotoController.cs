@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Serialization;
 using PhotoB.Models;
 using PhotoB.Models.Products;
+using PhotoB.Repositories;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,7 +18,8 @@ namespace PhotoB.Controllers
 {
     public class PhotoController : BaseController
     {
-        private ShopVmBuilder _shopVmBuilder = new ShopVmBuilder();
+        private readonly PhotoRepository _photoRepository = new PhotoRepository();
+        private readonly MenuRepository _menuRepository = new MenuRepository();
 
 
         public ActionResult PhotoList()
@@ -31,7 +33,7 @@ namespace PhotoB.Controllers
         {
             try
             {
-                var photos = _shopVmBuilder.PhotoList();
+                var photos = _photoRepository.GetPhotoList();
 
                 return Json(photos, JsonRequestBehavior.AllowGet);
             }
@@ -46,7 +48,7 @@ namespace PhotoB.Controllers
         // GET: Product
         public ActionResult GetPhotos(string query)
         {
-            var photos = _shopVmBuilder.PhotoList();
+            var photos = _photoRepository.GetPhotoList();
 
             if (!string.IsNullOrWhiteSpace(query))
                 photos = photos.Where(x => x.Name.ToLower().Contains(query.ToLower())).ToArray();
@@ -57,7 +59,7 @@ namespace PhotoB.Controllers
 
         public ActionResult GetMenu()
         {
-            return JsonResult(_shopVmBuilder.Menu(), JsonRequestBehavior.AllowGet);
+            return JsonResult(_menuRepository.GetMenuList(), JsonRequestBehavior.AllowGet);
         }
 
 
@@ -79,6 +81,42 @@ namespace PhotoB.Controllers
             Response.StatusCode = (int)HttpStatusCode.BadRequest;
             return JsonResult(GetErrorMessages(), JsonRequestBehavior.AllowGet);
         }
+
+
+        //public JsonResult EditPhotoBT(int? productId, string productName, bool isActive)
+        //{
+        //    try
+        //    {
+        //        var productDto = new ProductDto();
+
+        //        productDto.Name = productName;
+        //        productDto.IsActive = isActive;
+
+        //        var validationErrors = ValidationInput(productId, productName);
+
+        //        if (validationErrors.Count > 0)
+        //            return Json(new { ValidationErrors = validationErrors });
+
+        //        if (productId != null)
+        //        {
+        //            productDto.ProductId = productId.Value;
+        //            _productRepository.UpdateProduct(productDto, GetCurrentLogonName());
+        //        }
+        //        else
+        //        {
+        //            Logger.InfoFormat("Adding product '{0}'", productName);
+
+        //            _productRepository.AddProduct(productDto, GetCurrentLogonName());
+        //        }
+
+        //        return Json(new { result = true, JsonRequestBehavior.AllowGet });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Logger.Error("Error updating product", ex);
+        //        return Json(new { result = false, Properties.Resources.rm_generalUpdateError, productId, JsonRequestBehavior.AllowGet });
+        //    }
+        //}
 
 
         private List<KeyValuePair<string, string>> GetErrorMessages()

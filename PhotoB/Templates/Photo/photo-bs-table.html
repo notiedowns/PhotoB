@@ -1,6 +1,12 @@
-﻿<div class="container">
+﻿<div class="container" ng-controller="PhotolistBSTableController">
 
     <h2>BS Table {{2 + 2}}</h2>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <button type="button" class="btn btn-sm btn-primary" ng-click="refreshPhotoList()">Refresh</button>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-sm-8">
@@ -88,7 +94,7 @@
 
 
     function reloadProductData() {
-        $('#photoList').bootstrapTable('refresh', { url: "/Product/GetProductList" });
+        $('#photoList').bootstrapTable('refresh', { url: "/Photo/GetProductList" });
     }
 
 
@@ -103,8 +109,9 @@
         var year = currentTime.getFullYear();
         var hour = ("0" + currentTime.getHours()).slice(-2);
         var minute = ("0" + currentTime.getMinutes()).slice(-2);
+        var second = ("0" + currentTime.getSeconds()).slice(-2);
 
-        var date = year + "-" + month + "-" + day + " " + hour + ":" + minute;
+        var date = year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
 
         return '<i class="text"></i> ' + date;
     }

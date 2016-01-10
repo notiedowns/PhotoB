@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    var shopModule = angular.module("shopModule", ['ngRoute'])
+    var shopModule = angular.module("shopModule", ['ngRoute', 'bsTable'])
 
     shopModule.config(function ($routeProvider) {
 
@@ -19,7 +19,11 @@
             })
             .when("/BSTable", {
                 templateUrl: "/templates/photo/photo-bs-table.html",
-                controller: "PhotoCreateController"
+                controller: "PhotolistBSTableController"
+            })
+            .when("/BSTableAngular", {
+                templateUrl: "/templates/photo/photo-bs-table-angular.html",
+                controller: "PhotolistBSTableAngularController"
             })
         .otherwise({ redirectTo: "/Start" });
     });
