@@ -12,6 +12,6 @@
 
 
 
-    angular.module('shopModule').controller("PhotolistBSTableController", ["$scope", "photoRepository", "$log", photolistController]);
+    angular.module('productModule').controller("PhotolistBSTableController", ["$scope", "photoRepository", "$log", photolistController]);
 
 })();

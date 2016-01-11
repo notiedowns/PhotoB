@@ -52,10 +52,12 @@
     <Content Include="Scripts\jasmine_favicon.png" />
     <Content Include="Scripts\_references.js" />
     <Content Include="SpecRunner.html" />
-    <Content Include="spec\from-now-filter-spec.js" />
-    <Content Include="spec\photocreate-controller-spec.js" />
-    <Content Include="spec\photo-controller-spec.js" />
-    <Content Include="spec\photo-repository-spec.js" />
+    <Content Include="spec\admin\category-repository-spec.js" />
+    <Content Include="spec\admin\category-controller-spec.js" />
+    <Content Include="spec\product\from-now-filter-spec.js" />
+    <Content Include="spec\product\photocreate-controller-spec.js" />
+    <Content Include="spec\product\photo-controller-spec.js" />
+    <Content Include="spec\product\photo-repository-spec.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

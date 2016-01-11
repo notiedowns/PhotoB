@@ -1,4 +1,4 @@
-﻿angular.module('shopModule')
+﻿angular.module('productModule')
     .filter('fromNow', function fromNowFilter() {
         return function (value, baseDate) {
             if (!value) { throw 'date value cannot be undefined'; }

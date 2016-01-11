@@ -9,8 +9,6 @@ namespace PhotoB.Controllers
 {
     public class HomeController : Controller
     {
-        private ShopVmBuilder _shopVmBuilder = new ShopVmBuilder();
-                   
         public ActionResult Index()
         {
             return View();

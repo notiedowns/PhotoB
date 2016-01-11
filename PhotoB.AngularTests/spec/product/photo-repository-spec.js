@@ -1,10 +1,11 @@
 ﻿describe('get photos', function () {
+
     var photoRepository = {};
     var $httpBackend;
 
     beforeEach(function () {
         // module and inject don't need to be qualified with 'angular.mock' if you want. 
-        angular.mock.module('shopModule');
+        angular.mock.module('productModule');
 
         angular.mock.inject(function (_photoRepository_, _$httpBackend_) {
             photoRepository = _photoRepository_;

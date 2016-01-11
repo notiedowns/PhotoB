@@ -1,8 +1,8 @@
 ﻿(function () {
 
-    var shopModule = angular.module("shopModule", ['ngRoute', 'bsTable'])
+    var productModule = angular.module("productModule", ['ngRoute', 'bsTable'])
 
-    shopModule.config(function ($routeProvider) {
+    productModule.config(function ($routeProvider) {
 
         $routeProvider
             .when("/Start", {
@@ -29,7 +29,7 @@
     });
 
 
-    shopModule.directive('sideNavbar', function () {
+    productModule.directive('sideNavbar', function () {
         return {
             restrict: 'E',
             templateUrl: '/Templates/nav/side-navbar.html'

@@ -16,10 +16,10 @@ namespace PhotoB.Repositories
         {
             MenuData = new[]
             {
-                new MenuItemVm { DisplayName = "Photo List", Url = "/Shop/#/PhotoList/"},
-                new MenuItemVm { DisplayName = "Create New Photo", Url = "/Shop/#/CreatePhoto"},
-                new MenuItemVm { DisplayName = "BS Table", Url = "/Shop/#/BSTable"},
-                new MenuItemVm { DisplayName = "BS Table Angular", Url = "/Shop/#/BSTableAngular"}
+                new MenuItemVm { DisplayName = "Photo List", Url = "/Shop/ProductStart#/PhotoList/"},
+                new MenuItemVm { DisplayName = "Create New Photo", Url = "/Shop/ProductStart#/CreatePhoto"},
+                new MenuItemVm { DisplayName = "BS Table", Url = "/Shop/ProductStart#/BSTable"},
+                new MenuItemVm { DisplayName = "BS Table Angular", Url = "/Shop/ProductStart#/BSTableAngular"}
             };
         }
 

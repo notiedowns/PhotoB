@@ -9,7 +9,12 @@ namespace PhotoB.Controllers
 {
     public class ShopController : Controller
     {        
-        public ActionResult Index()
+        public ActionResult ProductStart()
+        {
+            return View();
+        }
+
+        public ActionResult AdminStart()
         {
             return View();
         }
