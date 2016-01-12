@@ -1,0 +1,7 @@
+﻿<div class="well" ng-controller="AdminMenuController">
+    <ul class="nav nav-stacked" id="sidebar">
+        <li ng-repeat="menuItem in menuItems">
+            <a href="{{menuItem.url}}">{{menuItem.displayName}}</a>
+        </li>
+    </ul>
+</div>

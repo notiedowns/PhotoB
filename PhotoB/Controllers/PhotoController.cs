@@ -44,8 +44,7 @@ namespace PhotoB.Controllers
             }
         }
 
-
-        // GET: Product
+        
         public ActionResult GetPhotos(string query)
         {
             var photos = _photoRepository.GetPhotoList();
@@ -60,6 +59,12 @@ namespace PhotoB.Controllers
         public ActionResult GetMenu()
         {
             return JsonResult(_menuRepository.GetMenuList(), JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetAdminMenu()
+        {
+            var data = _menuRepository.GetAdminMenuList();
+            return JsonResult(data, JsonRequestBehavior.AllowGet);
         }
 
 

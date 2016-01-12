@@ -11,6 +11,7 @@ namespace PhotoB.Repositories
     public class MenuRepository
     {
         private static MenuItemVm[] MenuData;
+        private static MenuItemVm[] AdminMenuData;
 
         static MenuRepository()
         {
@@ -21,11 +22,21 @@ namespace PhotoB.Repositories
                 new MenuItemVm { DisplayName = "BS Table", Url = "/Shop/ProductStart#/BSTable"},
                 new MenuItemVm { DisplayName = "BS Table Angular", Url = "/Shop/ProductStart#/BSTableAngular"}
             };
+
+            AdminMenuData = new[]
+            {
+                new MenuItemVm { DisplayName = "Category List", Url = "/Shop/AdminStart#/CategoryList/"}
+            };
         }
 
         public MenuItemVm[] GetMenuList()
         {
             return MenuData;
+        }
+
+        public MenuItemVm[] GetAdminMenuList()
+        {
+            return AdminMenuData;
         }
     }
 }

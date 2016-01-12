@@ -133,6 +133,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\PhotoController.cs" />
@@ -141,6 +142,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Authors\AuthorVm.cs" />
+    <Compile Include="Models\Categories\CategoryVm.cs" />
     <Compile Include="Models\Menu\MenuItemVm.cs" />
     <Compile Include="Models\Menu\MenuVm.cs" />
     <Compile Include="Models\ObjectSerializer.cs" />
@@ -148,6 +150,7 @@
     <Compile Include="Models\Shop\ShopVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\PhotoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +176,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="index.html" />
+    <Content Include="Scripts\Menu\admin-menu-controller.js" />
+    <Content Include="Scripts\Menu\admin-menu-repository.js" />
     <Content Include="Scripts\Shop\admin-module.js" />
     <Content Include="Scripts\Admin\Category\category-repository.js" />
     <Content Include="Scripts\Admin\Category\category-controller.js" />
@@ -197,6 +202,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Templates\Admin\Category\category-list.html" />
+    <Content Include="Templates\Nav\admin-side-navbar.html" />
     <Content Include="Templates\Photo\photo-bs-table-angular.html" />
     <Content Include="Templates\Photo\photo-bs-table.html" />
     <Content Include="Templates\Photo\photo-create.html" />
@@ -220,6 +226,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Category\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

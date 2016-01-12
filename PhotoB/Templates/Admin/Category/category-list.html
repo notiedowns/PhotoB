@@ -1,6 +1,26 @@
-﻿<div class="container" ng-controller="CategoryController" >
+﻿<div class="container" ng-controller="CategoryController" ng-init="getCategories()">
 
     <h2>Category List {{2 + 2}}</h2>
 
-   
+    <div class="row">
+        <div class="col-sm-8">
+            <table class="table table-condensed table-hover">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Last Changed By</th>
+                    <th>Last Changed</th>
+                </tr>
+                <tr ng-repeat="category in categories | orderBy:name">
+                    <td>{{category.id}}</td>
+                    <td>{{category.name}}</td>
+                    <td>{{category.description}}</td>
+                    <td>{{category.lastChangedBy}}</td>
+                    <td>{{category.lastChanged | date:'dd-MM-yyyy hh:mm'}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
 </div>
