@@ -92,6 +92,6 @@
         
     };
 
-    angular.module('productModule').controller("PhotolistBSTableAngularController", ["$scope", "photoRepository", "$log", photolistController]);
+    angular.module('adminModule').controller("PhotolistBSTableAngularController", ["$scope", "photoRepository", "$log", photolistController]);
 
 })();

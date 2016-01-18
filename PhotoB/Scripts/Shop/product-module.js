@@ -6,25 +6,9 @@
 
         $routeProvider
             .when("/Start", {
-                templateUrl: "/templates/photo/photo-list.html",
-                controller: "PhotoCreateController"
-            })
-            .when("/PhotoList", {
-                templateUrl: "/templates/photo/photo-list.html",
-                controller: "PhotolistController"
-            })
-            .when("/CreatePhoto", {
-                templateUrl: "/templates/photo/photo-create.html",
-                controller: "PhotoCreateController"
-            })
-            .when("/BSTable", {
-                templateUrl: "/templates/photo/photo-bs-table.html",
-                controller: "PhotolistBSTableController"
-            })
-            .when("/BSTableAngular", {
-                templateUrl: "/templates/photo/photo-bs-table-angular.html",
-                controller: "PhotolistBSTableAngularController"
-            })
+                templateUrl: "/templates/product/product-list.html"
+                //controller: "PhotoCreateController"
+            })            
         .otherwise({ redirectTo: "/Start" });
     });
 

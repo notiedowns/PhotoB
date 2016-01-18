@@ -55,6 +55,7 @@
     <Content Include="spec\admin\category-repository-spec.js" />
     <Content Include="spec\admin\category-controller-spec.js" />
     <Content Include="spec\product\from-now-filter-spec.js" />
+    <Content Include="spec\product\product-controller-spec.js" />
     <Content Include="spec\product\photocreate-controller-spec.js" />
     <Content Include="spec\product\photo-controller-spec.js" />
     <Content Include="spec\product\photo-repository-spec.js" />

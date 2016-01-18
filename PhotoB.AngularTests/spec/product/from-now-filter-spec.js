@@ -3,7 +3,7 @@
     var fromNow;
 
     beforeEach(function () {
-        angular.mock.module('productModule');
+        angular.mock.module('adminModule');
 
         angular.mock.inject(function (_$filter_) {
             fromNow = _$filter_('fromNow');

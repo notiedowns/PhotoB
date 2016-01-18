@@ -12,6 +12,8 @@ namespace PhotoB.Models.Products
         [Required(ErrorMessage = "Please enter a Number")]
         public string Number { get; set; }
 
+        public int CategoryId { get; set; }
+
         [Required(ErrorMessage = "Please enter a Name")]
         [MaxLength(50, ErrorMessage = "Name can be maximum 50 characters")]
         public string Name { get; set; }

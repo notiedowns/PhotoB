@@ -58,7 +58,7 @@ namespace PhotoB.Controllers
 
         public ActionResult GetMenu()
         {
-            return JsonResult(_menuRepository.GetMenuList(), JsonRequestBehavior.AllowGet);
+            return JsonResult(_menuRepository.GetProductMenuList(), JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult GetAdminMenu()

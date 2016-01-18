@@ -1,0 +1,48 @@
+﻿<div class="container" ng-controller="ProductlistController" ng-init="getPhotos()">
+
+    <h2>Product List {{2 + 2}}</h2>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label>Search</label>
+                <input type="text" class="form-control input-sm" ng-model="query" ng-keyup="keyup()" ng-keydown="keydown()" />
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label>Sort Order</label>
+                <select class="form-control input-sm" ng-model="productSortOrder">
+                    <option value="+name">Name ascending</option>
+                    <option value="-name">Name descending</option>
+                    <option value="+price">Price ascending</option>
+                    <option value="-price">Price descending</option>
+                    <option value="+dateListed">Date listed ascending</option>
+                    <option value="-dateListed">Date listed descending</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8">
+            <table class="table table-condensed table-hover">
+                <tr>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Listed</th>
+                    <th>Author</th>
+                </tr>
+                <tr ng-repeat="photo in photos | orderBy:productSortOrder">
+                    <td>{{photo.number}}</td>
+                    <td>{{photo.name}}</td>
+                    <td>{{photo.price | currency}}</td>
+                    <td>{{photo.dateListed | date:'dd-MM-yyyy hh:mm'}} {{photo.dateListed | fromNow}}</td>
+                    <td>{{photo.author}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
