@@ -18,6 +18,8 @@ namespace PhotoB.Models.Products
         [MaxLength(50, ErrorMessage = "Name can be maximum 50 characters")]
         public string Name { get; set; }
 
+        public string ImageName { get; set; }
+
         public decimal Price { get; set; }
 
         public DateTime DateListed { get; set; }

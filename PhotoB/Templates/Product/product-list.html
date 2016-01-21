@@ -1,4 +1,4 @@
-﻿<div class="container" ng-controller="ProductlistController" ng-init="getPhotos()">
+﻿<div class="container" ng-controller="ProductlistController" ng-init="getPhotos()" >
 
     <h2>Product List {{2 + 2}}</h2>
 
@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <!--<div class="row">
         <div class="col-sm-8">
             <table class="table table-condensed table-hover">
                 <tr>
@@ -43,6 +43,17 @@
                     <td>{{photo.author}}</td>
                 </tr>
             </table>
+        </div>
+    </div>-->
+
+    <div class="row">
+        <div class="col-sm-3" ng-repeat="photo in photos | orderBy: productSortOrder" style="height: 300px; margin: 5px; background-color: white;">
+            <div style="font-weight: bold;">{{photo.name}}</div>
+            <img src="../../images/{{photo.imageName}}" />
+            <div style="font-size: 0.7em;">By {{photo.author}}</div>
+            <div style="font-size: 0.7em;">Listed on {{photo.dateListed | date:'dd-MM-yyyy hh:mm'}} {{photo.dateListed | fromNow}}</div>
+            <div style="font-size: 0.7em;">Article ID: {{photo.number}}</div>
+            <div style="font-style: italic; color: dodgerblue; display: inline; margin-right: 10px;">{{photo.price | currency}}</div><button type="button" class="btn btn-xs btn-default">Add to cart</button>
         </div>
     </div>
 </div>
