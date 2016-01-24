@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -56,6 +64,8 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -143,9 +153,27 @@
     </Compile>
     <Compile Include="Models\Authors\AuthorVm.cs" />
     <Compile Include="Models\Categories\CategoryVm.cs" />
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>PhotoBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Menu\MenuItemVm.cs" />
     <Compile Include="Models\Menu\MenuVm.cs" />
     <Compile Include="Models\ObjectSerializer.cs" />
+    <Compile Include="Models\PhotoBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhotoBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PhotoBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhotoBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PhotoBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PhotoBModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\Products\ProductVm.cs" />
     <Compile Include="Models\Shop\ShopVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -156,6 +184,10 @@
   <ItemGroup>
     <Content Include="app2.js" />
     <Content Include="app.js" />
+    <Content Include="App_Data\PhotoB.mdf" />
+    <Content Include="App_Data\PhotoB_log.ldf">
+      <DependentUpon>PhotoB.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-cerulean.css" />
     <Content Include="Content\bootstrap-cosmo.css" />
     <Content Include="Content\bootstrap-flatly.css" />
@@ -200,6 +232,16 @@
     <Content Include="images\Öland 120.JPG" />
     <Content Include="images\Öland 374.JPG" />
     <Content Include="index.html" />
+    <Content Include="Models\PhotoBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PhotoBModel.edmx</DependentUpon>
+      <LastGenOutput>PhotoBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PhotoBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PhotoBModel.edmx</DependentUpon>
+      <LastGenOutput>PhotoBModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\Admin\Photo\productphoto-repository.js" />
     <Content Include="Scripts\Filters\productfrom-now-filter.js" />
     <Content Include="Scripts\Menu\admin-menu-controller.js" />
@@ -253,14 +295,25 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\Category\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <EntityDeploy Include="Models\PhotoBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PhotoBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\PhotoBModel.edmx.diagram">
+      <DependentUpon>PhotoBModel.edmx</DependentUpon>
+    </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Views\Shop\ProductStart.cshtml" />
     <Content Include="Views\Shop\AdminStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
