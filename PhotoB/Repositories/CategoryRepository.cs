@@ -1,4 +1,5 @@
-﻿using PhotoB.Models.Products;
+﻿using PhotoB.Models;
+using PhotoB.Models.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,36 @@ namespace PhotoB.Repositories
 
         public CategoryVm[] GetCategoryList()
         {
-            return CategoryData;
+            using (var model = new PhotoBEntities())
+            {
+                return model.Categories.Select(x =>
+                    new CategoryVm
+                    {
+                        Id = x.Id,
+                        Name = x.Name,
+                        Description = x.Description,
+                        LastChangedBy = x.LastChangedBy,
+                        LastChanged = x.LastChanged
+                    }).ToArray();
+            }
+        }
+
+        public void CreateCategory(CategoryVm categoryVm)
+        {
+            using (var model = new PhotoBEntities())
+            {
+                var category = new Category
+                {
+                    Name = categoryVm.Name,
+                    Description = categoryVm.Description,
+                    LastChangedBy = "System",
+                    LastChanged = DateTime.Now
+                };
+
+                model.Categories.Add(category);
+
+                model.SaveChanges();
+            }
         }
     }
 }

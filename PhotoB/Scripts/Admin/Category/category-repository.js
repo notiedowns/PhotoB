@@ -12,8 +12,13 @@
                     });
         };
 
+        var createCategory = function (category) {
+            return $http.post('/Category/CreateCategory', category);
+        };
+
         return {
-            getCategories: getCategories
+            getCategories: getCategories,
+            createCategory: createCategory
         }
     }
 

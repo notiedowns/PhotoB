@@ -182,8 +182,6 @@
     <Compile Include="Repositories\PhotoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app2.js" />
-    <Content Include="app.js" />
     <Content Include="App_Data\PhotoB.mdf" />
     <Content Include="App_Data\PhotoB_log.ldf">
       <DependentUpon>PhotoB.mdf</DependentUpon>
@@ -231,7 +229,6 @@
     <Content Include="images\Öknö 022.JPG" />
     <Content Include="images\Öland 120.JPG" />
     <Content Include="images\Öland 374.JPG" />
-    <Content Include="index.html" />
     <Content Include="Models\PhotoBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PhotoBModel.edmx</DependentUpon>
@@ -271,6 +268,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Templates\Admin\Category\category-list.html" />
+    <Content Include="Templates\Admin\Category\category-create.html" />
     <Content Include="Templates\Nav\admin-side-navbar.html" />
     <Content Include="Templates\Admin\Photo\photo-bs-table-angular.html" />
     <Content Include="Templates\Admin\Photo\photo-bs-table.html" />

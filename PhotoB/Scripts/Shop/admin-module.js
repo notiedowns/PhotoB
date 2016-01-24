@@ -9,6 +9,10 @@
                 templateUrl: "/templates/admin/category/category-list.html",
                 controller: "CategoryController"
             })
+            .when("/CreateCategory", {
+                templateUrl: "/templates/admin/category/category-create.html",
+                controller: "CategoryController"
+            })
             .when("/PhotoList", {
                 templateUrl: "/templates/admin/photo/photo-list.html",
                 controller: "PhotolistController"
