@@ -2,7 +2,7 @@
 
     'use strict'
 
-    var categoryController = function ($scope, categoryRepository, $location, $log) {
+    var categoryController = function ($scope, categoryRepository, $location, $log, $exceptionHandler) {
         
         $scope.getCategories = function () {
             categoryRepository.getCategories().then(function (data) {
@@ -62,6 +62,6 @@
         }
     }
 
-    angular.module('adminModule').controller("CategoryController", ["$scope", "categoryRepository", "$location", "$log", categoryController]);
+    angular.module('adminModule').controller("CategoryController", ["$scope", "categoryRepository", "$location", "$log", "$exceptionHandler", categoryController]);
 
 })();

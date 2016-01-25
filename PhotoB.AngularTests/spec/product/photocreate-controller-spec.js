@@ -6,6 +6,7 @@
     var $scope;
     var $interval;
     var $timeout;
+    var $location;
     var $log;
     var photoRepository;
 
@@ -58,6 +59,25 @@
         }).toThrow('Something went wrong');
 
         expect($log.info.logs[0]).toEqual(['Validation errors found']);
+    });
+
+
+    it('should return error list', function () {
+
+        var errors = {};
+        errors.data = [{ "key": "columnName1", "value": "errorDescription1" }, { "key": "columnName2", "value": "errorDescription2" }];
+
+        spyOn(photoRepository, 'createPhoto').and.callFake(function () {
+            var deferred = $q.defer();
+            deferred.reject(errors);
+            return deferred.promise;
+        });
+
+        $scope.createPhoto('photo1');
+        $rootScope.$apply();
+
+        expect($scope.validationErrors['columnName1']).toEqual('errorDescription1');
+        expect($scope.validationErrors['columnName2']).toEqual('errorDescription2');
     });
 
 });

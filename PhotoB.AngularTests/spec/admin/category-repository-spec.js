@@ -27,4 +27,13 @@
 
         expect(responseData).toEqual(expectedResults);
     });
+
+
+    it('should create new category', function () {
+        $httpBackend.when('POST', '/Category/CreateCategory').respond(200);
+
+        categoryRepository.createCategory();
+
+        expect($httpBackend.flush).not.toThrow();
+    });
 });
