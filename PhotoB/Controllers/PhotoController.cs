@@ -18,12 +18,15 @@ namespace PhotoB.Controllers
 {
     public class PhotoController : BaseController
     {
+        private static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private readonly PhotoRepository _photoRepository = new PhotoRepository();
         private readonly MenuRepository _menuRepository = new MenuRepository();
 
 
         public ActionResult PhotoList()
         {
+            logger.Info("First log");
             return View();
         }
 
