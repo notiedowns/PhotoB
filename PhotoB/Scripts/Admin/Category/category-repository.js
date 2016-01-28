@@ -16,9 +16,14 @@
             return $http.post('/Category/CreateCategory', category);
         };
 
+        var deleteCategory = function (categoryId) {
+            return $http.post('/Category/DeleteCategory', { categoryId: categoryId });
+        };
+
         return {
             getCategories: getCategories,
-            createCategory: createCategory
+            createCategory: createCategory,
+            deleteCategory: deleteCategory
         }
     }
 

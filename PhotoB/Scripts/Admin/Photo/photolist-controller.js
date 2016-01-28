@@ -4,6 +4,8 @@
 
     var photolistController = function ($scope, photoRepository, $interval, $log, $timeout) {
         
+        alert('photo list controller loaded');
+
         $scope.query = '';
 
         $scope.getPhotos = function () {

@@ -243,6 +243,7 @@
       <DependentUpon>PhotoBModel.edmx</DependentUpon>
       <LastGenOutput>PhotoBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\Admin\Category\category-cache-service.js" />
     <Content Include="Scripts\Admin\Photo\productphoto-repository.js" />
     <Content Include="Scripts\Filters\productfrom-now-filter.js" />
     <Content Include="Scripts\Menu\admin-menu-controller.js" />

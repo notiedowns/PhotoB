@@ -1,24 +1,18 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using PhotoB.Models;
-using PhotoB.Models.Products;
+﻿using PhotoB.Models.Products;
 using PhotoB.Repositories;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
-using System.Threading;
-using System.Web;
 using System.Web.Mvc;
 
 namespace PhotoB.Controllers
 {
     public class PhotoController : BaseController
     {
-        private static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private readonly PhotoRepository _photoRepository = new PhotoRepository();
         private readonly MenuRepository _menuRepository = new MenuRepository();
@@ -26,7 +20,6 @@ namespace PhotoB.Controllers
 
         public ActionResult PhotoList()
         {
-            logger.Info("First log");
             return View();
         }
 
@@ -36,13 +29,15 @@ namespace PhotoB.Controllers
         {
             try
             {
+                Logger.Debug("Retrieving product list");
+
                 var photos = _photoRepository.GetPhotoList();
 
                 return Json(photos, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
-                //Logger.Error("Error getting product list", ex);
+                Logger.Error("Error getting product list", ex);
                 return Json(new { Result = "ERROR", ex.Message });
             }
         }
@@ -50,24 +45,62 @@ namespace PhotoB.Controllers
         
         public ActionResult GetPhotos(string query)
         {
-            var photos = _photoRepository.GetPhotoList();
+            try
+            {
+                Logger.Debug("Retrieving photo list");
 
-            if (!string.IsNullOrWhiteSpace(query))
-                photos = photos.Where(x => x.Name.ToLower().Contains(query.ToLower())).ToArray();
+                var photos = _photoRepository.GetPhotoList();
 
-            return JsonResult(photos, JsonRequestBehavior.AllowGet);
+                if (!string.IsNullOrWhiteSpace(query))
+                    photos = photos.Where(x => x.Name.ToLower().Contains(query.ToLower())).ToArray();
+
+                return JsonResult(photos, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error("Error retrieving product list", ex);
+
+                Response.StatusCode = 500;
+                return Json(new { message = "Error retrieving product list" });
+            }
         }
 
 
         public ActionResult GetMenu()
         {
-            return JsonResult(_menuRepository.GetProductMenuList(), JsonRequestBehavior.AllowGet);
+            try
+            {
+                Logger.Debug("Retrieving menu");
+
+                return JsonResult(_menuRepository.GetProductMenuList(), JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error("Error retrieving menu", ex);
+
+                Response.StatusCode = 500;
+                return Json(new { message = "Error retrieving menu" });
+            }
         }
+
 
         public ActionResult GetAdminMenu()
         {
-            var data = _menuRepository.GetAdminMenuList();
-            return JsonResult(data, JsonRequestBehavior.AllowGet);
+            try
+            {
+                Logger.Debug("Retrieving admin menu");
+
+                var data = _menuRepository.GetAdminMenuList();
+
+                return JsonResult(data, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error("Error retrieving admin menu", ex);
+
+                Response.StatusCode = 500;
+                return Json(new { message = "Error retrieving admin menu" });
+            }
         }
 
 
@@ -81,50 +114,26 @@ namespace PhotoB.Controllers
         [HttpPost]
         public ActionResult CreatePhoto(HttpRequestMessage request, PhotoVm photo)
         {
-            if (ModelState.IsValid)
+            try
             {
-                return new JsonResult();
+                Logger.Debug("Creating photo");
+
+                if (ModelState.IsValid)
+                {
+                    return new JsonResult();
+                }
+
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return JsonResult(GetErrorMessages(), JsonRequestBehavior.AllowGet);
             }
+            catch (Exception ex)
+            {
+                Logger.Error("Error creating photo", ex);
 
-            Response.StatusCode = (int)HttpStatusCode.BadRequest;
-            return JsonResult(GetErrorMessages(), JsonRequestBehavior.AllowGet);
-        }
-
-
-        //public JsonResult EditPhotoBT(int? productId, string productName, bool isActive)
-        //{
-        //    try
-        //    {
-        //        var productDto = new ProductDto();
-
-        //        productDto.Name = productName;
-        //        productDto.IsActive = isActive;
-
-        //        var validationErrors = ValidationInput(productId, productName);
-
-        //        if (validationErrors.Count > 0)
-        //            return Json(new { ValidationErrors = validationErrors });
-
-        //        if (productId != null)
-        //        {
-        //            productDto.ProductId = productId.Value;
-        //            _productRepository.UpdateProduct(productDto, GetCurrentLogonName());
-        //        }
-        //        else
-        //        {
-        //            Logger.InfoFormat("Adding product '{0}'", productName);
-
-        //            _productRepository.AddProduct(productDto, GetCurrentLogonName());
-        //        }
-
-        //        return Json(new { result = true, JsonRequestBehavior.AllowGet });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Logger.Error("Error updating product", ex);
-        //        return Json(new { result = false, Properties.Resources.rm_generalUpdateError, productId, JsonRequestBehavior.AllowGet });
-        //    }
-        //}
+                Response.StatusCode = 500;
+                return Json(new { message = "Error creating photo" });
+            }
+        }        
 
 
         private List<KeyValuePair<string, string>> GetErrorMessages()

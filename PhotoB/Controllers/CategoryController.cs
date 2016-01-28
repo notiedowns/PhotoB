@@ -13,6 +13,7 @@ namespace PhotoB.Controllers
 {
     public class CategoryController : BaseController
     {
+        private static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private readonly CategoryRepository _categoryRepository = new CategoryRepository();
 
         // GET: Category
@@ -23,27 +24,69 @@ namespace PhotoB.Controllers
 
         public ActionResult GetCategories(string query = "")
         {
-            var categories = _categoryRepository.GetCategoryList();
+            try
+            {
+                var categories = _categoryRepository.GetCategoryList();
 
-            if (!string.IsNullOrWhiteSpace(query))
-                categories = categories.Where(x => x.Name.ToLower().Contains(query.ToLower())).ToArray();
+                if (!string.IsNullOrWhiteSpace(query))
+                    categories = categories.Where(x => x.Name.ToLower().Contains(query.ToLower())).ToArray();
 
-            return JsonResult(categories, JsonRequestBehavior.AllowGet);
+                return JsonResult(categories, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error("Error retrieving categories", ex);
+
+                Response.StatusCode = 500;
+                return Json(new { message = "Error retrieving categories" });
+            }
         }
 
 
         [HttpPost]
         public ActionResult CreateCategory(HttpRequestMessage request, CategoryVm category)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _categoryRepository.CreateCategory(category);
+                if (ModelState.IsValid)
+                {
+                    if(category.Id == 0)
+                        _categoryRepository.CreateCategory(category);
+                    else
+                        _categoryRepository.UpdateCategory(category);
+
+                    return new JsonResult();
+                }
+
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return JsonResult(GetErrorMessages(), JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error("Error creating category", ex);
+
+                Response.StatusCode = 500;
+                return Json(new { message = "Error creating category" });
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult DeleteCategory(HttpRequestMessage request, int categoryId)
+        {
+            try
+            {
+                _categoryRepository.DeleteCategory(categoryId);
 
                 return new JsonResult();
             }
+            catch (Exception ex)
+            {
+                Logger.Error("Error deleting category", ex);
 
-            Response.StatusCode = (int)HttpStatusCode.BadRequest;
-            return JsonResult(GetErrorMessages(), JsonRequestBehavior.AllowGet);
+                Response.StatusCode = 500;
+                return Json(new { message = "Error deleting category" });
+            }
         }
 
 

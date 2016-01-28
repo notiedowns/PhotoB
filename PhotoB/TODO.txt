@@ -1,13 +1,16 @@
 ﻿
+Create, update, delete category
+Error handling for each action - return message to UI
+
+Combine modules, or learn how to have seperate ones
+
 Side navbar placement/formatting
 
-Show photo categories in side menu
+Show photo category group heading in side bar
 
 Photo results view - articles with image/name/price/description/reviews(pills)
 
 Bootstrap table for admin area i.e. categories, menus, products
-
-Add DB
 
 SignalR
 

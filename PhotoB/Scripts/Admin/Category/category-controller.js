@@ -2,25 +2,30 @@
 
     'use strict'
 
-    var categoryController = function ($scope, categoryRepository, $location, $log, $exceptionHandler) {
+    var categoryController = function ($scope, categoryRepository, categoryCacheService, $location, $log, $exceptionHandler) {
         
+        // Set selected category if it exists
+        $scope.selectedCategory = categoryCacheService.loadSelectedCategory();
+
+
         $scope.getCategories = function () {
             categoryRepository.getCategories().then(function (data) {
                 $scope.categories = data;
             });
         };
 
-        $scope.selectedCategory = null;
-
-        $scope.createCategory = function (category) {
-            categoryRepository.createCategory(category).then(
+        
+        $scope.createCategory = function () {
+            categoryRepository.createCategory($scope.selectedCategory).then(
                 onCreateCategorySuccess,
                 onCreateCategoryError
                 );
-        };
+        };        
 
         function onCreateCategorySuccess(response) {
             $log.info('New category created');
+
+            categoryCacheService.storeSelectedCategory({});
             $location.path('/CategoryList');
         }
 
@@ -60,8 +65,38 @@
                 }
             }
         }
+
+        
+        $scope.editCategory = function (categoryId) {
+
+            for (var i = 0; i < $scope.categories.length; i++) {
+                if ($scope.categories[i].id === categoryId) {
+                    categoryCacheService.storeSelectedCategory($scope.categories[i]);
+                }
+            }
+
+            $location.path('/CreateCategory');
+        };
+
+
+        $scope.deleteCategory = function (categoryId) {
+            categoryRepository.deleteCategory(categoryId).then(
+                onDeleteCategorySuccess,
+                onCreateCategoryError
+                );
+        };
+
+        function onDeleteCategorySuccess(response) {
+            $log.info('Category deleted');
+            $scope.getCategories();
+        }
+
+        function onCreateCategoryError(response) {
+            $log.info('Error deleting category');
+            alert('Error deleting category');
+        }
     }
 
-    angular.module('adminModule').controller("CategoryController", ["$scope", "categoryRepository", "$location", "$log", "$exceptionHandler", categoryController]);
+    angular.module('adminModule').controller("CategoryController", ["$scope", "categoryRepository", "categoryCacheService", "$location", "$log", "$exceptionHandler", categoryController]);
 
 })();

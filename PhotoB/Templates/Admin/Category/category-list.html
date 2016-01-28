@@ -1,4 +1,4 @@
-﻿<div class="container" ng-controller="CategoryController" ng-init="getCategories()">
+﻿<div class="container" ng-init="getCategories()">
 
     <h2>Category List {{2 + 2}}</h2>
 
@@ -11,6 +11,8 @@
                     <th>Description</th>
                     <th>Last Changed By</th>
                     <th>Last Changed</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr ng-repeat="category in categories | orderBy:name">
                     <td>{{category.id}}</td>
@@ -18,6 +20,8 @@
                     <td>{{category.description}}</td>
                     <td>{{category.lastChangedBy}}</td>
                     <td>{{category.lastChanged | date:'dd-MM-yyyy hh:mm'}}</td>
+                    <td><i class="glyphicon glyphicon-edit" title="Edit" ng-click="editCategory(category.id)"></i></td>
+                    <td><i class="glyphicon glyphicon-remove" title="Delete" ng-click="deleteCategory(category.id)"></i></td>
                 </tr>
             </table>
         </div>

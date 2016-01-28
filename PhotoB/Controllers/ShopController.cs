@@ -13,12 +13,13 @@ namespace PhotoB.Controllers
 
         public ActionResult ProductStart()
         {
-            logger.Info("First log");
+            logger.Debug("Products started");
             return View();
         }
 
         public ActionResult AdminStart()
         {
+            logger.Debug("Admin started");
             return View();
         }
     }

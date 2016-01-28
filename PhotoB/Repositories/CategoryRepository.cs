@@ -55,5 +55,36 @@ namespace PhotoB.Repositories
                 model.SaveChanges();
             }
         }
+
+        public void UpdateCategory(CategoryVm categoryVm)
+        {
+            using (var model = new PhotoBEntities())
+            {
+                var category = model.Categories.FirstOrDefault(x => x.Id == categoryVm.Id);
+
+                if (category != null)
+                {
+                    category.Name = categoryVm.Name;
+                    category.Description = categoryVm.Description;
+                    category.LastChangedBy = "System";
+                    category.LastChanged = DateTime.Now;
+                }
+
+                model.SaveChanges();
+            }
+        }
+
+        public void DeleteCategory(int categoryId)
+        {
+            using (var model = new PhotoBEntities())
+            {
+                var category = model.Categories.FirstOrDefault(x => x.Id == categoryId);
+
+                if (category != null)
+                    model.Categories.Remove(category);
+
+                model.SaveChanges();
+            }
+        }
     }
 }

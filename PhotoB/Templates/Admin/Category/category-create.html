@@ -1,4 +1,4 @@
-﻿<div class="container" ng-controller="CategoryController">
+﻿<div class="container">
 
     <h2>Create Category {{2 + 2}}</h2>
 
@@ -7,15 +7,15 @@
             <div class="col-sm-4">              
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" ng-model="category.selectedCategory.name" class="form-control input-sm" />
+                    <input type="text" name="name" class="form-control input-sm" ng-model="selectedCategory.name" value="{{selectedCategory.name}}" />
                     <div class="text-danger">{{validationErrors.Name}}</div>
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <input type="text" name="author" ng-model="category.selectedCategory.description" class="form-control input-sm" />
+                    <input type="text" class="form-control input-sm" ng-model="selectedCategory.description" value="{{selectedCategory.description}}" />
                     <div class="text-danger">{{validationErrors.Description}}</div>
                 </div>
-                <button class="btn btn-sm btn-default" ng-click="createCategory(category.selectedCategory)">Create Category</button>
+                <button class="btn btn-sm btn-default" ng-click="createCategory()">Create Category</button>
             </div>
         </div>
     </form>    
