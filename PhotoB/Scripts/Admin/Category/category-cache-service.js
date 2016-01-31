@@ -19,6 +19,6 @@
     };
 
 
-    angular.module('adminModule').factory('categoryCacheService', cachService);
+    angular.module('shopModule').factory('categoryCacheService', cachService);
 
 })();

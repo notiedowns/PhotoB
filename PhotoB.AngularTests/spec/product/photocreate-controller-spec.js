@@ -11,7 +11,7 @@
     var photoRepository;
 
     beforeEach(function () {
-        angular.mock.module('adminModule');
+        angular.mock.module('shopModule');
 
         angular.mock.inject(function (_$controller_, _photoRepository_, _$location_, _$log_, _$q_, _$rootScope_) {
             $scope = {};

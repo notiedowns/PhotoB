@@ -14,6 +14,6 @@
     };
 
 
-    angular.module('productModule').factory('menuRepository', menuRepository);
+    angular.module('shopModule').factory('menuRepository', menuRepository);
 
 })();

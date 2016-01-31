@@ -245,11 +245,9 @@
     </Content>
     <Content Include="Scripts\Admin\Category\category-cache-service.js" />
     <Content Include="Scripts\Admin\Photo\productphoto-repository.js" />
-    <Content Include="Scripts\Filters\productfrom-now-filter.js" />
     <Content Include="Scripts\Menu\admin-menu-controller.js" />
     <Content Include="Scripts\Menu\admin-menu-repository.js" />
     <Content Include="Scripts\Product\productlist-controller.js" />
-    <Content Include="Scripts\Shop\admin-module.js" />
     <Content Include="Scripts\Admin\Category\category-repository.js" />
     <Content Include="Scripts\Admin\Category\category-controller.js" />
     <Content Include="Scripts\angular-resource.js" />
@@ -269,7 +267,7 @@
     <Content Include="Scripts\Admin\Photo\photolist-bs-table-angular-controller.js" />
     <Content Include="Scripts\Admin\Photo\photolist-bs-table-controller.js" />
     <Content Include="Scripts\Admin\Photo\photolist-controller.js" />
-    <Content Include="Scripts\Shop\product-module.js" />
+    <Content Include="Scripts\Shop\shop-module.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Templates\Admin\Category\category-list.html" />

@@ -27,7 +27,7 @@
         }
     }
 
-    angular.module('adminModule').factory('categoryRepository', categoryRepository);
+    angular.module('shopModule').factory('categoryRepository', categoryRepository);
 
 })();
 

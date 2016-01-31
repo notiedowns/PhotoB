@@ -14,6 +14,6 @@
     };
 
 
-    angular.module('adminModule').factory('adminMenuRepository', adminMenuRepository);
+    angular.module('shopModule').factory('adminMenuRepository', adminMenuRepository);
 
 })();

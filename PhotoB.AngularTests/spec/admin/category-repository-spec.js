@@ -4,7 +4,7 @@
     var $httpBackend;
 
     beforeEach(function () {
-        angular.mock.module('adminModule');
+        angular.mock.module('shopModule');
 
         angular.mock.inject(function (_categoryRepository_, _$httpBackend_) {
             categoryRepository = _categoryRepository_;

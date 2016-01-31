@@ -1,10 +1,14 @@
 ﻿(function () {
 
-    var adminModule = angular.module("adminModule", ['ngRoute', 'bsTable'])
+    var shopModule = angular.module("shopModule", ['ngRoute', 'bsTable'])
 
-    adminModule.config(function ($routeProvider) {
+    shopModule.config(function ($routeProvider) {
 
         $routeProvider
+            .when("/ProductStart", {
+                templateUrl: "/templates/product/product-list.html"
+                //controller: "PhotoCreateController"
+            })
             .when("/CategoryList", {
                 templateUrl: "/templates/admin/category/category-list.html",
                 controller: "CategoryController"
@@ -29,11 +33,22 @@
                 templateUrl: "/templates/admin/photo/photo-bs-table-angular.html",
                 controller: "PhotolistBSTableAngularController"
             })
-        .otherwise({ redirectTo: "/CategoryList" });
-    }); 
+            .when("/AdminStart#/CreateCategory", {
+                templateUrl: "/templates/admin/category/category-create.html",
+                controller: "CategoryController"
+            })
+        .otherwise({ redirectTo: "/ProductStart" });
+    });
 
 
-    adminModule.directive('adminSideNavbar', function () {
+    shopModule.directive('sideNavbar', function () {
+        return {
+            restrict: 'E',
+            templateUrl: '/Templates/nav/side-navbar.html'
+        };
+    });
+
+    shopModule.directive('adminSideNavbar', function () {
         return {
             restrict: 'E',
             templateUrl: '/Templates/nav/admin-side-navbar.html'

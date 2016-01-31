@@ -23,6 +23,6 @@
     };
 
 
-    angular.module('productModule').factory('photoRepository', photoRepository);
+    angular.module('shopModule').factory('photoRepository', photoRepository);
 
 })();

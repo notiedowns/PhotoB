@@ -45,6 +45,6 @@
     // parameters without breaking dependecy injection.
     // $interval is an angular service that can replace the standard js interval function. Using services like this as
     // dependancies means that modules and services are more testable (can replace with mock)
-    angular.module('adminModule').controller("PhotolistController", ["$scope", "photoRepository", "$interval", "$log", "$timeout", photolistController]);
+    angular.module('shopModule').controller("PhotolistController", ["$scope", "photoRepository", "$interval", "$log", "$timeout", photolistController]);
 
 })();

@@ -59,14 +59,15 @@ namespace PhotoB.Controllers
                 }
 
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return JsonResult(GetErrorMessages(), JsonRequestBehavior.AllowGet);
+                return Json(new { validationErrors = GetErrorMessages() });
             }
             catch (Exception ex)
             {
-                Logger.Error("Error creating category", ex);
+                var exceptionMessage = "Error creating category";
+                Logger.Error(exceptionMessage, ex);
 
-                Response.StatusCode = 500;
-                return Json(new { message = "Error creating category" });
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage = exceptionMessage });
             }
         }
 

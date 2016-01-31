@@ -7,6 +7,13 @@
         // Set selected category if it exists
         $scope.selectedCategory = categoryCacheService.loadSelectedCategory();
 
+        if ($scope.selectedCategory) {
+            $scope.editCategoryTitle = "Edit Category";
+        }
+        else {
+            $scope.editCategoryTitle = "Create Category";
+        }
+
 
         $scope.getCategories = function () {
             categoryRepository.getCategories().then(function (data) {
@@ -30,43 +37,55 @@
         }
 
         function onCreateCategoryError(response) {
-            $log.info('Validation errors found');
-
             if (response && response.data) {
-                createErrorMessage(response.data);
-            } else {
-                $exceptionHandler('Something went wrong');
-            }
+                if (response.data.exceptionMessage) {
+                    alert(response.data.exceptionMessage);
+                    $log.info(response.data.exceptionMessage);
+                }
+                else if (response.data.validationErrors) {
+                    createErrorMessage(response.data.validationErrors);
+                    $log.info("Validation errors found");
+                } else {
+                    var defaultMessage = "Server communication error";
+                    $exceptionHandler(defaultMessage);
+                    $log.info(defaultMessage);
+                    alert(defaultMessage);
+                }
+            }            
         }
 
-        function createErrorMessage(errorMessages) {
-            if (errorMessages) {
-                if (errorMessages.length > 0) {
+        function createErrorMessage(validationErrors) {
+            if (validationErrors && validationErrors.length > 0) {
+                // Clear all previous validation errors
+                $scope.validationErrors = {};
 
-                    // Clear all previous validation errors
-                    $scope.validationErrors = {};
+                for (var i = 0; i < validationErrors.length; i++) {
 
-                    for (var i = 0; i < errorMessages.length; i++) {
+                    var propertyName = validationErrors[i].Key;
 
-                        var propertyName = errorMessages[i].key;
-
-                        // Create property on scope if it doesn't already exist
-                        if (!$scope.validationErrors[propertyName]) {
-                            $scope.validationErrors[propertyName] = '';
-                        }
-
-                        // Add a comma if property already contains text
-                        if ($scope.validationErrors[propertyName].length > 0) {
-                            $scope.validationErrors[propertyName] += ', ';
-                        }
-
-                        $scope.validationErrors[propertyName] += errorMessages[i].value;
+                    // Create property on scope if it doesn't already exist
+                    if (!$scope.validationErrors[propertyName]) {
+                        $scope.validationErrors[propertyName] = '';
                     }
+
+                    // Add a comma if property already contains text
+                    if ($scope.validationErrors[propertyName].length > 0) {
+                        $scope.validationErrors[propertyName] += ', ';
+                    }
+
+                    $scope.validationErrors[propertyName] += validationErrors[i].Value;
                 }
             }
         }
 
         
+        $scope.loadEditCategory = function () {
+            categoryCacheService.storeSelectedCategory(null);
+             
+            $location.path('/CreateCategory');
+        };
+
+
         $scope.editCategory = function (categoryId) {
 
             for (var i = 0; i < $scope.categories.length; i++) {
@@ -82,7 +101,7 @@
         $scope.deleteCategory = function (categoryId) {
             categoryRepository.deleteCategory(categoryId).then(
                 onDeleteCategorySuccess,
-                onCreateCategoryError
+                onDeleteCategoryError
                 );
         };
 
@@ -91,12 +110,12 @@
             $scope.getCategories();
         }
 
-        function onCreateCategoryError(response) {
+        function onDeleteCategoryError(response) {
             $log.info('Error deleting category');
             alert('Error deleting category');
         }
     }
 
-    angular.module('adminModule').controller("CategoryController", ["$scope", "categoryRepository", "categoryCacheService", "$location", "$log", "$exceptionHandler", categoryController]);
+    angular.module('shopModule').controller("CategoryController", ["$scope", "categoryRepository", "categoryCacheService", "$location", "$log", "$exceptionHandler", categoryController]);
 
 })();
