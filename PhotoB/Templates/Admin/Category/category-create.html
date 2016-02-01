@@ -1,6 +1,6 @@
 ﻿<div class="container">
 
-    <h2>{{editCategoryTitle}}</h2>
+    <h2>{{editTitle}}</h2>
 
     <form name="createCategoryForm" novalidate>
         <div class="row">
@@ -15,7 +15,8 @@
                     <input type="text" class="form-control input-sm" ng-model="selectedCategory.description" value="{{selectedCategory.description}}" />
                     <div class="text-danger">{{validationErrors.Description}}</div>
                 </div>
-                <button class="btn btn-sm btn-default" ng-click="createCategory()">Create Category</button>
+                <button class="btn btn-sm btn-default" ng-click="createCategory()">Save</button>
+                <a href="/Shop/AdminStart#/CategoryList" class="btn btn-sm btn-default">Cancel</a>
             </div>
         </div>
     </form>    

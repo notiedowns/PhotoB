@@ -11,11 +11,11 @@
             })
             .when("/CategoryList", {
                 templateUrl: "/templates/admin/category/category-list.html",
-                controller: "CategoryController"
+                controller: "CategoryListController"
             })
             .when("/CreateCategory", {
                 templateUrl: "/templates/admin/category/category-create.html",
-                controller: "CategoryController"
+                controller: "CategoryEditController"
             })
             .when("/PhotoList", {
                 templateUrl: "/templates/admin/photo/photo-list.html",
@@ -35,7 +35,7 @@
             })
             .when("/AdminStart#/CreateCategory", {
                 templateUrl: "/templates/admin/category/category-create.html",
-                controller: "CategoryController"
+                controller: "CategoryEditController"
             })
         .otherwise({ redirectTo: "/ProductStart" });
     });

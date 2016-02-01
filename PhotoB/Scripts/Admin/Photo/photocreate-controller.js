@@ -3,9 +3,7 @@
     'use strict'
 
     var photoCreateController = function ($scope, photoRepository, $exceptionHandler, $location, $log) {
-
-        alert('photo create controller loaded');
-
+        
         $scope.createPhoto = function (photo) {
             photoRepository.createPhoto(photo).then(
                 onCreatePhotoSuccess,

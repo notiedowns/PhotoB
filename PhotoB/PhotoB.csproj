@@ -244,12 +244,13 @@
       <LastGenOutput>PhotoBModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\Admin\Category\category-cache-service.js" />
+    <Content Include="Scripts\Admin\Category\category-edit-controller.js" />
     <Content Include="Scripts\Admin\Photo\productphoto-repository.js" />
     <Content Include="Scripts\Menu\admin-menu-controller.js" />
     <Content Include="Scripts\Menu\admin-menu-repository.js" />
     <Content Include="Scripts\Product\productlist-controller.js" />
     <Content Include="Scripts\Admin\Category\category-repository.js" />
-    <Content Include="Scripts\Admin\Category\category-controller.js" />
+    <Content Include="Scripts\Admin\Category\category-list-controller.js" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular.js" />

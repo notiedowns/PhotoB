@@ -52,8 +52,9 @@
     <Content Include="Scripts\jasmine_favicon.png" />
     <Content Include="Scripts\_references.js" />
     <Content Include="SpecRunner.html" />
+    <Content Include="spec\admin\category-edit-controller-spec.js" />
     <Content Include="spec\admin\category-repository-spec.js" />
-    <Content Include="spec\admin\category-controller-spec.js" />
+    <Content Include="spec\admin\category-list-controller-spec.js" />
     <Content Include="spec\product\from-now-filter-spec.js" />
     <Content Include="spec\product\product-controller-spec.js" />
     <Content Include="spec\product\photocreate-controller-spec.js" />
