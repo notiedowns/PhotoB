@@ -1,26 +1,42 @@
 ﻿<div class="container">
 
-    <h2>Create Photo {{2 + 2}}</h2>
+    <h2>Create Photo</h2>
 
     <form name="createPhotoForm" novalidate>
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
                     <label>Number</label>
-                    <input type="text" name="number" ng-model="photo.number" class="form-control input-sm" />
+                    <input type="text" name="number" ng-model="selectedPhoto.number" class="form-control input-sm" />
                     <div class="text-danger">{{validationErrors.Number}}</div>
                 </div>
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" ng-model="photo.name" class="form-control input-sm" />
+                    <input type="text" name="name" ng-model="selectedPhoto.name" class="form-control input-sm" />
                     <div class="text-danger">{{validationErrors.Name}}</div>
                 </div>
                 <div class="form-group">
+                    <label>Category</label>
+                    <input type="text" name="name" ng-model="selectedPhoto.categoryId" class="form-control input-sm" />
+                    <div class="text-danger">{{validationErrors.CategoryId}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="number" name="name" ng-model="selectedPhoto.price" class="form-control input-sm" />
+                    <div class="text-danger">{{validationErrors.Price}}</div>
+                </div>
+                <div class="form-group">
+                    <label>Image Path</label>
+                    <input type="text" name="name" ng-model="selectedPhoto.imagePath" class="form-control input-sm" />
+                    <div class="text-danger">{{validationErrors.ImagePath}}</div>
+                </div>
+                <div class="form-group">
                     <label>Author</label>
-                    <input type="text" name="author" ng-model="photo.author" class="form-control input-sm" />
+                    <input type="text" name="author" ng-model="selectedPhoto.author" class="form-control input-sm" />
                     <div class="text-danger">{{validationErrors.Author}}</div>
                 </div>
-                <button class="btn btn-sm btn-default" ng-click="createPhoto(photo)">Create Photo</button>
+                <button class="btn btn-sm btn-default" ng-click="createPhoto(photo)">Save</button>
+                <a href="/Shop/AdminStart#/PhotoList" class="btn btn-sm btn-default">Cancel</a>
             </div>
         </div>
     </form>    

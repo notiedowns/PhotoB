@@ -163,6 +163,9 @@
     <Compile Include="Models\Menu\MenuItemVm.cs" />
     <Compile Include="Models\Menu\MenuVm.cs" />
     <Compile Include="Models\ObjectSerializer.cs" />
+    <Compile Include="Models\Photo.cs">
+      <DependentUpon>PhotoBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PhotoBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -245,6 +248,7 @@
     </Content>
     <Content Include="Scripts\Admin\Category\category-cache-service.js" />
     <Content Include="Scripts\Admin\Category\category-edit-controller.js" />
+    <Content Include="Scripts\Admin\Photo\photo-cache-service.js" />
     <Content Include="Scripts\Admin\Photo\productphoto-repository.js" />
     <Content Include="Scripts\Menu\admin-menu-controller.js" />
     <Content Include="Scripts\Menu\admin-menu-repository.js" />

@@ -12,21 +12,17 @@ namespace PhotoB.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Category
+    public partial class Photo
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Category()
-        {
-            this.Photos = new HashSet<Photo>();
-        }
-    
         public int Id { get; set; }
+        public int CategoryId { get; set; }
+        public string Number { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public string LastChangedBy { get; set; }
-        public System.DateTime LastChanged { get; set; }
+        public string ImagePath { get; set; }
+        public decimal Price { get; set; }
+        public System.DateTime DateListed { get; set; }
+        public string Author { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Photo> Photos { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

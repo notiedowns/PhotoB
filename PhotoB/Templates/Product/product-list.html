@@ -1,6 +1,6 @@
 ﻿<div class="container" ng-controller="ProductlistController" ng-init="getPhotos()" >
 
-    <h2>Product List {{2 + 2}}</h2>
+    <h2>Products</h2>
 
     <div class="row">
         <div class="col-sm-4">
@@ -25,31 +25,10 @@
         </div>
     </div>
 
-    <!--<div class="row">
-        <div class="col-sm-8">
-            <table class="table table-condensed table-hover">
-                <tr>
-                    <th>Photo</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Listed</th>
-                    <th>Author</th>
-                </tr>
-                <tr ng-repeat="photo in photos | orderBy:productSortOrder">
-                    <td>{{photo.number}}</td>
-                    <td>{{photo.name}}</td>
-                    <td>{{photo.price | currency}}</td>
-                    <td>{{photo.dateListed | date:'dd-MM-yyyy hh:mm'}} {{photo.dateListed | fromNow}}</td>
-                    <td>{{photo.author}}</td>
-                </tr>
-            </table>
-        </div>
-    </div>-->
-
     <div class="row">
         <div class="col-sm-3" ng-repeat="photo in photos | orderBy: productSortOrder" style="height: 300px; margin: 5px; background-color: white;">
             <div style="font-weight: bold;">{{photo.name}}</div>
-            <img src="../../images/{{photo.imageName}}" />
+            <img src="../../images/{{photo.imagePath}}" />
             <div style="font-size: 0.7em;">By {{photo.author}}</div>
             <div style="font-size: 0.7em;">Listed on {{photo.dateListed | date:'dd-MM-yyyy hh:mm'}} {{photo.dateListed | fromNow}}</div>
             <div style="font-size: 0.7em;">Article ID: {{photo.number}}</div>

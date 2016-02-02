@@ -26,5 +26,6 @@ namespace PhotoB.Models
         }
     
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Photo> Photos { get; set; }
     }
 }

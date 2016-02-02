@@ -2,7 +2,7 @@
 
     'use strict'
 
-    var photolistController = function ($scope, photoRepository, $interval, $log, $timeout) {
+    var photolistController = function ($scope, photoRepository, photoCacheService, $interval, $log, $location, $timeout) {
         
         $scope.query = '';
 
@@ -37,12 +37,18 @@
         }
 
         $scope.startSessionCountdown();
+
+
+        $scope.loadEditPhoto = function () {
+            photoCacheService.storeSelectedPhoto(null);
+            $location.path('/CreatePhoto');
+        };
     }
 
     // Pass in the names of the dependencies e.g. "$scope", so that a minifier can change the names in the controller
     // parameters without breaking dependecy injection.
     // $interval is an angular service that can replace the standard js interval function. Using services like this as
     // dependancies means that modules and services are more testable (can replace with mock)
-    angular.module('shopModule').controller("PhotolistController", ["$scope", "photoRepository", "$interval", "$log", "$timeout", photolistController]);
+    angular.module('shopModule').controller("PhotolistController", ["$scope", "photoRepository", "photoCacheService", "$interval", "$log", "$location", "$timeout", photolistController]);
 
 })();

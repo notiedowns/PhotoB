@@ -124,14 +124,15 @@ namespace PhotoB.Controllers
                 }
 
                 Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return JsonResult(GetErrorMessages(), JsonRequestBehavior.AllowGet);
+                return Json(new { validationErrors = GetErrorMessages() });
             }
             catch (Exception ex)
             {
-                Logger.Error("Error creating photo", ex);
+                var exceptionMessage = "Error creating photo";
+                Logger.Error(exceptionMessage, ex);
 
-                Response.StatusCode = 500;
-                return Json(new { message = "Error creating photo" });
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage = exceptionMessage });
             }
         }        
 

@@ -2,10 +2,21 @@
 
     'use strict'
 
-    var photoCreateController = function ($scope, photoRepository, $exceptionHandler, $location, $log) {
+    var photoCreateController = function ($scope, photoRepository, photoCacheService, $exceptionHandler, $location, $log) {
         
-        $scope.createPhoto = function (photo) {
-            photoRepository.createPhoto(photo).then(
+        // Set selected category if it exists
+        $scope.selectedPhoto = photoCacheService.loadSelectedPhoto();
+
+        if ($scope.selectedPhoto) {
+            $scope.editTitle = "Edit Photo";
+        }
+        else {
+            $scope.editTitle = "Create Photo";
+        }
+
+
+        $scope.createPhoto = function () {
+            photoRepository.createPhoto($scope.selectedPhoto).then(
                 onCreatePhotoSuccess,
                 onCreatePhotoError
                 );
@@ -13,42 +24,49 @@
 
         function onCreatePhotoSuccess(response) {
             $log.info('New photo created');
+
+            photoCacheService.storeSelectedPhoto({});
             $location.path('/PhotoList');
         }
 
         function onCreatePhotoError(response) {
-            $log.info('Validation errors found');
-
             if (response && response.data) {
-                createErrorMessage(response.data);
-            } else {
-                $exceptionHandler('Something went wrong');
+                if (response.data.exceptionMessage) {
+                    $log.info(response.data.exceptionMessage);
+                    //alert(response.data.exceptionMessage);
+                }
+                else if (response.data.validationErrors) {
+                    createErrorMessage(response.data.validationErrors);
+                    $log.info("Validation errors found");
+                } else {
+                    var defaultMessage = "Server communication error";
+                    $log.info(defaultMessage);
+                    $exceptionHandler(defaultMessage);
+                    alert(defaultMessage);
+                }
             }
         }
 
-        function createErrorMessage(errorMessages) {
-            if (errorMessages) {
-                if (errorMessages.length > 0) {
+        function createErrorMessage(validationErrors) {
+            if (validationErrors && validationErrors.length > 0) {
+                // Clear all previous validation errors
+                $scope.validationErrors = {};
 
-                    // Clear all previous validation errors
-                    $scope.validationErrors = {};
+                for (var i = 0; i < validationErrors.length; i++) {
 
-                    for (var i = 0; i < errorMessages.length; i++) {
+                    var propertyName = validationErrors[i].Key;
 
-                        var propertyName = errorMessages[i].key;
-
-                        // Create property on scope if it doesn't already exist
-                        if (!$scope.validationErrors[propertyName]) {
-                            $scope.validationErrors[propertyName] = '';
-                        }
-
-                        // Add a comma if property already contains text
-                        if ($scope.validationErrors[propertyName].length > 0) {
-                            $scope.validationErrors[propertyName] += ', ';
-                        }
-
-                        $scope.validationErrors[propertyName] += errorMessages[i].value;
+                    // Create property on scope if it doesn't already exist
+                    if (!$scope.validationErrors[propertyName]) {
+                        $scope.validationErrors[propertyName] = '';
                     }
+
+                    // Add a comma if property already contains text
+                    if ($scope.validationErrors[propertyName].length > 0) {
+                        $scope.validationErrors[propertyName] += ', ';
+                    }
+
+                    $scope.validationErrors[propertyName] += validationErrors[i].Value;
                 }
             }
         }
@@ -59,6 +77,6 @@
     // parameters without breaking dependecy injection.
     // $interval is an angular service that can replace the standard js interval function. Using services like this as
     // dependancies means that modules and services are more testable (can replace with mock)
-    angular.module('shopModule').controller("PhotoCreateController", ["$scope", "photoRepository", "$exceptionHandler", "$location", "$log", photoCreateController]);
+    angular.module('shopModule').controller("PhotoCreateController", ["$scope", "photoRepository", "photoCacheService", "$exceptionHandler", "$location", "$log", photoCreateController]);
 
 })();

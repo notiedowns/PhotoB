@@ -15,8 +15,38 @@
           <Property Name="LastChangedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="LastChanged" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="Number" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="200" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="DateListed" Type="datetime" Nullable="false" />
+          <Property Name="Author" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Photo_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="PhotoBModelStoreContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Photo_Category" Association="Self.FK_Photo_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Photo" EntitySet="Photo" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -24,6 +54,11 @@
       <Schema Namespace="PhotoBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="PhotoBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="PhotoBModel.Category" />
+          <EntitySet Name="Photos" EntityType="PhotoBModel.Photo" />
+          <AssociationSet Name="FK_Photo_Category" Association="PhotoBModel.FK_Photo_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Photo" EntitySet="Photos" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Category">
           <Key>
@@ -34,7 +69,34 @@
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastChangedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="LastChanged" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Photos" Relationship="PhotoBModel.FK_Photo_Category" FromRole="Category" ToRole="Photo" />
         </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="DateListed" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Category" Relationship="PhotoBModel.FK_Photo_Category" FromRole="Photo" ToRole="Category" />
+        </EntityType>
+        <Association Name="FK_Photo_Category">
+          <End Type="PhotoBModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="PhotoBModel.Photo" Role="Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -48,6 +110,20 @@
                 <ScalarProperty Name="LastChangedBy" ColumnName="LastChangedBy" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Photos">
+            <EntityTypeMapping TypeName="PhotoBModel.Photo">
+              <MappingFragment StoreEntitySet="Photo">
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="DateListed" ColumnName="DateListed" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
