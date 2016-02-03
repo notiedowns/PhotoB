@@ -12,19 +12,10 @@ namespace PhotoB.Repositories
     {
         private readonly CategoryRepository _categoryRepository = new CategoryRepository();
 
-        private static MenuItemVm[] ProductMenuData;
         private static MenuItemVm[] AdminMenuData;
 
         static MenuRepository()
         {
-            //ProductMenuData = new[]
-            //{
-            //    //new MenuItemVm { DisplayName = "Photo List", Url = "/Shop/ProductStart#/PhotoList/"},
-            //    //new MenuItemVm { DisplayName = "Create New Photo", Url = "/Shop/ProductStart#/CreatePhoto"},
-            //    //new MenuItemVm { DisplayName = "BS Table", Url = "/Shop/ProductStart#/BSTable"}
-            //    //new MenuItemVm { DisplayName = "BS Table Angular", Url = "/Shop/ProductStart#/BSTableAngular"}
-            //};
-
             AdminMenuData = new[]
             {
                 new MenuItemVm { DisplayName = "Category List", Url = "/Shop/AdminStart#/CategoryList/"},
@@ -34,11 +25,10 @@ namespace PhotoB.Repositories
             };
         }
 
-        public MenuItemVm[] GetProductMenuList()
+        public MenuItemVm[] GetCategoryMenuList()
         {
             var categories = _categoryRepository.GetCategoryList();
-
-            return categories.Select(c => new MenuItemVm { DisplayName = c.Name, Url = c.Name }).ToArray();
+            return categories.Select(c => new MenuItemVm { DisplayName = c.Name, Url = c.Name, TargetId = c.Id }).ToArray();
         }
 
         public MenuItemVm[] GetAdminMenuList()

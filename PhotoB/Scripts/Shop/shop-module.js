@@ -41,10 +41,10 @@
     });
 
 
-    shopModule.directive('sideNavbar', function () {
+    shopModule.directive('categorySideNavbar', function () {
         return {
             restrict: 'E',
-            templateUrl: '/Templates/nav/side-navbar.html'
+            templateUrl: '/Templates/nav/category-side-navbar.html'
         };
     });
 

@@ -7,12 +7,12 @@
             <div class="col-sm-4">              
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" class="form-control input-sm" ng-model="selectedCategory.name" value="{{selectedCategory.name}}" />
+                    <input type="text" name="name" class="form-control input-sm" ng-model="selectedCategory.name" value="{{selectedCategory.name}}" autocomplete="off" autofocus/>
                     <div class="text-danger">{{validationErrors.Name}}</div>
                 </div>
                 <div class="form-group">
                     <label>Description</label>
-                    <input type="text" class="form-control input-sm" ng-model="selectedCategory.description" value="{{selectedCategory.description}}" />
+                    <input type="text" class="form-control input-sm" ng-model="selectedCategory.description" value="{{selectedCategory.description}}" autocomplete="off"/>
                     <div class="text-danger">{{validationErrors.Description}}</div>
                 </div>
                 <button class="btn btn-sm btn-default" ng-click="createCategory()">Save</button>

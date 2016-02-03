@@ -1,6 +1,6 @@
 ﻿<div class="container" ng-init="getPhotos()">
 
-    <h2>Photo List {{2 + 2}}</h2>
+    <h2>Photos</h2>
 
     <h4 ng-show="sessionTimeoutSeconds <= 55 && sessionTimeoutSeconds !== 0">Session timeout: {{sessionTimeoutSeconds}}</h4>
     <h4 ng-show="sessionTimeoutSeconds === 0" class="text-danger">Session timed out</h4>
@@ -42,22 +42,26 @@
                     <th>Image</th>
                     <th></th>
                     <th>Author</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr ng-repeat="photo in photos | orderBy:productSortOrder">
                     <td>{{photo.number}}</td>
                     <td>{{photo.name}}</td>
-                    <td>{{photo.categoryId}}</td>
+                    <td>{{photo.categoryName}}</td>
                     <td>{{photo.price | currency}}</td>
                     <td>{{photo.dateListed | date:'dd-MM-yyyy hh:mm'}} {{photo.dateListed | fromNow}}</td>
                     <td><img src="../../images/{{photo.imagePath}}" style="width: 40px;" /></td>
                     <td>{{photo.imagePath}}</td>
                     <td>{{photo.author}}</td>
+                    <td><i class="glyphicon glyphicon-edit" title="Edit" ng-click="editPhoto(photo.id)"></i></td>
+                    <td><i class="glyphicon glyphicon-remove" title="Delete" ng-click="deletePhoto(photo.id)"></i></td>
                 </tr>
             </table>
         </div>
     </div>
 
     <div class="row">
-        <a ng-click="loadEditPhoto()" stlye="cursor: pointer;">Create Photo</a>
+        <a ng-click="loadEditPhoto()" style="cursor: pointer;">Create Photo</a>
     </div>
 </div>

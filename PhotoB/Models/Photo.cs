@@ -22,6 +22,8 @@ namespace PhotoB.Models
         public decimal Price { get; set; }
         public System.DateTime DateListed { get; set; }
         public string Author { get; set; }
+        public string LastChangedBy { get; set; }
+        public System.DateTime LastChanged { get; set; }
     
         public virtual Category Category { get; set; }
     }

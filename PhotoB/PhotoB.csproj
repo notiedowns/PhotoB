@@ -150,6 +150,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PhotoController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
@@ -250,8 +251,6 @@
     <Content Include="Scripts\Admin\Category\category-edit-controller.js" />
     <Content Include="Scripts\Admin\Photo\photo-cache-service.js" />
     <Content Include="Scripts\Admin\Photo\productphoto-repository.js" />
-    <Content Include="Scripts\Menu\admin-menu-controller.js" />
-    <Content Include="Scripts\Menu\admin-menu-repository.js" />
     <Content Include="Scripts\Product\productlist-controller.js" />
     <Content Include="Scripts\Admin\Category\category-repository.js" />
     <Content Include="Scripts\Admin\Category\category-list-controller.js" />
@@ -268,10 +267,10 @@
     <Content Include="Scripts\Menu\menu-repository.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Admin\Photo\photo-repository.js" />
-    <Content Include="Scripts\Admin\Photo\photocreate-controller.js" />
+    <Content Include="Scripts\Admin\Photo\photo-edit-controller.js" />
     <Content Include="Scripts\Admin\Photo\photolist-bs-table-angular-controller.js" />
     <Content Include="Scripts\Admin\Photo\photolist-bs-table-controller.js" />
-    <Content Include="Scripts\Admin\Photo\photolist-controller.js" />
+    <Content Include="Scripts\Admin\Photo\photo-list-controller.js" />
     <Content Include="Scripts\Shop\shop-module.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\_references.js" />
@@ -282,7 +281,7 @@
     <Content Include="Templates\Admin\Photo\photo-bs-table.html" />
     <Content Include="Templates\Admin\Photo\photo-create.html" />
     <Content Include="Templates\Admin\Photo\photo-list.html" />
-    <Content Include="Templates\Nav\side-navbar.html" />
+    <Content Include="Templates\Nav\category-side-navbar.html" />
     <Content Include="Templates\Product\product-list.html" />
     <Content Include="TODO.txt" />
     <Content Include="Web.config" />

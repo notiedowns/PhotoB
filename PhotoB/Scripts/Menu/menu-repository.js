@@ -2,14 +2,21 @@
 
     var menuRepository = function ($http) {
 
-        var getMenu = function () {
-            return $http.get('/Photo/GetMenu').then(function (response) {
+        var getCategoryMenu = function () {
+            return $http.get('/Menu/GetCategoryMenu').then(function (response) {
+                return response.data;
+            });
+        };
+
+        var getAdminMenu = function () {
+            return $http.get('/Menu/GetAdminMenu').then(function (response) {
                 return response.data;
             });
         };
 
         return {
-            getMenu: getMenu
+            getCategoryMenu: getCategoryMenu,
+            getAdminMenu: getAdminMenu
         }
     };
 

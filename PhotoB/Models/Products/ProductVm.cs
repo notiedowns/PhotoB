@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PhotoB.Models.Products
 {
@@ -17,6 +13,8 @@ namespace PhotoB.Models.Products
 
         [Required(ErrorMessage = "Please select a category")]
         public int? CategoryId { get; set; }
+
+        public string CategoryName { get; set; }
 
         [Required(ErrorMessage = "Please enter a Name")]
         [MaxLength(50, ErrorMessage = "Name can be maximum 50 characters")]

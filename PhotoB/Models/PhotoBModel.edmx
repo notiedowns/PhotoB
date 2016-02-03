@@ -27,6 +27,8 @@
           <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="DateListed" Type="datetime" Nullable="false" />
           <Property Name="Author" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastChangedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastChanged" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK_Photo_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
@@ -83,6 +85,8 @@
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
           <Property Name="DateListed" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastChangedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LastChanged" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Category" Relationship="PhotoBModel.FK_Photo_Category" FromRole="Photo" ToRole="Category" />
         </EntityType>
         <Association Name="FK_Photo_Category">
@@ -117,6 +121,8 @@
           <EntitySetMapping Name="Photos">
             <EntityTypeMapping TypeName="PhotoBModel.Photo">
               <MappingFragment StoreEntitySet="Photo">
+                <ScalarProperty Name="LastChanged" ColumnName="LastChanged" />
+                <ScalarProperty Name="LastChangedBy" ColumnName="LastChangedBy" />
                 <ScalarProperty Name="Author" ColumnName="Author" />
                 <ScalarProperty Name="DateListed" ColumnName="DateListed" />
                 <ScalarProperty Name="Price" ColumnName="Price" />

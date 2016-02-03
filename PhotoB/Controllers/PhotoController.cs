@@ -15,7 +15,6 @@ namespace PhotoB.Controllers
         private static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private readonly PhotoRepository _photoRepository = new PhotoRepository();
-        private readonly MenuRepository _menuRepository = new MenuRepository();
 
 
         public ActionResult PhotoList()
@@ -63,45 +62,7 @@ namespace PhotoB.Controllers
                 Response.StatusCode = 500;
                 return Json(new { message = "Error retrieving product list" });
             }
-        }
-
-
-        public ActionResult GetMenu()
-        {
-            try
-            {
-                Logger.Debug("Retrieving menu");
-
-                return JsonResult(_menuRepository.GetProductMenuList(), JsonRequestBehavior.AllowGet);
-            }
-            catch (Exception ex)
-            {
-                Logger.Error("Error retrieving menu", ex);
-
-                Response.StatusCode = 500;
-                return Json(new { message = "Error retrieving menu" });
-            }
-        }
-
-
-        public ActionResult GetAdminMenu()
-        {
-            try
-            {
-                Logger.Debug("Retrieving admin menu");
-
-                var data = _menuRepository.GetAdminMenuList();
-
-                return JsonResult(data, JsonRequestBehavior.AllowGet);
-            }
-            catch (Exception ex)
-            {
-                Logger.Error("Error retrieving admin menu", ex);
-
-                Response.StatusCode = 500;
-                return Json(new { message = "Error retrieving admin menu" });
-            }
-        }
+        }       
 
 
         [HttpGet]
@@ -120,6 +81,11 @@ namespace PhotoB.Controllers
 
                 if (ModelState.IsValid)
                 {
+                    if (photo.Id == 0)
+                        _photoRepository.CreatePhoto(photo);
+                    else
+                        _photoRepository.Updatephoto(photo);
+
                     return new JsonResult();
                 }
 
@@ -134,7 +100,26 @@ namespace PhotoB.Controllers
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 return Json(new { exceptionMessage = exceptionMessage });
             }
-        }        
+        }
+
+
+        [HttpPost]
+        public ActionResult DeletePhoto(HttpRequestMessage request, int photoId)
+        {
+            try
+            {
+                _photoRepository.DeleteCategory(photoId);
+
+                return new JsonResult();
+            }
+            catch (Exception ex)
+            {
+                Logger.Error("Error deleting photo", ex);
+
+                Response.StatusCode = 500;
+                return Json(new { message = "Error deleting photo" });
+            }
+        }
 
 
         private List<KeyValuePair<string, string>> GetErrorMessages()

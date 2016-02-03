@@ -43,6 +43,36 @@
             photoCacheService.storeSelectedPhoto(null);
             $location.path('/CreatePhoto');
         };
+
+
+        $scope.editPhoto = function (photoId) {
+
+            for (var i = 0; i < $scope.photos.length; i++) {
+                if ($scope.photos[i].id === photoId) {
+                    photoCacheService.storeSelectedPhoto($scope.photos[i]);
+                }
+            }
+
+            $location.path('/CreatePhoto');
+        };
+
+
+        $scope.deletePhoto = function (photoId) {
+            photoRepository.deletePhoto(photoId).then(
+                onDeletePhotoSuccess,
+                onDeletePhotoError
+                );
+        };
+
+        function onDeletePhotoSuccess(response) {
+            $log.info('Photo deleted');
+            $scope.getPhotos();
+        }
+
+        function onDeletePhotoError(response) {
+            $log.info('Error deleting photo');
+            alert('Error deleting photo');
+        }
     }
 
     // Pass in the names of the dependencies e.g. "$scope", so that a minifier can change the names in the controller
