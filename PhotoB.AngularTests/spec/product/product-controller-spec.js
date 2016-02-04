@@ -22,7 +22,7 @@
             $rootScope = _$rootScope_;            
         });
 
-        $controller('ProductlistController', { $scope: $scope, photoRepository: photoRepository, $log: $log, $timeout: $timeout })
+        $controller('PhotolistController', { $scope: $scope, photoRepository: photoRepository, $log: $log, $timeout: $timeout })
     });
 
 

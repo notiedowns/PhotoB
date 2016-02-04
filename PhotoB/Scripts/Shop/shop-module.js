@@ -6,8 +6,8 @@
 
         $routeProvider
             .when("/ProductStart", {
-                templateUrl: "/templates/product/product-list.html"
-                //controller: "PhotoCreateController"
+                templateUrl: "/templates/product/product-list.html",
+                controller: "PhotolistController"
             })
             .when("/CategoryList", {
                 templateUrl: "/templates/admin/category/category-list.html",

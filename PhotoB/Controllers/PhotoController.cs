@@ -42,7 +42,7 @@ namespace PhotoB.Controllers
         }
 
         
-        public ActionResult GetPhotos(string query)
+        public ActionResult GetPhotos(string query, int? categoryId)
         {
             try
             {
@@ -52,6 +52,9 @@ namespace PhotoB.Controllers
 
                 if (!string.IsNullOrWhiteSpace(query))
                     photos = photos.Where(x => x.Name.ToLower().Contains(query.ToLower())).ToArray();
+
+                if(categoryId.HasValue)
+                    photos = photos.Where(x => x.CategoryId == categoryId.Value).ToArray();
 
                 return JsonResult(photos, JsonRequestBehavior.AllowGet);
             }

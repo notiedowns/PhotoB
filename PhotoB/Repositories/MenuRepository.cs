@@ -20,7 +20,6 @@ namespace PhotoB.Repositories
             {
                 new MenuItemVm { DisplayName = "Category List", Url = "/Shop/AdminStart#/CategoryList/"},
                 new MenuItemVm { DisplayName = "Photo List", Url = "/Shop/AdminStart#/PhotoList/"},
-                new MenuItemVm { DisplayName = "Create New Photo", Url = "/Shop/AdminStart#/CreatePhoto"},
                 new MenuItemVm { DisplayName = "BS Table", Url = "/Shop/AdminStart#/BSTable"}
             };
         }
