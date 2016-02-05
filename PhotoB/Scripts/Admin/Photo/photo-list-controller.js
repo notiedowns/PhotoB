@@ -2,10 +2,13 @@
 
     'use strict'
 
-    var photolistController = function ($scope, photoRepository, photoCacheService, mySharedService, categoryBroadcaster, $interval, $log, $location, $timeout) {
+    var photolistController = function ($scope, photoRepository, photoCacheService, mySharedService, $interval, $log, $location, $timeout) {
         
         $scope.$on('handleBroadcast', function () {
             $scope.message = 'yes: ' + mySharedService.message;
+            $scope.test = 'test2';
+            $scope.categoryId = 6;
+            $scope.search();
         });
 
         $scope.query = '';
@@ -32,13 +35,6 @@
         $scope.search = function () {
                 photoRepository.getPhotos($scope.query, $scope.categoryId).then(function (data) {
                     $scope.photos = data;
-//                    $scope.test = 'test2';
-                    var scope = $('#productContainer').scope();
-                    //scope.$apply();
-                    //$scope.$apply()
-                    scope.$apply(function () {
-                        scope.test = 'test2';
-                    });
             });
         };
 
@@ -86,17 +82,12 @@
             $log.info('Error deleting photo');
             alert('Error deleting photo');
         }
-
-        $scope.$on('handleBroadcast', function () {
-            $scope.categoryId = categoryBroadcaster.categoryId;
-            $scope.search();
-        });
     }
 
     // Pass in the names of the dependencies e.g. "$scope", so that a minifier can change the names in the controller
     // parameters without breaking dependecy injection.
     // $interval is an angular service that can replace the standard js interval function. Using services like this as
     // dependancies means that modules and services are more testable (can replace with mock)
-    angular.module('shopModule').controller("PhotolistController", ["$scope", "photoRepository", "photoCacheService", "mySharedService", "categoryBroadcaster", "$interval", "$log", "$location", "$timeout", photolistController]);
+    angular.module('shopModule').controller("PhotolistController", ["$scope", "photoRepository", "photoCacheService", "mySharedService", "$interval", "$log", "$location", "$timeout", photolistController]);
 
 })();
