@@ -1,13 +1,7 @@
 ﻿<div class="well" ng-controller="MenuController">
     <ul class="nav nav-stacked" id="sidebar">
         <li ng-repeat="menuItem in categoryMenuItems">
-            <a href="#" style="cursor: pointer;" ng-click="filterByCategory(menuItem.targetId)">{{menuItem.displayName}}</a>
+            <a style="cursor: pointer;" ng-click="filterByCategory(menuItem.targetId)">{{menuItem.displayName}}</a>
         </li>        
     </ul>
-    <button ng-click="handleClick('troll');">LOG new</button>
-
-    <div ng-controller="ControllerZero">
-        <input ng-model="message">
-        <button ng-click="handleClick('troll');">LOG</button>
-    </div>
 </div>
