@@ -2,10 +2,15 @@
 
     'use strict'
 
-    var photolistController = function ($scope, photoRepository, photoCacheService, categoryBroadcaster, $interval, $log, $location, $timeout) {
+    var photolistController = function ($scope, photoRepository, photoCacheService, mySharedService, categoryBroadcaster, $interval, $log, $location, $timeout) {
         
+        $scope.$on('handleBroadcast', function () {
+            $scope.message = 'yes: ' + mySharedService.message;
+        });
+
         $scope.query = '';
         $scope.categoryId = '';
+        $scope.test = 'test1';
 
         $scope.getPhotos = function () {
             photoRepository.getPhotos().then(function (data) {
@@ -27,7 +32,13 @@
         $scope.search = function () {
                 photoRepository.getPhotos($scope.query, $scope.categoryId).then(function (data) {
                     $scope.photos = data;
-                    $scope.$apply();
+//                    $scope.test = 'test2';
+                    var scope = $('#productContainer').scope();
+                    //scope.$apply();
+                    //$scope.$apply()
+                    scope.$apply(function () {
+                        scope.test = 'test2';
+                    });
             });
         };
 
@@ -86,6 +97,6 @@
     // parameters without breaking dependecy injection.
     // $interval is an angular service that can replace the standard js interval function. Using services like this as
     // dependancies means that modules and services are more testable (can replace with mock)
-    angular.module('shopModule').controller("PhotolistController", ["$scope", "photoRepository", "photoCacheService", "categoryBroadcaster", "$interval", "$log", "$location", "$timeout", photolistController]);
+    angular.module('shopModule').controller("PhotolistController", ["$scope", "photoRepository", "photoCacheService", "mySharedService", "categoryBroadcaster", "$interval", "$log", "$location", "$timeout", photolistController]);
 
 })();

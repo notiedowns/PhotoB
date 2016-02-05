@@ -4,4 +4,9 @@
             <a href="#" style="cursor: pointer;" ng-click="filterByCategory(menuItem.targetId)">{{menuItem.displayName}}</a>
         </li>
     </ul>
+
+    <div ng-controller="ControllerZero">
+        <input ng-model="message">
+        <button ng-click="handleClick(message);">LOG</button>
+    </div>
 </div>

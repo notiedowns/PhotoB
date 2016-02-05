@@ -22,5 +22,11 @@ namespace PhotoB.Controllers
             logger.Debug("Admin started");
             return View();
         }
+
+        public ActionResult Test()
+        {
+            logger.Debug("Test started");
+            return View();
+        }
     }
 }

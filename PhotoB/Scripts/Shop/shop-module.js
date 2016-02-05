@@ -55,4 +55,49 @@
         };
     });
 
+
+    angular.module('shopModule').factory('mySharedService', function ($rootScope) {
+        var sharedService = {};
+
+        sharedService.message = '';
+
+        sharedService.prepForBroadcast = function (msg) {
+            this.message = msg;
+            this.broadcastItem();
+        };
+
+        sharedService.broadcastItem = function () {
+            $rootScope.$broadcast('handleBroadcast');
+        };
+
+        return sharedService;
+    });
+
+
+    var ControllerZero = function ($scope, sharedService) {
+        $scope.handleClick = function (msg) {
+            sharedService.prepForBroadcast(msg);
+        };
+
+        $scope.$on('handleBroadcast', function () {
+            $scope.message = sharedService.message;
+        });
+    }
+
+    var ControllerOne = function ($scope, sharedService) {
+        $scope.$on('handleBroadcast', function () {
+            $scope.message = 'ONE: ' + sharedService.message;
+        });
+    }
+
+    var ControllerTwo = function ($scope, sharedService) {
+        $scope.$on('handleBroadcast', function () {
+            $scope.message = 'TWO: ' + sharedService.message;
+        });
+    }
+
+    angular.module('shopModule').controller("ControllerZero", ["$scope", "mySharedService", ControllerZero]);
+    angular.module('shopModule').controller("ControllerOne", ["$scope", "mySharedService", ControllerOne]);
+    angular.module('shopModule').controller("ControllerTwo", ["$scope", "mySharedService", ControllerTwo]);
+
 })();
