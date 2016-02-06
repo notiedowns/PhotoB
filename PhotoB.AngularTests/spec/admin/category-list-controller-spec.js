@@ -52,7 +52,7 @@
         $scope.loadEditCategory();
 
         expect(categoryCacheService.storeSelectedCategory).toHaveBeenCalledWith(null);
-        expect($location.path).toHaveBeenCalledWith('/CreateCategory');
+        expect($location.path).toHaveBeenCalledWith('/EditCategory');
     });
 
 
@@ -67,7 +67,7 @@
         $scope.editCategory("1");
 
         expect(categoryCacheService.storeSelectedCategory).toHaveBeenCalledWith($scope.categories[0]);
-        expect($location.path).toHaveBeenCalledWith('/CreateCategory');
+        expect($location.path).toHaveBeenCalledWith('/EditCategory');
     });
 
 

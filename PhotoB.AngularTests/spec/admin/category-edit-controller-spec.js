@@ -29,7 +29,7 @@
 
     it('should set location and log after category created', function () {
 
-        spyOn(categoryRepository, 'createCategory').and.callFake(function () {
+        spyOn(categoryRepository, 'editCategory').and.callFake(function () {
             var deferred = $q.defer();
             deferred.resolve();
             return deferred.promise;
@@ -39,7 +39,7 @@
 
         spyOn($location, 'path');
 
-        $scope.createCategory();
+        $scope.editCategory();
         $rootScope.$apply();
 
         expect($location.path).toHaveBeenCalledWith('/CategoryList');
@@ -54,13 +54,13 @@
         response.data = {};
         response.data.exceptionMessage = "Custom error text";
 
-        spyOn(categoryRepository, 'createCategory').and.callFake(function () {
+        spyOn(categoryRepository, 'editCategory').and.callFake(function () {
             var deferred = $q.defer();
             deferred.reject(response);
             return deferred.promise;
         });
 
-        $scope.createCategory('category1');
+        $scope.editCategory('category1');
         $rootScope.$apply();
 
         expect($log.info.logs[0]).toEqual(["Custom error text"]);
@@ -72,13 +72,13 @@
         var response = {};
         response.data = {};
 
-        spyOn(categoryRepository, 'createCategory').and.callFake(function () {
+        spyOn(categoryRepository, 'editCategory').and.callFake(function () {
             var deferred = $q.defer();
             deferred.reject(response);
             return deferred.promise;
         });
 
-        $scope.createCategory('category1');
+        $scope.editCategory('category1');
 
         expect(function () {
             $rootScope.$apply();
@@ -94,13 +94,13 @@
         response.data = {};
         response.data.validationErrors = [{ "Key": "columnName1", "Value": "errorDescription1" }, { "Key": "columnName2", "Value": "errorDescription2" }];
 
-        spyOn(categoryRepository, 'createCategory').and.callFake(function () {
+        spyOn(categoryRepository, 'editCategory').and.callFake(function () {
             var deferred = $q.defer();
             deferred.reject(response);
             return deferred.promise;
         });
 
-        $scope.createCategory('category1');
+        $scope.editCategory('category1');
         $rootScope.$apply();
 
         expect($log.info.logs[0]).toEqual(["Validation errors found"]);

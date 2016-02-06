@@ -44,14 +44,14 @@ namespace PhotoB.Controllers
 
 
         [HttpPost]
-        public ActionResult CreateCategory(HttpRequestMessage request, CategoryVm category)
+        public ActionResult EditCategory(HttpRequestMessage request, CategoryVm category)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
                     if(category.Id == 0)
-                        _categoryRepository.CreateCategory(category);
+                        _categoryRepository.EditCategory(category);
                     else
                         _categoryRepository.UpdateCategory(category);
 

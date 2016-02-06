@@ -12,8 +12,8 @@
                     });
         };
 
-        var createCategory = function (category) {
-            return $http.post('/Category/CreateCategory', category);
+        var editCategory = function (category) {
+            return $http.post('/Category/EditCategory', category);
         };
 
         var deleteCategory = function (categoryId) {
@@ -22,7 +22,7 @@
 
         return {
             getCategories: getCategories,
-            createCategory: createCategory,
+            editCategory: editCategory,
             deleteCategory: deleteCategory
         }
     }

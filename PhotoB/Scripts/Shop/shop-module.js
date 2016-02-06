@@ -5,7 +5,7 @@
     shopModule.config(function ($routeProvider) {
 
         $routeProvider
-            .when("/ProductStart", {
+            .when("/ProductList", {
                 templateUrl: "/templates/product/product-list.html",
                 controller: "PhotolistController"
             })
@@ -13,7 +13,7 @@
                 templateUrl: "/templates/admin/category/category-list.html",
                 controller: "CategoryListController"
             })
-            .when("/CreateCategory", {
+            .when("/EditCategory", {
                 templateUrl: "/templates/admin/category/category-edit.html",
                 controller: "CategoryEditController"
             })
@@ -33,11 +33,11 @@
                 templateUrl: "/templates/admin/photo/photo-bs-table-angular.html",
                 controller: "PhotolistBSTableAngularController"
             })
-            .when("/AdminStart#/CreateCategory", {
+            .when("/AdminStart#/EditCategory", {
                 templateUrl: "/templates/admin/category/category-create.html",
                 controller: "CategoryEditController"
-            })
-        .otherwise({ redirectTo: "/ProductStart" });
+            });
+        //.otherwise({ redirectTo: "/ProductStart" });
     });
 
 

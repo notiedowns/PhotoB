@@ -30,9 +30,9 @@
 
 
     it('should create new category', function () {
-        $httpBackend.when('POST', '/Category/CreateCategory').respond(200);
+        $httpBackend.when('POST', '/Category/EditCategory').respond(200);
 
-        categoryRepository.createCategory();
+        categoryRepository.EditCategory();
 
         expect($httpBackend.flush).not.toThrow();
     });

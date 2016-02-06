@@ -15,21 +15,21 @@
         }
 
 
-        $scope.createCategory = function () {
-            categoryRepository.createCategory($scope.selectedCategory).then(
-                onCreateCategorySuccess,
-                onCreateCategoryError
+        $scope.editCategory = function () {
+            categoryRepository.editCategory($scope.selectedCategory).then(
+                onEditCategorySuccess,
+                onEditCategoryError
                 );
         };
 
-        function onCreateCategorySuccess(response) {
+        function onEditCategorySuccess(response) {
             $log.info('New category created');
 
             categoryCacheService.storeSelectedCategory({});
             $location.path('/CategoryList');
         }
 
-        function onCreateCategoryError(response) {
+        function onEditCategoryError(response) {
             if (response && response.data) {
                 if (response.data.exceptionMessage) {
                     $log.info(response.data.exceptionMessage);

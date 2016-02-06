@@ -26,7 +26,7 @@ namespace PhotoB.Repositories
             }
         }
 
-        public void CreateCategory(CategoryVm categoryVm)
+        public void EditCategory(CategoryVm categoryVm)
         {
             using (var model = new PhotoBEntities())
             {
