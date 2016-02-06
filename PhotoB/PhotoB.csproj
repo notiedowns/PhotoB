@@ -297,9 +297,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Category\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config">
       <SubType>Designer</SubType>
@@ -314,7 +312,6 @@
     <None Include="Project_Readme.html" />
     <Content Include="Views\Shop\ProductStart.cshtml" />
     <Content Include="Views\Shop\AdminStart.cshtml" />
-    <Content Include="Views\Shop\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

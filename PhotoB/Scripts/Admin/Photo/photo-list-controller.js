@@ -4,24 +4,26 @@
 
     var photolistController = function ($scope, photoRepository, photoCacheService, categoryBroadcaster, $interval, $log, $location, $timeout) {
         
-        $scope.$on('handleBroadcast', function () {
-            $scope.categoryId = categoryBroadcaster.categoryId;
-            $scope.search();
-        });
+        $scope.searchQuery = '';
+        $scope.selectedCategoryId = '';
+        $scope.productSortOrder = '-dateListed';
 
-        $scope.query = '';
-        $scope.categoryId = '';
 
-        $scope.getPhotos = function () {
-            photoRepository.getPhotos().then(function (data) {
+
+        // Load photo list
+        $scope.search = function () {
+            photoRepository.getPhotos($scope.searchQuery, $scope.selectedCategoryId).then(function (data) {
                 $scope.photos = data;
             });
         };
 
+
+
+        // Handle search filter input
         var timeout;
         $scope.keyup = function () {
             timeout = $timeout(function () {
-                $scope.search($scope.query);
+                $scope.search();
             }, 1000);
         };
 
@@ -29,13 +31,9 @@
             $timeout.cancel(timeout);
         };
 
-        $scope.search = function () {
-                photoRepository.getPhotos($scope.query, $scope.categoryId).then(function (data) {
-                    $scope.photos = data;
-            });
-        };
+                
 
-        $scope.productSortOrder = '-dateListed';
+        // Session timeout indicator
         $scope.sessionTimeoutSeconds = 60 * 1; //1 min        
 
         $scope.startSessionCountdown = function () {
@@ -45,12 +43,14 @@
         $scope.startSessionCountdown();
 
 
+
+        // Route to create photo view
         $scope.loadEditPhoto = function () {
             photoCacheService.storeSelectedPhoto(null);
             $location.path('/CreatePhoto');
         };
 
-
+        // Cache selected photo for edit
         $scope.editPhoto = function (photoId) {
 
             for (var i = 0; i < $scope.photos.length; i++) {
@@ -63,6 +63,8 @@
         };
 
 
+
+        // Delete selected photo
         $scope.deletePhoto = function (photoId) {
             photoRepository.deletePhoto(photoId).then(
                 onDeletePhotoSuccess,
@@ -79,6 +81,14 @@
             $log.info('Error deleting photo');
             alert('Error deleting photo');
         }
+
+
+
+        // Handle category filter selection event
+        $scope.$on('categoryFilterBroadcast', function () {
+            $scope.selectedCategoryId = categoryBroadcaster.categoryId;
+            $scope.search();
+        });
     }
 
     // Pass in the names of the dependencies e.g. "$scope", so that a minifier can change the names in the controller

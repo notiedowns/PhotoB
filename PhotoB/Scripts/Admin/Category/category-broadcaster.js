@@ -6,13 +6,9 @@
         var service = {};    
         service.categoryId = '';
 
-        service.prepForBroadcast = function(id) {
+        service.broadcastCategoryFilter = function (id) {
             this.categoryId = id;
-            this.broadcastItem();
-        };
-
-        service.broadcastItem = function() {
-            $rootScope.$broadcast('handleBroadcast');
+            $rootScope.$broadcast('categoryFilterBroadcast');
         };
 
         return service;

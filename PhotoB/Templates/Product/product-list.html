@@ -1,5 +1,4 @@
-﻿<div class="container" ng-init="getPhotos()" >
-<!--<div class="container" ng-controller="PhotolistController">-->
+﻿<div class="container" ng-init="search()" >
 
     <h2>Products</h2>
 
@@ -7,7 +6,7 @@
         <div class="col-sm-4">
             <div class="form-group">
                 <label>Search</label>
-                <input type="text" class="form-control input-sm" ng-model="query" ng-keyup="keyup()" ng-keydown="keydown()" />
+                <input type="text" class="form-control input-sm" ng-model="searchQuery" ng-keyup="keyup()" ng-keydown="keydown()" />
             </div>
         </div>
 

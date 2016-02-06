@@ -4,10 +4,6 @@
 
     var menuController = function ($scope, menuRepository, categoryBroadcaster) {
 
-        $scope.handleClick = function (msg) {
-            mySharedService.prepForBroadcast(msg);
-        };
-
         menuRepository.getCategoryMenu().then(function (data) {
             $scope.categoryMenuItems = data;
         });
@@ -17,7 +13,7 @@
         });
 
         $scope.filterByCategory = function (categoryId) {
-            categoryBroadcaster.prepForBroadcast(categoryId);
+            categoryBroadcaster.broadcastCategoryFilter(categoryId);
         };
     };
 
