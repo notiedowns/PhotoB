@@ -4,13 +4,9 @@
 
     var photoCreateController = function ($scope, photoRepository, categoryRepository, photoCacheService, $exceptionHandler, $location, $log) {
         
-        categoryRepository.getCategories().then(function (data) {
-            $scope.categories = data;
-        });
-
-        // Set selected category if it exists
-        $scope.selectedPhoto = photoCacheService.loadSelectedPhoto();
-
+        // Set selected photo if it exists
+        $scope.selectedPhoto = photoCacheService.loadSelectedPhoto();     
+        
         if ($scope.selectedPhoto) {
             $scope.editTitle = "Edit Photo";
         }
@@ -19,21 +15,48 @@
         }
 
 
-        $scope.createPhoto = function () {
-            photoRepository.createPhoto($scope.selectedPhoto).then(
-                onCreatePhotoSuccess,
-                onCreatePhotoError
+
+        // Load categories list and set selected category
+        categoryRepository.getCategories().then(function (data) {
+            $scope.categories = data;
+
+            setSelectedCategory();
+        });
+
+        var setSelectedCategory = function () {
+            if ($scope.selectedPhoto) {
+
+                for (var i = 0; i < $scope.categories.length; i++) {
+                    if ($scope.categories[i].id === $scope.selectedPhoto.categoryId) {
+                        $scope.selectedCategory = $scope.categories[i];
+                    }
+                }
+            }
+        }
+
+
+
+        // Edit photo
+        $scope.editPhoto = function () {
+
+            if ($scope.selectedCategory) {
+                $scope.selectedPhoto.categoryId = $scope.selectedCategory.id;
+            }
+
+            photoRepository.editPhoto($scope.selectedPhoto).then(
+                onEditPhotoSuccess,
+                onEditPhotoError
                 );
         };
 
-        function onCreatePhotoSuccess(response) {
+        function onEditPhotoSuccess(response) {
             $log.info('New photo created');
 
             photoCacheService.storeSelectedPhoto({});
             $location.path('/PhotoList');
         }
 
-        function onCreatePhotoError(response) {
+        function onEditPhotoError(response) {
             if (response && response.data) {
                 if (response.data.exceptionMessage) {
                     $log.info(response.data.exceptionMessage);

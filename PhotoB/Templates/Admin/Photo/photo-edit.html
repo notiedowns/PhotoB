@@ -2,7 +2,7 @@
 
     <h2>{{editTitle}}</h2>
 
-    <form name="createPhotoForm" novalidate>
+    <form name="editPhotoForm" novalidate>
         <div class="row">
             <div class="col-sm-4">
                 <div class="form-group">
@@ -17,9 +17,10 @@
                 </div>
                 <div class="form-group">
                     <label>Category</label>
-                    <select class="form-control input-sm" ng-model="selectedPhoto.categoryId" ng-init="selectedPhoto.categoryId=categories[0]">
+                    <!--<select class="form-control input-sm" ng-model="selectedPhoto.categoryId" ng-init="selectedCategory">
                         <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
-                    </select>
+                    </select>-->
+                    <select class="form-control input-sm" ng-options="c.name for c in categories" ng-model="selectedCategory"></select>
                     <div class="text-danger">{{validationErrors.CategoryId}}</div>
                 </div>
                 <div class="form-group">
@@ -37,7 +38,7 @@
                     <input type="text" name="author" ng-model="selectedPhoto.author" class="form-control input-sm" autocomplete="off"/>
                     <div class="text-danger">{{validationErrors.Author}}</div>
                 </div>
-                <button class="btn btn-sm btn-default" ng-click="createPhoto(photo)">Save</button>
+                <button class="btn btn-sm btn-default" ng-click="editPhoto(photo)">Save</button>
                 <a href="/Shop/AdminStart#/PhotoList" class="btn btn-sm btn-default">Cancel</a>
             </div>
         </div>

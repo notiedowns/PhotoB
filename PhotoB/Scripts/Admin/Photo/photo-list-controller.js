@@ -34,7 +34,7 @@
                 
 
         // Session timeout indicator
-        $scope.sessionTimeoutSeconds = 60 * 1; //1 min        
+        $scope.sessionTimeoutSeconds = 60 * 5; //5 min        
 
         $scope.startSessionCountdown = function () {
             $interval(function () { $scope.sessionTimeoutSeconds -= 1 }, 1000, $scope.sessionTimeoutSeconds);
@@ -47,7 +47,7 @@
         // Route to create photo view
         $scope.loadEditPhoto = function () {
             photoCacheService.storeSelectedPhoto(null);
-            $location.path('/CreatePhoto');
+            $location.path('/EditPhoto');
         };
 
         // Cache selected photo for edit
@@ -59,7 +59,7 @@
                 }
             }
 
-            $location.path('/CreatePhoto');
+            $location.path('/EditPhoto');
         };
 
 

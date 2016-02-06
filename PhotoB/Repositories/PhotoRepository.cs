@@ -31,7 +31,7 @@ namespace PhotoB.Repositories
             }
         }
 
-        public void CreatePhoto(PhotoVm photoVm)
+        public void EditPhoto(PhotoVm photoVm)
         {
             using (var model = new PhotoBEntities())
             {

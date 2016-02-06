@@ -51,9 +51,9 @@
     
 
     it('should create new photo', function () {
-        $httpBackend.when('POST', '/Photo/CreatePhoto').respond(200);
+        $httpBackend.when('POST', '/Photo/EditPhoto').respond(200);
 
-        photoRepository.createPhoto();
+        photoRepository.editPhoto();
 
         expect($httpBackend.flush).not.toThrow();
     });

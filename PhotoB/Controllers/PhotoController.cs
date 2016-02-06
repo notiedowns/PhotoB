@@ -69,14 +69,14 @@ namespace PhotoB.Controllers
 
 
         [HttpGet]
-        public ActionResult CreatePhoto()
+        public ActionResult EditPhoto()
         {
             return View();
         }
 
 
         [HttpPost]
-        public ActionResult CreatePhoto(HttpRequestMessage request, PhotoVm photo)
+        public ActionResult EditPhoto(HttpRequestMessage request, PhotoVm photo)
         {
             try
             {
@@ -85,7 +85,7 @@ namespace PhotoB.Controllers
                 if (ModelState.IsValid)
                 {
                     if (photo.Id == 0)
-                        _photoRepository.CreatePhoto(photo);
+                        _photoRepository.EditPhoto(photo);
                     else
                         _photoRepository.Updatephoto(photo);
 

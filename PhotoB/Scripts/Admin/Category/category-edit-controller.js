@@ -6,7 +6,7 @@
 
         // Set selected category if it exists
         $scope.selectedCategory = categoryCacheService.loadSelectedCategory();
-
+        
         if ($scope.selectedCategory) {
             $scope.editTitle = "Edit Category";
         }

@@ -14,15 +14,15 @@
                 controller: "CategoryListController"
             })
             .when("/CreateCategory", {
-                templateUrl: "/templates/admin/category/category-create.html",
+                templateUrl: "/templates/admin/category/category-edit.html",
                 controller: "CategoryEditController"
             })
             .when("/PhotoList", {
                 templateUrl: "/templates/admin/photo/photo-list.html",
                 controller: "PhotolistController"
             })
-            .when("/CreatePhoto", {
-                templateUrl: "/templates/admin/photo/photo-create.html",
+            .when("/EditPhoto", {
+                templateUrl: "/templates/admin/photo/photo-edit.html",
                 controller: "PhotoCreateController"
             })
             .when("/BSTable", {

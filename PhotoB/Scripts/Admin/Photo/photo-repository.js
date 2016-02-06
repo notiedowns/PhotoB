@@ -12,8 +12,8 @@
                 });
         };
 
-        var createPhoto = function (photo) {
-            return $http.post('/Photo/CreatePhoto', photo);
+        var editPhoto = function (photo) {
+            return $http.post('/Photo/EditPhoto', photo);
         };
 
          var deletePhoto = function (photoId) {
@@ -22,7 +22,7 @@
 
         return {
             getPhotos: getPhotos,
-            createPhoto: createPhoto,
+            editPhoto: editPhoto,
             deletePhoto: deletePhoto
         }
     };
