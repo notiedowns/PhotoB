@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
-using System.Web;
 using System.Web.Mvc;
 
 namespace PhotoB.Controllers
@@ -35,10 +34,11 @@ namespace PhotoB.Controllers
             }
             catch (Exception ex)
             {
-                Logger.Error("Error retrieving categories", ex);
+                var message = "Error retrieving categories";
+                Logger.Error(message, ex);
 
-                Response.StatusCode = 500;
-                return Json(new { message = "Error retrieving categories" });
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage = message });
             }
         }
 
@@ -63,11 +63,11 @@ namespace PhotoB.Controllers
             }
             catch (Exception ex)
             {
-                var exceptionMessage = "Error creating category";
-                Logger.Error(exceptionMessage, ex);
+                var message = "Error creating category";
+                Logger.Error(message, ex);
 
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                return Json(new { exceptionMessage = exceptionMessage });
+                return Json(new { exceptionMessage = message });
             }
         }
 
@@ -77,16 +77,26 @@ namespace PhotoB.Controllers
         {
             try
             {
-                _categoryRepository.DeleteCategory(categoryId);
+                var categoryInUse = _categoryRepository.CheckCategoryInUse(categoryId);
 
-                return new JsonResult();
+                if (categoryInUse)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return Json(new { exceptionMessage = "Cannot delete this category. It is referenced by one or more photos" });
+                }
+                else
+                {
+                    _categoryRepository.DeleteCategory(categoryId);
+                    return Json(new {});
+                }
             }
             catch (Exception ex)
             {
-                Logger.Error("Error deleting category", ex);
+                var message = "Error deleting category";
+                Logger.Error(message, ex);
 
-                Response.StatusCode = 500;
-                return Json(new { message = "Error deleting category" });
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage = message });
             }
         }
 

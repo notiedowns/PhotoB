@@ -2,7 +2,7 @@
 
     'use strict'
 
-    var photolistController = function ($scope, photoRepository, photoCacheService, categoryBroadcaster, $interval, $log, $location, $timeout) {
+    var photolistController = function ($scope, photoRepository, photoCacheService, categoryBroadcaster, shopHelperFunctions, $interval, $log, $location, $timeout) {
         
         $scope.searchQuery = '';
         $scope.selectedCategoryId = '';
@@ -78,8 +78,7 @@
         }
 
         function onDeletePhotoError(response) {
-            $log.info('Error deleting photo');
-            alert('Error deleting photo');
+            shopHelperFunctions.handleErrorResponse(response);
         }
 
 
@@ -95,6 +94,6 @@
     // parameters without breaking dependecy injection.
     // $interval is an angular service that can replace the standard js interval function. Using services like this as
     // dependancies means that modules and services are more testable (can replace with mock)
-    angular.module('shopModule').controller("PhotolistController", ["$scope", "photoRepository", "photoCacheService", "categoryBroadcaster", "$interval", "$log", "$location", "$timeout", photolistController]);
+    angular.module('shopModule').controller("PhotolistController", ["$scope", "photoRepository", "photoCacheService", "categoryBroadcaster", "shopHelperFunctions", "$interval", "$log", "$location", "$timeout", photolistController]);
 
 })();

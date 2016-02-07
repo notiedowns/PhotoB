@@ -60,10 +60,12 @@ namespace PhotoB.Controllers
             }
             catch (Exception ex)
             {
-                Logger.Error("Error retrieving product list", ex);
+                var message = "Error retrieving product list";
 
-                Response.StatusCode = 500;
-                return Json(new { message = "Error retrieving product list" });
+                Logger.Error(message, ex);
+
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage = message });
             }
         }       
 
@@ -113,14 +115,15 @@ namespace PhotoB.Controllers
             {
                 _photoRepository.DeleteCategory(photoId);
 
-                return new JsonResult();
+                return Json(new {});
             }
             catch (Exception ex)
             {
-                Logger.Error("Error deleting photo", ex);
+                var message = "Error deleting photo";
+                Logger.Error(message, ex);
 
-                Response.StatusCode = 500;
-                return Json(new { message = "Error deleting photo" });
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage = message });
             }
         }
 

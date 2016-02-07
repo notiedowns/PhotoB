@@ -2,7 +2,7 @@
 
     'use strict'
 
-    var categoryEditController = function ($scope, categoryRepository, categoryCacheService, $location, $log, $exceptionHandler) {
+    var categoryEditController = function ($scope, categoryRepository, categoryCacheService, shopHelperFunctions, $location, $log, $exceptionHandler) {
 
         // Set selected category if it exists
         $scope.selectedCategory = categoryCacheService.loadSelectedCategory();
@@ -30,21 +30,7 @@
         }
 
         function onEditCategoryError(response) {
-            if (response && response.data) {
-                if (response.data.exceptionMessage) {
-                    $log.info(response.data.exceptionMessage);
-                    //alert(response.data.exceptionMessage);
-                }
-                else if (response.data.validationErrors) {
-                    createErrorMessage(response.data.validationErrors);
-                    $log.info("Validation errors found");
-                } else {
-                    var defaultMessage = "Server communication error";
-                    $log.info(defaultMessage);
-                    $exceptionHandler(defaultMessage);
-                    alert(defaultMessage);
-                }
-            }
+            shopHelperFunctions.handleErrorResponse(response, createErrorMessage);
         }
 
         function createErrorMessage(validationErrors) {
@@ -72,6 +58,6 @@
         }
     }
 
-    angular.module('shopModule').controller("CategoryEditController", ["$scope", "categoryRepository", "categoryCacheService", "$location", "$log", "$exceptionHandler", categoryEditController]);
+    angular.module('shopModule').controller("CategoryEditController", ["$scope", "categoryRepository", "categoryCacheService", "shopHelperFunctions", "$location", "$log", "$exceptionHandler", categoryEditController]);
 
 })();

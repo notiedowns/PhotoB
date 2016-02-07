@@ -2,7 +2,7 @@
 
     'use strict'
 
-    var photoCreateController = function ($scope, photoRepository, categoryRepository, photoCacheService, $exceptionHandler, $location, $log) {
+    var photoCreateController = function ($scope, photoRepository, categoryRepository, photoCacheService, shopHelperFunctions, $exceptionHandler, $location, $log) {
         
         // Set selected photo if it exists
         $scope.selectedPhoto = photoCacheService.loadSelectedPhoto();     
@@ -57,21 +57,7 @@
         }
 
         function onEditPhotoError(response) {
-            if (response && response.data) {
-                if (response.data.exceptionMessage) {
-                    $log.info(response.data.exceptionMessage);
-                    alert(response.data.exceptionMessage);
-                }
-                else if (response.data.validationErrors) {
-                    createErrorMessage(response.data.validationErrors);
-                    $log.info("Validation errors found");
-                } else {
-                    var defaultMessage = "Server communication error";
-                    $log.info(defaultMessage);
-                    $exceptionHandler(defaultMessage);
-                    alert(defaultMessage);
-                }
-            }
+            shopHelperFunctions.handleErrorResponse(response, createErrorMessage);
         }
 
         function createErrorMessage(validationErrors) {
@@ -104,6 +90,6 @@
     // parameters without breaking dependecy injection.
     // $interval is an angular service that can replace the standard js interval function. Using services like this as
     // dependancies means that modules and services are more testable (can replace with mock)
-    angular.module('shopModule').controller("PhotoCreateController", ["$scope", "photoRepository", "categoryRepository", "photoCacheService", "$exceptionHandler", "$location", "$log", photoCreateController]);
+    angular.module('shopModule').controller("PhotoCreateController", ["$scope", "photoRepository", "categoryRepository", "photoCacheService", "shopHelperFunctions", "$exceptionHandler", "$location", "$log", photoCreateController]);
 
 })();

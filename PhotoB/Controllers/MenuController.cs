@@ -27,10 +27,11 @@ namespace PhotoB.Controllers
             }
             catch (Exception ex)
             {
-                Logger.Error("Error retrieving category menu", ex);
+                var message = "Error retrieving category menu";
+                Logger.Error(message, ex);
 
-                Response.StatusCode = 500;
-                return Json(new { message = "Error retrieving category menu" });
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage = message });
             }
         }
 
@@ -47,10 +48,11 @@ namespace PhotoB.Controllers
             }
             catch (Exception ex)
             {
-                Logger.Error("Error retrieving admin menu", ex);
+                var message = "Error retrieving admin menu";
+                Logger.Error(message, ex);
 
-                Response.StatusCode = 500;
-                return Json(new { message = "Error retrieving admin menu" });
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage = message });
             }
         }       
     }

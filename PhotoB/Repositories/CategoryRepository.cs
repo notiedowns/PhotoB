@@ -74,5 +74,13 @@ namespace PhotoB.Repositories
                 model.SaveChanges();
             }
         }
+
+        public bool CheckCategoryInUse(int categoryId)
+        {
+            using (var model = new PhotoBEntities())
+            {
+                return model.Photos.Any(x => x.CategoryId == categoryId);
+            }
+        }
     }
 }
