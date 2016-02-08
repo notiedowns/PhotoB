@@ -67,7 +67,32 @@ namespace PhotoB.Controllers
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 return Json(new { exceptionMessage = message });
             }
-        }       
+        }
+
+
+        public ActionResult GetPhotoById(int? photoId)
+        {
+            try
+            {
+                if (!photoId.HasValue)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return Json(new { exceptionMessage = "PhotoId not set" });
+                }
+
+                var photo = _photoRepository.GetPhotoById(photoId.Value);
+
+                return JsonResult(photo, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                var message = "Error retrieving photo by id";
+                Logger.Error(message, ex);
+
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage = message });
+            }
+        }
 
 
         [HttpGet]

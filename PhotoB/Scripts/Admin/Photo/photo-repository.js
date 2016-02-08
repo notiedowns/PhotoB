@@ -12,6 +12,16 @@
                 });
         };
 
+        var getPhotoById = function (photoId) {
+            return $http.get('/Photo/GetPhotoById', { params: { photoId: photoId } }).then(
+                    function (response) {
+                        return response.data;
+                    },
+                    function (error) {
+                        return 'Error while getting photo by id';
+                    });
+        };
+
         var editPhoto = function (photo) {
             return $http.post('/Photo/EditPhoto', photo);
         };
@@ -22,6 +32,7 @@
 
         return {
             getPhotos: getPhotos,
+            getPhotoById: getPhotoById,
             editPhoto: editPhoto,
             deletePhoto: deletePhoto
         }

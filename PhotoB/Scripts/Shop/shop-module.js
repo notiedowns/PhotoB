@@ -25,6 +25,10 @@
                 templateUrl: "/templates/admin/photo/photo-list.html",
                 controller: "PhotolistController"
             })
+            .when("/EditPhoto/:photoId", {
+                templateUrl: "/templates/admin/photo/photo-edit.html",
+                controller: "PhotoCreateController"
+            })
             .when("/EditPhoto", {
                 templateUrl: "/templates/admin/photo/photo-edit.html",
                 controller: "PhotoCreateController"
@@ -41,7 +45,6 @@
                 templateUrl: "/templates/admin/category/category-create.html",
                 controller: "CategoryEditController"
             });
-        //.otherwise({ redirectTo: "/ProductStart" });
     });
 
 

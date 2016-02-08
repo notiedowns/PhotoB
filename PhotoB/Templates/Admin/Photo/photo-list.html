@@ -54,14 +54,14 @@
                     <td><img src="../../images/{{photo.imagePath}}" style="width: 40px;" /></td>
                     <td>{{photo.imagePath}}</td>
                     <td>{{photo.author}}</td>
-                    <td><i class="glyphicon glyphicon-edit" title="Edit" ng-click="editPhoto(photo.id)"></i></td>
-                    <td><i class="glyphicon glyphicon-remove" title="Delete" ng-click="deletePhoto(photo.id)"></i></td>
+                    <td><a href="#/EditPhoto/{{photo.id}}"><i class="glyphicon glyphicon-edit" title="Edit"></i></a></td>
+                    <td><a><i class="glyphicon glyphicon-remove" title="Delete" ng-click="deletePhoto(photo.id)"></i></a></td>
                 </tr>
             </table>
         </div>
     </div>
 
     <div class="row">
-        <a ng-click="loadEditPhoto()" style="cursor: pointer;">Create Photo</a>
+        <a href="#/EditPhoto" style="cursor: pointer;">Create Photo</a>
     </div>
 </div>

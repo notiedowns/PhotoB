@@ -2,26 +2,35 @@
 
     'use strict'
 
-    var photoCreateController = function ($scope, photoRepository, categoryRepository, photoCacheService, shopHelperFunctions, $exceptionHandler, $location, $log) {
+    var photoCreateController = function ($scope, $routeParams, photoRepository, categoryRepository, shopHelperFunctions, $exceptionHandler, $location, $log) {
         
-        // Set selected photo if it exists
-        $scope.selectedPhoto = photoCacheService.loadSelectedPhoto();     
+        // Load selected photo if an edit is requested
+        $scope.photoId = $routeParams.photoId;
+        $scope.editTitle = "Create Photo";
+
+        if ($scope.photoId) {
+            photoRepository.getPhotoById($scope.photoId).then(function (data) {
+                $scope.selectedPhoto = data;
+
+                if ($scope.selectedPhoto) {
+                    $scope.editTitle = "Edit Photo";
+                }
+
+                // Load categories list and set selected category
+                categoryRepository.getCategories().then(function (data) {
+                    $scope.categories = data;
+
+                    setSelectedCategory();
+                });
+            });
+        }
+        else
+        {
+            categoryRepository.getCategories().then(function (data) {
+                $scope.categories = data;
+            });
+        }
         
-        if ($scope.selectedPhoto) {
-            $scope.editTitle = "Edit Photo";
-        }
-        else {
-            $scope.editTitle = "Create Photo";
-        }
-
-
-
-        // Load categories list and set selected category
-        categoryRepository.getCategories().then(function (data) {
-            $scope.categories = data;
-
-            setSelectedCategory();
-        });
 
         var setSelectedCategory = function () {
             if ($scope.selectedPhoto) {
@@ -51,8 +60,6 @@
 
         function onEditPhotoSuccess(response) {
             $log.info('New photo created');
-
-            photoCacheService.storeSelectedPhoto({});
             $location.path('/PhotoList');
         }
 
@@ -90,6 +97,6 @@
     // parameters without breaking dependecy injection.
     // $interval is an angular service that can replace the standard js interval function. Using services like this as
     // dependancies means that modules and services are more testable (can replace with mock)
-    angular.module('shopModule').controller("PhotoCreateController", ["$scope", "photoRepository", "categoryRepository", "photoCacheService", "shopHelperFunctions", "$exceptionHandler", "$location", "$log", photoCreateController]);
+    angular.module('shopModule').controller("PhotoCreateController", ["$scope", "$routeParams", "photoRepository", "categoryRepository", "shopHelperFunctions", "$exceptionHandler", "$location", "$log", photoCreateController]);
 
 })();

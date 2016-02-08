@@ -30,5 +30,9 @@ namespace PhotoB.Models.Products
 
         [MaxLength(50, ErrorMessage = "Author can be maximum 50 characters")]
         public string Author { get; set; }
+
+        public string LastChangedBy { get; set; }
+
+        public DateTime LastChanged { get; set; }
     }
 }

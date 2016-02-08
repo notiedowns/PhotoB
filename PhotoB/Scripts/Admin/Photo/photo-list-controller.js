@@ -2,7 +2,7 @@
 
     'use strict'
 
-    var photolistController = function ($scope, photoRepository, photoCacheService, categoryBroadcaster, shopHelperFunctions, $interval, $log, $location, $timeout) {
+    var photolistController = function ($scope, photoRepository, categoryBroadcaster, shopHelperFunctions, $interval, $log, $location, $timeout) {
         
         $scope.searchQuery = '';
         $scope.selectedCategoryId = '';
@@ -44,26 +44,6 @@
 
 
 
-        // Route to create photo view
-        $scope.loadEditPhoto = function () {
-            photoCacheService.storeSelectedPhoto(null);
-            $location.path('/EditPhoto');
-        };
-
-        // Cache selected photo for edit
-        $scope.editPhoto = function (photoId) {
-
-            for (var i = 0; i < $scope.photos.length; i++) {
-                if ($scope.photos[i].id === photoId) {
-                    photoCacheService.storeSelectedPhoto($scope.photos[i]);
-                }
-            }
-
-            $location.path('/EditPhoto');
-        };
-
-
-
         // Delete selected photo
         $scope.deletePhoto = function (photoId) {
             photoRepository.deletePhoto(photoId).then(
@@ -74,7 +54,7 @@
 
         function onDeletePhotoSuccess(response) {
             $log.info('Photo deleted');
-            $scope.getPhotos();
+            $scope.search();
         }
 
         function onDeletePhotoError(response) {
@@ -94,6 +74,6 @@
     // parameters without breaking dependecy injection.
     // $interval is an angular service that can replace the standard js interval function. Using services like this as
     // dependancies means that modules and services are more testable (can replace with mock)
-    angular.module('shopModule').controller("PhotolistController", ["$scope", "photoRepository", "photoCacheService", "categoryBroadcaster", "shopHelperFunctions", "$interval", "$log", "$location", "$timeout", photolistController]);
+    angular.module('shopModule').controller("PhotolistController", ["$scope", "photoRepository", "categoryBroadcaster", "shopHelperFunctions", "$interval", "$log", "$location", "$timeout", photolistController]);
 
 })();
