@@ -2,19 +2,24 @@
 
     'use strict'
 
-    var categoryEditController = function ($scope, categoryRepository, categoryCacheService, shopHelperFunctions, $location, $log, $exceptionHandler) {
+    var categoryEditController = function ($scope, $routeParams, categoryRepository, categoryCacheService, shopHelperFunctions, $location, $log, $exceptionHandler) {
 
-        // Set selected category if it exists
-        $scope.selectedCategory = categoryCacheService.loadSelectedCategory();
-        
-        if ($scope.selectedCategory) {
-            $scope.editTitle = "Edit Category";
+        // Load selected category if an edit is requested
+        $scope.categoryId = $routeParams.categoryId;
+        $scope.editTitle = "Create Category";
+
+        if ($scope.categoryId) {
+            categoryRepository.getCategoryById($scope.categoryId).then(function (data) {
+                $scope.selectedCategory = data;
+
+                if ($scope.selectedCategory) {
+                    $scope.editTitle = "Edit Category";
+                }
+            });
         }
-        else {
-            $scope.editTitle = "Create Category";
-        }
 
 
+        // Edit selected category
         $scope.editCategory = function () {
             categoryRepository.editCategory($scope.selectedCategory).then(
                 onEditCategorySuccess,
@@ -58,6 +63,6 @@
         }
     }
 
-    angular.module('shopModule').controller("CategoryEditController", ["$scope", "categoryRepository", "categoryCacheService", "shopHelperFunctions", "$location", "$log", "$exceptionHandler", categoryEditController]);
+    angular.module('shopModule').controller("CategoryEditController", ["$scope", "$routeParams", "categoryRepository", "categoryCacheService", "shopHelperFunctions", "$location", "$log", "$exceptionHandler", categoryEditController]);
 
 })();

@@ -20,8 +20,8 @@
                     <td>{{category.description}}</td>
                     <td>{{category.lastChangedBy}}</td>
                     <td>{{category.lastChanged | date:'dd-MM-yyyy hh:mm'}}</td>
-                    <td><i class="glyphicon glyphicon-edit" title="Edit" ng-click="editCategory(category.id)"></i></td>
-                    <td><i class="glyphicon glyphicon-remove" title="Delete" ng-click="deleteCategory(category.id)"></i></td>
+                    <td><a href="#/EditCategory/{{category.id}}"><i class="glyphicon glyphicon-edit" title="Edit"></i></a></td>
+                    <td><a><i class="glyphicon glyphicon-remove" title="Delete" ng-click="deleteCategory(category.id)"></i></a></td>
                 </tr>
             </table>
         </div>
@@ -29,7 +29,7 @@
 
     <div class="row">
         <div class="col-sm-8">
-            <a ng-click="loadEditCategory()" style="cursor: pointer;">Create Category</a>
+            <a href="#/EditCategory" style="cursor: pointer;">Create Category</a>
         </div>
     </div>
 

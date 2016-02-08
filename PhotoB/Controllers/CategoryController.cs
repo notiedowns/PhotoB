@@ -42,6 +42,30 @@ namespace PhotoB.Controllers
             }
         }
 
+        public ActionResult GetCategoryById(int? categoryId)
+        {
+            try
+            {
+                if(!categoryId.HasValue)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return Json(new { exceptionMessage = "CategoryId not set" });
+                }
+
+                var category = _categoryRepository.GetCategoryById(categoryId.Value);
+                
+                return JsonResult(category, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                var message = "Error retrieving category by id";
+                Logger.Error(message, ex);
+
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage = message });
+            }
+        }
+
 
         [HttpPost]
         public ActionResult EditCategory(HttpRequestMessage request, CategoryVm category)

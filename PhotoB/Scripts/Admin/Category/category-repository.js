@@ -12,6 +12,16 @@
                     });
         };
 
+        var getCategoryById = function (categoryId) {
+            return $http.get('/Category/GetCategoryById', { params: { categoryId: categoryId } }).then(
+                    function (response) {
+                        return response.data;
+                    },
+                    function (error) {
+                        return 'Error while getting category by id';
+                    });
+        };
+
         var editCategory = function (category) {
             return $http.post('/Category/EditCategory', category);
         };
@@ -22,6 +32,7 @@
 
         return {
             getCategories: getCategories,
+            getCategoryById: getCategoryById,
             editCategory: editCategory,
             deleteCategory: deleteCategory
         }

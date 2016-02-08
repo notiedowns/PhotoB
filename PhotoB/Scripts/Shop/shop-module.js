@@ -13,6 +13,10 @@
                 templateUrl: "/templates/admin/category/category-list.html",
                 controller: "CategoryListController"
             })
+            .when("/EditCategory/:categoryId", {
+                templateUrl: "/templates/admin/category/category-edit.html",
+                controller: "CategoryEditController"
+            })
             .when("/EditCategory", {
                 templateUrl: "/templates/admin/category/category-edit.html",
                 controller: "CategoryEditController"

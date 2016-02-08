@@ -62,6 +62,29 @@ namespace PhotoB.Repositories
             }
         }
 
+        public CategoryVm GetCategoryById(int categoryId)
+        {
+            using (var model = new PhotoBEntities())
+            {
+                var category = model.Categories.FirstOrDefault(x => x.Id == categoryId);
+                if (category != null)
+                {
+                    return new CategoryVm
+                    {
+                        Id = category.Id,
+                        Name = category.Name,
+                        Description = category.Description,
+                        LastChanged = category.LastChanged,
+                        LastChangedBy = category.LastChangedBy
+                    };
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
         public void DeleteCategory(int categoryId)
         {
             using (var model = new PhotoBEntities())
