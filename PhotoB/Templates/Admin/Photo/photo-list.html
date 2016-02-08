@@ -51,7 +51,7 @@
                     <td>{{photo.categoryName}}</td>
                     <td>{{photo.price | currency}}</td>
                     <td>{{photo.dateListed | date:'dd-MM-yyyy hh:mm'}} {{photo.dateListed | fromNow}}</td>
-                    <td><img src="../../images/{{photo.imagePath}}" style="width: 40px;" /></td>
+                    <td><img ng-src="../../images/{{photo.imagePath}}" style="width: 40px;" /></td>
                     <td>{{photo.imagePath}}</td>
                     <td>{{photo.author}}</td>
                     <td><a href="#/EditPhoto/{{photo.id}}"><i class="glyphicon glyphicon-edit" title="Edit"></i></a></td>
