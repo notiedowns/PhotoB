@@ -247,7 +247,6 @@
       <LastGenOutput>PhotoBModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\Admin\Category\category-broadcaster.js" />
-    <Content Include="Scripts\Admin\Category\category-cache-service.js" />
     <Content Include="Scripts\Admin\Category\category-edit-controller.js" />
     <Content Include="Scripts\Admin\Photo\photo-cache-service.js" />
     <Content Include="Scripts\Admin\Category\category-repository.js" />

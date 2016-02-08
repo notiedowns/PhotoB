@@ -2,7 +2,7 @@
 
     'use strict'
 
-    var categoryEditController = function ($scope, $routeParams, categoryRepository, categoryCacheService, shopHelperFunctions, $location, $log, $exceptionHandler) {
+    var categoryEditController = function ($scope, $routeParams, categoryRepository, shopHelperFunctions, $location, $log, $exceptionHandler) {
 
         // Load selected category if an edit is requested
         $scope.categoryId = $routeParams.categoryId;
@@ -29,8 +29,6 @@
 
         function onEditCategorySuccess(response) {
             $log.info('New category created');
-
-            categoryCacheService.storeSelectedCategory({});
             $location.path('/CategoryList');
         }
 
@@ -63,6 +61,6 @@
         }
     }
 
-    angular.module('shopModule').controller("CategoryEditController", ["$scope", "$routeParams", "categoryRepository", "categoryCacheService", "shopHelperFunctions", "$location", "$log", "$exceptionHandler", categoryEditController]);
+    angular.module('shopModule').controller("CategoryEditController", ["$scope", "$routeParams", "categoryRepository", "shopHelperFunctions", "$location", "$log", "$exceptionHandler", categoryEditController]);
 
 })();
