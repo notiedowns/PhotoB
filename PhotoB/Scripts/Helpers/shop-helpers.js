@@ -1,13 +1,13 @@
 ﻿
 (function () {
 
-    var shopHelperFunctions = function ($log, $exceptionHandler) {
+    var shopHelperFunctions = function ($log, $exceptionHandler, alertService) {
 
         var handleErrorResponse = function (response, createErrorMessageFunction) {
             if (response && response.data) {
                 if (response.data.exceptionMessage) {
                     $log.info(response.data.exceptionMessage);
-                    alert(response.data.exceptionMessage);
+                    alertService.showAlert(response.data.exceptionMessage + ' new');
                 }
                 else if (response.data.validationErrors) {
                     createErrorMessageFunction(response.data.validationErrors);
@@ -16,7 +16,7 @@
                     var defaultMessage = "Server communication error";
                     $log.info(defaultMessage);
                     $exceptionHandler(defaultMessage);
-                    alert(defaultMessage);
+                    alertService.showAlert(defaultMessage + ' new');
                 }
             }
         }

@@ -258,6 +258,7 @@
     <Content Include="Scripts\Bootstrap-table\bootstrap-table.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\Filters\from-now-filter.js" />
+    <Content Include="Scripts\Helpers\alert-service.js" />
     <Content Include="Scripts\Helpers\shop-helpers.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\Menu\menu-controller.js" />

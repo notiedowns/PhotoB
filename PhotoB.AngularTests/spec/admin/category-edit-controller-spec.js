@@ -7,21 +7,23 @@
     var $log;
     var $location;
     var categoryRepository;
+    var shopHelperFunctions;
 
     beforeEach(function () {
         angular.mock.module('shopModule');
 
-        angular.mock.inject(function (_$controller_, _categoryRepository_, _$log_, _$q_, _$rootScope_, _$location_) {
+        angular.mock.inject(function (_$controller_, _categoryRepository_, _shopHelperFunctions_, _$log_, _$q_, _$rootScope_, _$location_) {
             $scope = {};
             $controller = _$controller_;
             categoryRepository = _categoryRepository_;
+            shopHelperFunctions = _shopHelperFunctions_;
             $log = _$log_;
             $location = _$location_;
             $q = _$q_;
             $rootScope = _$rootScope_;            
         });
 
-        $controller('CategoryEditController', { $scope: $scope, categoryRepository: categoryRepository, $location: $location, $log: $log })
+        $controller('CategoryEditController', { $scope: $scope, categoryRepository: categoryRepository, shopHelperFunctions: shopHelperFunctions, $location: $location, $log: $log })
     });
 
 
@@ -43,7 +45,7 @@
     });
 
 
-    it('should should show custom exception message', function () {
+    it('rejected response should create call to handleErrorResponse', function () {
 
         var response = {};
         response.data = {};
@@ -55,10 +57,12 @@
             return deferred.promise;
         });
 
+        spyOn(shopHelperFunctions, 'handleErrorResponse').and.callFake(function () {});
+
         $scope.editCategory('category1');
         $rootScope.$apply();
 
-        expect($log.info.logs[0]).toEqual(["Custom error text"]);
+        expect(shopHelperFunctions.handleErrorResponse).toHaveBeenCalled();
     });
 
 
