@@ -7,23 +7,21 @@
     var $log;
     var $location;
     var categoryRepository;
-    var categoryCacheService;
 
     beforeEach(function () {
         angular.mock.module('shopModule');
 
-        angular.mock.inject(function (_$controller_, _categoryRepository_, _categoryCacheService_, _$log_, _$q_, _$rootScope_, _$location_) {
+        angular.mock.inject(function (_$controller_, _categoryRepository_, _$log_, _$q_, _$rootScope_, _$location_) {
             $scope = {};
             $controller = _$controller_;
             categoryRepository = _categoryRepository_;
-            categoryCacheService = _categoryCacheService_;
             $log = _$log_;
             $location = _$location_;
             $q = _$q_;
             $rootScope = _$rootScope_;            
         });
 
-        $controller('CategoryEditController', { $scope: $scope, categoryRepository: categoryRepository, categoryCacheService: categoryCacheService, $location: $location, $log: $log })
+        $controller('CategoryEditController', { $scope: $scope, categoryRepository: categoryRepository, $location: $location, $log: $log })
     });
 
 
@@ -34,9 +32,7 @@
             deferred.resolve();
             return deferred.promise;
         });
-
-        spyOn(categoryCacheService, 'storeSelectedCategory').and.callFake(function () {});
-
+        
         spyOn($location, 'path');
 
         $scope.editCategory();
@@ -44,7 +40,6 @@
 
         expect($location.path).toHaveBeenCalledWith('/CategoryList');
         expect($log.info.logs[0]).toEqual(['New category created']);
-        expect(categoryCacheService.storeSelectedCategory).toHaveBeenCalledWith({});
     });
 
 
@@ -107,25 +102,5 @@
         expect($scope.validationErrors['columnName1']).toEqual('errorDescription1');
         expect($scope.validationErrors['columnName2']).toEqual('errorDescription2');
     });
-    
 
-    it('should set selected category as undefined from cache', function () {
-        
-        $controller('CategoryEditController', { $scope: $scope, categoryRepository: categoryRepository, categoryCacheService: categoryCacheService, $location: $location, $log: $log })
-
-        expect($scope.selectedCategory).toEqual(undefined);
-        expect($scope.editTitle).toEqual("Create Category");
-    });
-
-
-    it('should set selected category from cache', function () {
-
-        var expectedResult = { "foo": "bar" };
-        categoryCacheService.storeSelectedCategory(expectedResult);
-
-        $controller('CategoryEditController', { $scope: $scope, categoryRepository: categoryRepository, categoryCacheService: categoryCacheService, $location: $location, $log: $log })
-        
-        expect($scope.selectedCategory).toEqual(expectedResult);
-        expect($scope.editTitle).toEqual("Edit Category");
-    });
 });

@@ -8,14 +8,16 @@
     var $timeout;
     var $log;
     var photoRepository;
+    var categoryBroadcaster;
 
     beforeEach(function () {
         angular.mock.module('shopModule');
 
-        angular.mock.inject(function (_$controller_, _photoRepository_, _$interval_, _$timeout_, _$log_, _$q_, _$rootScope_) {
-            $scope = {};
+        angular.mock.inject(function (_$controller_, _photoRepository_, _categoryBroadcaster_, _$interval_, _$timeout_, _$log_, _$q_, _$rootScope_) {
+            $scope = _$rootScope_.$new();
             $controller = _$controller_;
             photoRepository = _photoRepository_;
+            categoryBroadcaster = _categoryBroadcaster_;
             $interval = _$interval_;
             $timeout = _$timeout_;
             $log = _$log_;
@@ -23,13 +25,18 @@
             $rootScope = _$rootScope_;            
         });
 
-        $controller('PhotolistController', { $scope: $scope, photoRepository: photoRepository, $interval: $interval, $log: $log, $timeout: $timeout })
+        $controller('PhotolistController', { $scope: $scope, photoRepository: photoRepository, categoryBroadcaster: categoryBroadcaster, $interval: $interval, $log: $log, $timeout: $timeout })
     });
 
 
     it('should populate photos array on $scope', function () {
 
         var expectedResults = [{ "number": "1", "name": "Product 1", "price": 12.9, "dateListed": "2016-01-05T11:01:46.5203217+01:00", "author": "Wayne" }];
+
+        var eventEmitted = false;
+        $rootScope.$on("MY_EVENT_ID", function () {
+            eventEmitted = true;
+        });
 
         // Create a mock call to getPhotos
         spyOn(photoRepository, 'getPhotos').and.callFake(function () {
@@ -41,7 +48,13 @@
             return deferred.promise;
         });
 
-        $scope.getPhotos();
+        //spyOn(scope, "$on").and.callFake(function () {});
+
+        
+        //run code to test
+        //expect(eventEmitted).toBe(true);
+
+        $scope.search();
         
         // When we returned a promise from the fake call we added a new promise to an internal list of promises ready to be processed by angulars event cycle.
         // When run in the browser this is handled for us, but not always in tests.

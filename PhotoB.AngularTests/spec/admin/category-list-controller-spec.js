@@ -7,23 +7,23 @@
     var $log;
     var $location;
     var categoryRepository;
-    var categoryCacheService;
+    var shopHelperFunctions;
 
     beforeEach(function () {
         angular.mock.module('shopModule');
 
-        angular.mock.inject(function (_$controller_, _categoryRepository_, _categoryCacheService_, _$log_, _$q_, _$rootScope_, _$location_) {
+        angular.mock.inject(function (_$controller_, _categoryRepository_, _shopHelperFunctions_, _$log_, _$q_, _$rootScope_, _$location_) {
             $scope = {};
             $controller = _$controller_;
             categoryRepository = _categoryRepository_;
-            categoryCacheService = _categoryCacheService_;
+            shopHelperFunctions = _shopHelperFunctions_;
             $log = _$log_;
             $location = _$location_;
             $q = _$q_;
             $rootScope = _$rootScope_;            
         });
 
-        $controller('CategoryListController', { $scope: $scope, categoryRepository: categoryRepository, categoryCacheService: categoryCacheService, $location: $location, $log: $log })
+        $controller('CategoryListController', { $scope: $scope, categoryRepository: categoryRepository, $location: $location, $log: $log })
     });
 
 
@@ -41,33 +41,6 @@
         $rootScope.$apply();
 
         expect($scope.categories).toBe(expectedResults);
-    });
-
-
-    it('should initialise edit category', function () {
-
-        spyOn($location, 'path').and.callFake(function () { });
-        spyOn(categoryCacheService, 'storeSelectedCategory').and.callFake(function () { });
-
-        $scope.loadEditCategory();
-
-        expect(categoryCacheService.storeSelectedCategory).toHaveBeenCalledWith(null);
-        expect($location.path).toHaveBeenCalledWith('/EditCategory');
-    });
-
-
-    it('should cache selected category for edit', function () {
-
-        $scope.categories = [{ "id": "1", "name": "Category 1" }];
-        $controller('CategoryListController', { $scope: $scope, categoryRepository: categoryRepository, categoryCacheService: categoryCacheService, $location: $location, $log: $log })
-
-        spyOn($location, 'path').and.callFake(function () { });
-        spyOn(categoryCacheService, 'storeSelectedCategory').and.callFake(function () { });
-
-        $scope.editCategory("1");
-
-        expect(categoryCacheService.storeSelectedCategory).toHaveBeenCalledWith($scope.categories[0]);
-        expect($location.path).toHaveBeenCalledWith('/EditCategory');
     });
 
 
@@ -93,7 +66,7 @@
     });
 
 
-    it('should log error when delete fails', function () {
+    it('should call error handler when delete fails', function () {
 
         spyOn(categoryRepository, 'deleteCategory').and.callFake(function () {
             var deferred = $q.defer();
@@ -101,10 +74,11 @@
             return deferred.promise;
         });
 
-        $scope.deleteCategory("1");
+        spyOn(shopHelperFunctions, 'handleErrorResponse').and.callFake(function () {});
+
+        $scope.deleteCategory();
         $rootScope.$apply();
 
-        expect($log.info.logs[0]).toEqual(["Error deleting category"]);
-    });
-    
+        expect(shopHelperFunctions.handleErrorResponse).toHaveBeenCalled();
+    });    
 });

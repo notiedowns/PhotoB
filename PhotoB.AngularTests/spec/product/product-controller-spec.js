@@ -13,7 +13,7 @@
         angular.mock.module('shopModule');
 
         angular.mock.inject(function (_$controller_, _photoRepository_, _$timeout_, _$log_, _$q_, _$rootScope_) {
-            $scope = {};
+            $scope = _$rootScope_.$new();
             $controller = _$controller_;
             photoRepository = _photoRepository_;
             $timeout = _$timeout_;
@@ -40,7 +40,7 @@
             return deferred.promise;
         });
 
-        $scope.getPhotos();
+        $scope.search();
         
         // When we returned a promise from the fake call we added a new promise to an internal list of promises ready to be processed by angulars event cycle.
         // When run in the browser this is handled for us, but not always in tests.
