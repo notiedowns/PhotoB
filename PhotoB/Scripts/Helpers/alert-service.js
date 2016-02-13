@@ -4,7 +4,7 @@
     var alertService = function () {
 
         var showAlert = function (message) {
-            alert(message);
+            bootbox.alert(message);
         }
 
         return {

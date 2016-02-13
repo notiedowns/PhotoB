@@ -253,6 +253,8 @@
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\Bootstrap-table\bootstrap-table-angular.js" />
     <Content Include="Scripts\Bootstrap-table\bootstrap-table.css" />
     <Content Include="Scripts\Bootstrap-table\bootstrap-table.js" />
@@ -282,7 +284,9 @@
     <Content Include="Templates\Nav\category-side-navbar.html" />
     <Content Include="Templates\Product\product-list.html" />
     <Content Include="TODO.txt" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
