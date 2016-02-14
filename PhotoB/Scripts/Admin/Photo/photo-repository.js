@@ -11,7 +11,7 @@
                     return 'Error while getting photo data';
                 });
         };
-
+        
         var getPhotoById = function (photoId) {
             return $http.get('/Photo/GetPhotoById', { params: { photoId: photoId } }).then(
                     function (response) {
@@ -20,6 +20,16 @@
                     function (error) {
                         return 'Error while getting photo by id';
                     });
+        };
+
+        var getPhotoPaths = function () {
+            return $http({ url: '/Photo/GetPhotoPaths' }).then(
+                function (response) {
+                    return response.data;
+                },
+                function () {
+                    return 'Error while getting photo paths';
+                });
         };
 
         var editPhoto = function (photo) {
@@ -33,6 +43,7 @@
         return {
             getPhotos: getPhotos,
             getPhotoById: getPhotoById,
+            getPhotoPaths: getPhotoPaths,
             editPhoto: editPhoto,
             deletePhoto: deletePhoto
         }

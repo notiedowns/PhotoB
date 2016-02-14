@@ -2,6 +2,7 @@
 using PhotoB.Repositories;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -87,6 +88,29 @@ namespace PhotoB.Controllers
             catch (Exception ex)
             {
                 var message = "Error retrieving photo by id";
+                Logger.Error(message, ex);
+
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage = message });
+            }
+        }
+
+
+        public ActionResult GetPhotoPaths()
+        {
+            try
+            {
+                Logger.Debug("Retrieving photo path list");
+
+                var photoFolder = new DirectoryInfo(Server.MapPath("/") + "/images");
+                var photoPaths = photoFolder.GetFiles().Select(x => x.Name);
+
+                return JsonResult(photoPaths, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                var message = "Error retrieving photo path list";
+
                 Logger.Error(message, ex);
 
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;

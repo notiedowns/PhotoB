@@ -44,6 +44,19 @@
         }
 
 
+        // Select photo dialog
+        $scope.openPhotoSelectionDialog = function () {
+            photoRepository.getPhotoPaths().then(function (data) {
+                $scope.images = data;
+                $('#modalSelectPhoto').modal('show');
+            });
+            
+        };
+
+        $scope.closePhotoSelectionDialog = function () {
+            $('#modalSelectPhoto').modal('hide');
+        };
+
 
         // Edit photo
         $scope.editPhoto = function () {

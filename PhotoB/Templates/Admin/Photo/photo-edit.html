@@ -12,36 +12,61 @@
                 </div>
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" ng-model="selectedPhoto.name" class="form-control input-sm" autocomplete="off"/>
+                    <input type="text" name="name" ng-model="selectedPhoto.name" class="form-control input-sm" autocomplete="off" />
                     <div class="text-danger">{{validationErrors.Name}}</div>
                 </div>
                 <div class="form-group">
                     <label>Category</label>
-                    <!--<select class="form-control input-sm" ng-model="selectedPhoto.categoryId" ng-init="selectedCategory">
-                        <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
-                    </select>-->
                     <select class="form-control input-sm" ng-options="c.name for c in categories" ng-model="selectedCategory"></select>
                     <div class="text-danger">{{validationErrors.CategoryId}}</div>
                 </div>
                 <div class="form-group">
                     <label>Price</label>
-                    <input type="number" name="name" ng-model="selectedPhoto.price" class="form-control input-sm" autocomplete="off"/>
+                    <input type="number" name="name" ng-model="selectedPhoto.price" class="form-control input-sm" autocomplete="off" />
                     <div class="text-danger">{{validationErrors.Price}}</div>
                 </div>
                 <div class="form-group">
                     <label>Image Path</label>
-                    <input type="text" name="name" ng-model="selectedPhoto.imagePath" class="form-control input-sm" autocomplete="off"/>
+                    <button type="button" class="btn btn-default btn-xs" style="margin-left: 30px;" ng-click="openPhotoSelectionDialog()">Select Photo</button>
+                    <input type="text" name="name" ng-model="selectedPhoto.imagePath" class="form-control input-sm" autocomplete="off" />
                     <div class="text-danger">{{validationErrors.ImagePath}}</div>
                 </div>
                 <div class="form-group">
                     <label>Author</label>
-                    <input type="text" name="author" ng-model="selectedPhoto.author" class="form-control input-sm" autocomplete="off"/>
+                    <input type="text" name="author" ng-model="selectedPhoto.author" class="form-control input-sm" autocomplete="off" />
                     <div class="text-danger">{{validationErrors.Author}}</div>
                 </div>
                 <button class="btn btn-sm btn-primary" ng-click="editPhoto(photo)">Save</button>
                 <a href="/Shop/AdminStart#/PhotoList" class="btn btn-sm btn-default">Cancel</a>
             </div>
         </div>
-    </form>    
+    </form>
 
-</div>
+    <div id="modalSelectPhoto" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Select photo</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <select class="form-control input-sm" ng-options="i for i in images" ng-model="selectedPhoto.imagePath"></select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <img ng-src="../../images/{{selectedPhoto.imagePath}}" style="width: 100px;" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">OK</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
