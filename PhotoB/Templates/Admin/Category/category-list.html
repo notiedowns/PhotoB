@@ -21,7 +21,7 @@
                     <td>{{category.lastChangedBy}}</td>
                     <td>{{category.lastChanged | date:'dd-MM-yyyy hh:mm'}}</td>
                     <td><a href="#/EditCategory/{{category.id}}"><i class="glyphicon glyphicon-edit" title="Edit"></i></a></td>
-                    <td><a><i class="glyphicon glyphicon-remove" title="Delete" ng-click="deleteCategory(category.id)"></i></a></td>
+                    <td><a><i class="glyphicon glyphicon-remove" title="Delete" ng-click="confirmDeleteCategory(category.id)"></i></a></td>
                 </tr>
             </table>
         </div>

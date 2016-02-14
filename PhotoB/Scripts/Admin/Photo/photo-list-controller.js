@@ -45,6 +45,25 @@
 
 
         // Delete selected photo
+        $scope.confirmDeleteCategory = function (photoId) {
+            bootbox.dialog({
+                message: "Are you sure you want to delete this photo?",
+                buttons: {
+                    yes: {
+                        label: "Yes",
+                        className: "btn-primary btn-sm",
+                        callback: function () {
+                            $scope.deletePhoto(photoId);
+                        }
+                    },
+                    cancel: {
+                        label: "Cancel",
+                        className: "btn-default btn-sm"
+                    }
+                }
+            });
+        };
+
         $scope.deletePhoto = function (photoId) {
             photoRepository.deletePhoto(photoId).then(
                 onDeletePhotoSuccess,
