@@ -33,20 +33,20 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bootstrap Styles<span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bootstrap Styles<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a class="styleMenuItem" href="#" data-styleName="">default</a></li>
-                            <li><a class="styleMenuItem" href="#" data-styleName="-cerulean">cerulean</a></li>
-                            <li><a class="styleMenuItem" href="#" data-styleName="-cosmo">cosmo</a></li>
-                            <li><a class="styleMenuItem" href="#" data-styleName="-flatly">flatly</a></li>
-                            <li><a class="styleMenuItem" href="#" data-styleName="-lumen">lumen</a></li>
-                            <li><a class="styleMenuItem" href="#" data-styleName="-paper">paper</a></li>
-                            <li><a class="styleMenuItem" href="#" data-styleName="-readable">readable</a></li>
-                            <li><a class="styleMenuItem" href="#" data-styleName="-sandstone">sandstone</a></li>
-                            <li><a class="styleMenuItem" href="#" data-styleName="-simplex">simplex</a></li>
-                            <li><a class="styleMenuItem" href="#" data-styleName="-slate">slate</a></li>
-                            <li><a class="styleMenuItem" href="#" data-styleName="-superhero">superhero</a></li>
-                            <li><a class="styleMenuItem" href="#" data-styleName="-yeti">yeti</a></li>
+                            <li><a class="styleMenuItem" data-styleName="">default</a></li>
+                            <li><a class="styleMenuItem" data-styleName="-cerulean">cerulean</a></li>
+                            <li><a class="styleMenuItem" data-styleName="-cosmo">cosmo</a></li>
+                            <li><a class="styleMenuItem" data-styleName="-flatly">flatly</a></li>
+                            <li><a class="styleMenuItem" data-styleName="-lumen">lumen</a></li>
+                            <li><a class="styleMenuItem" data-styleName="-paper">paper</a></li>
+                            <li><a class="styleMenuItem" data-styleName="-readable">readable</a></li>
+                            <li><a class="styleMenuItem" data-styleName="-sandstone">sandstone</a></li>
+                            <li><a class="styleMenuItem" data-styleName="-simplex">simplex</a></li>
+                            <li><a class="styleMenuItem" data-styleName="-slate">slate</a></li>
+                            <li><a class="styleMenuItem" data-styleName="-superhero">superhero</a></li>
+                            <li><a class="styleMenuItem" data-styleName="-yeti">yeti</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -57,7 +57,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - @ViewBag.Title by Wayne Holmes</p>
         </footer>
     </div>    
     

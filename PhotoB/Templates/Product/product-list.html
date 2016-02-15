@@ -1,4 +1,4 @@
-﻿<div class="container" ng-init="search()" >
+﻿<div class="container" ng-init="search()">
 
     <h2>Products</h2>
 
@@ -26,7 +26,7 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-3" ng-repeat="photo in photos | orderBy: productSortOrder" style="height: 300px; margin: 5px; background-color: white;">
+        <div class="col-sm-3" ng-repeat="photo in photos | orderBy: productSortOrder" style="height: 300px; margin: 0 20px 20px 0;">
             <div style="font-weight: bold;">{{photo.name}}</div>
             <img ng-src="../../images/{{photo.imagePath}}" />
             <div style="font-size: 0.7em;">By {{photo.author}}</div>

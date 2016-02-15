@@ -3,10 +3,11 @@
     'use strict'
 
     var photoCreateController = function ($scope, $routeParams, photoRepository, categoryRepository, shopHelperFunctions, $exceptionHandler, $location, $log) {
-        
+
         // Load selected photo if an edit is requested
         $scope.photoId = $routeParams.photoId;
         $scope.editTitle = "Create Photo";
+        $scope.newPhotoImagePath = "";
 
         if ($scope.photoId) {
             photoRepository.getPhotoById($scope.photoId).then(function (data) {
@@ -24,13 +25,12 @@
                 });
             });
         }
-        else
-        {
+        else {
             categoryRepository.getCategories().then(function (data) {
                 $scope.categories = data;
             });
         }
-        
+
 
         var setSelectedCategory = function () {
             if ($scope.selectedPhoto) {
@@ -45,17 +45,33 @@
 
 
         // Select photo dialog
-        $scope.openPhotoSelectionDialog = function () {
+        $scope.openSelectionPhotoDialog = function () {
             photoRepository.getPhotoPaths().then(function (data) {
                 $scope.images = data;
+
+                if ($scope.selectedPhoto && $scope.selectedPhoto.imagePath) {
+                    $scope.newPhotoImagePath = $scope.selectedPhoto.imagePath;
+                }
+
                 $('#modalSelectPhoto').modal('show');
             });
-            
+
         };
 
-        $scope.closePhotoSelectionDialog = function () {
+        $scope.selectPhoto = function () {
+
+            if (!$scope.selectedPhoto)
+                $scope.selectedPhoto = {};
+
+            $scope.selectedPhoto.imagePath = $scope.newPhotoImagePath;
             $('#modalSelectPhoto').modal('hide');
         };
+
+        $scope.cancelSelectPhotoDialog = function () {
+            $scope.newPhotoImagePath = "";
+            $('#modalSelectPhoto').modal('hide');
+        };
+
 
 
         // Edit photo

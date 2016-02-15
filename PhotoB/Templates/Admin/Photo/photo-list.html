@@ -40,7 +40,6 @@
                     <th>Price</th>
                     <th>Listed</th>
                     <th>Image</th>
-                    <th></th>
                     <th>Author</th>
                     <th></th>
                     <th></th>
@@ -52,7 +51,6 @@
                     <td>{{photo.price | currency}}</td>
                     <td>{{photo.dateListed | date:'dd-MM-yyyy hh:mm'}} {{photo.dateListed | fromNow}}</td>
                     <td><img ng-src="../../images/{{photo.imagePath}}" style="width: 40px;" /></td>
-                    <td>{{photo.imagePath}}</td>
                     <td>{{photo.author}}</td>
                     <td><a href="#/EditPhoto/{{photo.id}}"><i class="glyphicon glyphicon-edit" title="Edit"></i></a></td>
                     <td><a><i class="glyphicon glyphicon-remove" title="Delete" ng-click="confirmDeleteCategory(photo.id)"></i></a></td>
