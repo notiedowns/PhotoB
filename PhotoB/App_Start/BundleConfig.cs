@@ -21,8 +21,7 @@ namespace PhotoB
                       "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap-table").Include(
-                      "~/Scripts/Bootstrap-table/bootstrap-table.js",
-                      "~/Scripts/Bootstrap-table/bootstrap-table-angular.js"));
+                      "~/Scripts/Bootstrap-table/bootstrap-table.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                       "~/Scripts/angular.js",

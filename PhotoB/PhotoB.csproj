@@ -255,7 +255,6 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
-    <Content Include="Scripts\Bootstrap-table\bootstrap-table-angular.js" />
     <Content Include="Scripts\Bootstrap-table\bootstrap-table.css" />
     <Content Include="Scripts\Bootstrap-table\bootstrap-table.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -268,7 +267,6 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Admin\Photo\photo-repository.js" />
     <Content Include="Scripts\Admin\Photo\photo-edit-controller.js" />
-    <Content Include="Scripts\Admin\Photo\photolist-bs-table-angular-controller.js" />
     <Content Include="Scripts\Admin\Photo\photolist-bs-table-controller.js" />
     <Content Include="Scripts\Admin\Photo\photo-list-controller.js" />
     <Content Include="Scripts\Shop\shop-module.js" />
@@ -277,7 +275,6 @@
     <Content Include="Templates\Admin\Category\category-list.html" />
     <Content Include="Templates\Admin\Category\category-edit.html" />
     <Content Include="Templates\Nav\admin-side-navbar.html" />
-    <Content Include="Templates\Admin\Photo\photo-bs-table-angular.html" />
     <Content Include="Templates\Admin\Photo\photo-bs-table.html" />
     <Content Include="Templates\Admin\Photo\photo-edit.html" />
     <Content Include="Templates\Admin\Photo\photo-list.html" />

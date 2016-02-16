@@ -6,7 +6,6 @@
         <div class="col-sm-8">
             <table class="table table-condensed table-hover">
                 <tr>
-                    <th>ID</th>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Last Changed By</th>
@@ -15,7 +14,6 @@
                     <th></th>
                 </tr>
                 <tr ng-repeat="category in categories | orderBy:name">
-                    <td>{{category.id}}</td>
                     <td>{{category.name}}</td>
                     <td>{{category.description}}</td>
                     <td>{{category.lastChangedBy}}</td>

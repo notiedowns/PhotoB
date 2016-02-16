@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    var shopModule = angular.module("shopModule", ['ngRoute', 'bsTable'])
+    var shopModule = angular.module("shopModule", ['ngRoute'])
 
     shopModule.config(function ($routeProvider) {
 
@@ -36,10 +36,6 @@
             .when("/BSTable", {
                 templateUrl: "/templates/admin/photo/photo-bs-table.html",
                 controller: "PhotolistBSTableController"
-            })
-            .when("/BSTableAngular", {
-                templateUrl: "/templates/admin/photo/photo-bs-table-angular.html",
-                controller: "PhotolistBSTableAngularController"
             })
             .when("/AdminStart#/EditCategory", {
                 templateUrl: "/templates/admin/category/category-create.html",
