@@ -2,12 +2,11 @@
 
     'use strict'
 
-    var photolistController = function ($scope, photoRepository, categoryBroadcaster, shopHelperFunctions, $interval, $log, $location, $timeout) {
+    var photolistController = function ($scope, photoRepository, notificationService, shopHelperFunctions, $interval, $log, $location, $timeout) {
         
         $scope.searchQuery = '';
         $scope.selectedCategoryId = '';
-        $scope.productSortOrder = '-dateListed';
-
+        $scope.productSortOrder = '-dateListed';        
 
 
         // Load photo list
@@ -70,12 +69,10 @@
                 onDeletePhotoError
                 );
         };
-
         function onDeletePhotoSuccess(response) {
             $log.info('Photo deleted');
             $scope.search();
         }
-
         function onDeletePhotoError(response) {
             shopHelperFunctions.handleErrorResponse(response);
         }
@@ -83,16 +80,23 @@
 
 
         // Handle category filter selection event
-        $scope.$on('categoryFilterBroadcast', function () {
-            $scope.selectedCategoryId = categoryBroadcaster.categoryId;
+        $scope.$on('categoryFilterSelectedBroadcast', function () {
+            $scope.selectedCategoryId = notificationService.categoryId;
             $scope.search();
         });
+
+
+
+        // Add photo to cart
+        $scope.addToCart = function (photoId) {
+            notificationService.notifyPhotoAddedToCart(photoId);
+        };
     }
 
     // Pass in the names of the dependencies e.g. "$scope", so that a minifier can change the names in the controller
     // parameters without breaking dependecy injection.
     // $interval is an angular service that can replace the standard js interval function. Using services like this as
     // dependancies means that modules and services are more testable (can replace with mock)
-    angular.module('shopModule').controller("PhotolistController", ["$scope", "photoRepository", "categoryBroadcaster", "shopHelperFunctions", "$interval", "$log", "$location", "$timeout", photolistController]);
+    angular.module('shopModule').controller("PhotolistController", ["$scope", "photoRepository", "notificationService", "shopHelperFunctions", "$interval", "$log", "$location", "$timeout", photolistController]);
 
 })();

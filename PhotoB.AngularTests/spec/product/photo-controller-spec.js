@@ -8,16 +8,16 @@
     var $timeout;
     var $log;
     var photoRepository;
-    var categoryBroadcaster;
+    var notificationService;
 
     beforeEach(function () {
         angular.mock.module('shopModule');
 
-        angular.mock.inject(function (_$controller_, _photoRepository_, _categoryBroadcaster_, _$interval_, _$timeout_, _$log_, _$q_, _$rootScope_) {
+        angular.mock.inject(function (_$controller_, _photoRepository_, _notificationService_, _$interval_, _$timeout_, _$log_, _$q_, _$rootScope_) {
             $scope = _$rootScope_.$new();
             $controller = _$controller_;
             photoRepository = _photoRepository_;
-            categoryBroadcaster = _categoryBroadcaster_;
+            notificationService = _notificationService_;
             $interval = _$interval_;
             $timeout = _$timeout_;
             $log = _$log_;
@@ -25,7 +25,7 @@
             $rootScope = _$rootScope_;            
         });
 
-        $controller('PhotolistController', { $scope: $scope, photoRepository: photoRepository, categoryBroadcaster: categoryBroadcaster, $interval: $interval, $log: $log, $timeout: $timeout })
+        $controller('PhotolistController', { $scope: $scope, photoRepository: photoRepository, notificationService: notificationService, $interval: $interval, $log: $log, $timeout: $timeout })
     });
 
 

@@ -147,6 +147,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Models\CartVm.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -156,12 +158,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Authors\AuthorVm.cs" />
-    <Compile Include="Models\Categories\CategoryVm.cs" />
+    <Compile Include="Models\AuthorVm.cs" />
+    <Compile Include="Models\CategoryVm.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>PhotoBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Menu\MenuItemVm.cs" />
+    <Compile Include="Models\MenuItemVm.cs" />
     <Compile Include="Models\ObjectSerializer.cs" />
     <Compile Include="Models\Photo.cs">
       <DependentUpon>PhotoBModel.tt</DependentUpon>
@@ -181,8 +183,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PhotoBModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Products\ProductVm.cs" />
-    <Compile Include="Models\Shop\ShopVm.cs" />
+    <Compile Include="Models\ProductVm.cs" />
+    <Compile Include="Models\ShopVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
@@ -246,10 +248,12 @@
       <DependentUpon>PhotoBModel.edmx</DependentUpon>
       <LastGenOutput>PhotoBModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\Admin\Category\category-broadcaster.js" />
-    <Content Include="Scripts\Admin\Category\category-edit-controller.js" />
-    <Content Include="Scripts\Admin\Category\category-repository.js" />
-    <Content Include="Scripts\Admin\Category\category-list-controller.js" />
+    <Content Include="Scripts\Cart\cart-controller.js" />
+    <Content Include="Scripts\Cart\cart-repository.js" />
+    <Content Include="Scripts\Services\notification-service.js" />
+    <Content Include="Scripts\Category\category-edit-controller.js" />
+    <Content Include="Scripts\Category\category-repository.js" />
+    <Content Include="Scripts\Category\category-list-controller.js" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular.js" />
@@ -259,16 +263,16 @@
     <Content Include="Scripts\Bootstrap-table\bootstrap-table.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\Filters\from-now-filter.js" />
-    <Content Include="Scripts\Helpers\alert-service.js" />
-    <Content Include="Scripts\Helpers\shop-helpers.js" />
+    <Content Include="Scripts\Services\alert-service.js" />
+    <Content Include="Scripts\Services\shop-helpers.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\Menu\menu-controller.js" />
     <Content Include="Scripts\Menu\menu-repository.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\Admin\Photo\photo-repository.js" />
-    <Content Include="Scripts\Admin\Photo\photo-edit-controller.js" />
-    <Content Include="Scripts\Admin\Photo\photolist-bs-table-controller.js" />
-    <Content Include="Scripts\Admin\Photo\photo-list-controller.js" />
+    <Content Include="Scripts\Photo\photo-repository.js" />
+    <Content Include="Scripts\Photo\photo-edit-controller.js" />
+    <Content Include="Scripts\Photo\photolist-bs-table-controller.js" />
+    <Content Include="Scripts\Photo\photo-list-controller.js" />
     <Content Include="Scripts\Shop\shop-module.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\_references.js" />
@@ -297,7 +301,9 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Cart\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
       <SubType>Designer</SubType>

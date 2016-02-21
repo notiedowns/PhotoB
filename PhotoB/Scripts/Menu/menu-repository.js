@@ -17,7 +17,7 @@
         return {
             getCategoryMenu: getCategoryMenu,
             getAdminMenu: getAdminMenu
-        }
+        };
     };
 
 

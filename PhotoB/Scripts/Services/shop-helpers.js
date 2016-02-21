@@ -7,7 +7,7 @@
             if (response && response.data) {
                 if (response.data.exceptionMessage) {
                     $log.info(response.data.exceptionMessage);
-                    alertService.showAlert(response.data.exceptionMessage + ' new');
+                    alertService.showAlert(response.data.exceptionMessage);
                 }
                 else if (response.data.validationErrors) {
                     createErrorMessageFunction(response.data.validationErrors);
@@ -16,7 +16,7 @@
                     var defaultMessage = "Server communication error";
                     $log.info(defaultMessage);
                     $exceptionHandler(defaultMessage);
-                    alertService.showAlert(defaultMessage + ' new');
+                    alertService.showAlert(defaultMessage);
                 }
             }
         }

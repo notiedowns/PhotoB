@@ -1,6 +1,13 @@
 ﻿<div class="container" ng-init="search()">
 
-    <h2>Products</h2>
+    <div class="row">
+        <h2 class="col-sm-6">Products</h2>
+        <div class="col-sm-3" style="margin-top: 20px; text-align: center;" ng-controller="CartController" ng-init="getCart()" ng-show="cart.count > 0">
+            <span style="font-size: 20px; padding: 10px; border-radius: 10px; background-color: lightsteelblue;">
+                <i class="glyphicon glyphicon-shopping-cart"><span style="font-size: 15px; margin-bottom: 3px;">({{cart.count}}) {{cart.totalCost | currency}}</span></i>
+            </span>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-sm-4">
@@ -32,7 +39,8 @@
             <div style="font-size: 0.7em;">By {{photo.author}}</div>
             <div style="font-size: 0.7em;">Listed on {{photo.dateListed | date:'dd-MM-yyyy hh:mm'}} {{photo.dateListed | fromNow}}</div>
             <div style="font-size: 0.7em;">Article ID: {{photo.number}}</div>
-            <div style="font-style: italic; color: dodgerblue; display: inline; margin-right: 10px;">{{photo.price | currency}}</div><button type="button" class="btn btn-xs btn-default">Add to cart</button>
+            <div style="font-style: italic; color: dodgerblue; display: inline; margin-right: 10px;">{{photo.price | currency}}</div>
+            <button type="button" class="btn btn-xs btn-default" ng-click="addToCart(photo.id)">Add to cart</button>
         </div>
     </div>
 </div>
