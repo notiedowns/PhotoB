@@ -1,8 +1,7 @@
-﻿using PhotoB.Models.Products;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace PhotoB.Controllers
+namespace PhotoB.Models
 {
     public class CartVm
     {
@@ -15,6 +14,6 @@ namespace PhotoB.Controllers
 
         public int Count { get { return Photos.Count; } }
 
-        public decimal TotalCost { get { return Photos.Where(p => p.Price != null).Sum(x => x.Price.Value); } }
+        public decimal TotalCost { get { return Photos.Where(p => p.Price.HasValue).Sum(x => x.Price.Value); } }
     }
 }

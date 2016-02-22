@@ -1,5 +1,4 @@
-﻿using PhotoB.Models.Products;
-using PhotoB.Repositories;
+﻿using PhotoB.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;

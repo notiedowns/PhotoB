@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    'use strict'
+    'use strict';
 
     var menuController = function ($scope, menuRepository, notificationService) {
 

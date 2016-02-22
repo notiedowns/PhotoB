@@ -4,8 +4,6 @@
     var $q;
     var $rootScope;
     var $scope;
-    var $interval;
-    var $timeout;
     var $location;
     var $log;
     var photoRepository;

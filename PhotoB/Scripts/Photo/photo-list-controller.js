@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    'use strict'
+    'use strict';
 
     var photolistController = function ($scope, photoRepository, notificationService, shopHelperFunctions, $interval, $log, $location, $timeout) {
         

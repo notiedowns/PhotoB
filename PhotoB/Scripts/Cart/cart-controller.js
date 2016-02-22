@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    'use strict'
+    'use strict';
 
     var cartController = function ($scope, cartRepository, notificationService, shopHelperFunctions, $log) {
 

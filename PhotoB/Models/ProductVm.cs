@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace PhotoB.Models.Products
+namespace PhotoB.Models
 {
     public class PhotoVm
     {

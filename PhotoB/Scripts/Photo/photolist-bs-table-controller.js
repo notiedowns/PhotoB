@@ -1,8 +1,8 @@
 ﻿(function () {
 
-    'use strict'
+    'use strict';
 
-    var photolistController = function ($scope, photoRepository, $log) {
+    var photolistController = function ($scope) {
         
         $scope.refreshPhotoList = function () {
             reloadProductData();
@@ -12,6 +12,6 @@
 
 
 
-    angular.module('shopModule').controller("PhotolistBSTableController", ["$scope", "photoRepository", "$log", photolistController]);
+    angular.module('shopModule').controller("PhotolistBSTableController", ["$scope", photolistController]);
 
 })();

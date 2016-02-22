@@ -13,15 +13,15 @@
                 return value;
             }
 
-            var YEAR_IN_MS = 60 * 60 * 24 * 365;
-            var MONTH_IN_MS = 60 * 60 * 24 * 30;
+            var yearInMs = 60 * 60 * 24 * 365;
+            var monthInMs = 60 * 60 * 24 * 30;
             var now = baseDate || new Date();
             var dateDiff = (now.getTime() - date.getTime()) / 1000;
             var tzDiff = (now.getTimezoneOffset() - date.getTimezoneOffset()) * 60;
             var diffInMs = dateDiff + tzDiff;
 
-            var yearsDiff = diffInMs / YEAR_IN_MS;
-            var monthsDiff = diffInMs / MONTH_IN_MS;
+            var yearsDiff = diffInMs / yearInMs;
+            var monthsDiff = diffInMs / monthInMs;
 
             if (yearsDiff > 1) {
                 yearsDiff = Math.floor(yearsDiff);

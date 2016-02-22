@@ -1,4 +1,4 @@
-﻿using PhotoB.Models.Products;
+﻿using PhotoB.Models;
 using PhotoB.Repositories;
 using System;
 using System.Collections.Generic;
@@ -15,11 +15,6 @@ namespace PhotoB.Controllers
         private static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private readonly CategoryRepository _categoryRepository = new CategoryRepository();
 
-        // GET: Category
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         public ActionResult GetCategories(string query = "")
         {

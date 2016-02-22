@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    'use strict'
+    'use strict';
 
     var photoCreateController = function ($scope, $routeParams, photoRepository, categoryRepository, shopHelperFunctions, $exceptionHandler, $location, $log) {
 
@@ -10,16 +10,16 @@
         $scope.newPhotoImagePath = "";
 
         if ($scope.photoId) {
-            photoRepository.getPhotoById($scope.photoId).then(function (data) {
-                $scope.selectedPhoto = data;
+            photoRepository.getPhotoById($scope.photoId).then(function (photoData) {
+                $scope.selectedPhoto = photoData;
 
                 if ($scope.selectedPhoto) {
                     $scope.editTitle = "Edit Photo";
                 }
 
                 // Load categories list and set selected category
-                categoryRepository.getCategories().then(function (data) {
-                    $scope.categories = data;
+                categoryRepository.getCategories().then(function (categoryData) {
+                    $scope.categories = categoryData;
 
                     setSelectedCategory();
                 });

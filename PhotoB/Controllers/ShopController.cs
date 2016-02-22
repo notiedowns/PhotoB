@@ -9,17 +9,17 @@ namespace PhotoB.Controllers
 {
     public class ShopController : Controller
     {
-        private static readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public ActionResult ProductStart()
         {
-            logger.Debug("Products started");
+            Logger.Debug("Products started");
             return View();
         }
 
         public ActionResult AdminStart()
         {
-            logger.Debug("Admin started");
+            Logger.Debug("Admin started");
             return View();
         }
     }

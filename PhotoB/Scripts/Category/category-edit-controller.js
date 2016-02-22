@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    'use strict'
+    'use strict';
 
     var categoryEditController = function ($scope, $routeParams, categoryRepository, shopHelperFunctions, $location, $log, $exceptionHandler) {
 

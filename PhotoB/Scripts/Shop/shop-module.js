@@ -1,6 +1,6 @@
 ﻿(function () {
 
-    var shopModule = angular.module("shopModule", ['ngRoute'])
+    var shopModule = angular.module("shopModule", ['ngRoute']);
 
     shopModule.config(function ($routeProvider) {
 

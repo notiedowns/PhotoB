@@ -1,8 +1,8 @@
 ﻿(function () {
 
-    'use strict'
+    'use strict';
 
-    var categoryListController = function ($scope, categoryRepository, shopHelperFunctions, $location, $log, $exceptionHandler) {
+    var categoryListController = function ($scope, categoryRepository, shopHelperFunctions, $location, $log) {
         
         $scope.getCategories = function () {
             categoryRepository.getCategories().then(function (data) {
@@ -48,6 +48,6 @@
         }        
     }
 
-    angular.module('shopModule').controller("CategoryListController", ["$scope", "categoryRepository", "shopHelperFunctions", "$location", "$log", "$exceptionHandler", categoryListController]);
+    angular.module('shopModule').controller("CategoryListController", ["$scope", "categoryRepository", "shopHelperFunctions", "$location", "$log", categoryListController]);
 
 })();

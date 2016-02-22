@@ -1,10 +1,5 @@
-﻿using PhotoB.Models.Menu;
-using PhotoB.Models.Products;
-using System;
-using System.Collections.Generic;
+﻿using PhotoB.Models;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PhotoB.Repositories
 {
@@ -12,7 +7,7 @@ namespace PhotoB.Repositories
     {
         private readonly CategoryRepository _categoryRepository = new CategoryRepository();
 
-        private static MenuItemVm[] AdminMenuData;
+        private static readonly MenuItemVm[] AdminMenuData;
 
         static MenuRepository()
         {

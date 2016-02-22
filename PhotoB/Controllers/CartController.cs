@@ -1,7 +1,6 @@
-﻿using PhotoB.Models.Products;
+﻿using PhotoB.Models;
 using PhotoB.Repositories;
 using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Web.Mvc;
 

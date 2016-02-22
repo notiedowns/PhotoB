@@ -1,4 +1,4 @@
-﻿using PhotoB.Models.Products;
+﻿using PhotoB.Models;
 using PhotoB.Repositories;
 using System;
 using System.Collections.Generic;
@@ -15,12 +15,6 @@ namespace PhotoB.Controllers
     {
         private static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private readonly PhotoRepository _photoRepository = new PhotoRepository();
-
-
-        public ActionResult PhotoList()
-        {
-            return View();
-        }
 
 
         [HttpGet]
@@ -60,12 +54,12 @@ namespace PhotoB.Controllers
             }
             catch (Exception ex)
             {
-                var message = "Error retrieving product list";
+                var exceptionMessage = "Error retrieving product list";
 
-                Logger.Error(message, ex);
+                Logger.Error(exceptionMessage, ex);
 
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                return Json(new { exceptionMessage = message });
+                return Json(new { exceptionMessage });
             }
         }
 
@@ -86,11 +80,11 @@ namespace PhotoB.Controllers
             }
             catch (Exception ex)
             {
-                var message = "Error retrieving photo by id";
-                Logger.Error(message, ex);
+                var exceptionMessage = "Error retrieving photo by id";
+                Logger.Error(exceptionMessage, ex);
 
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                return Json(new { exceptionMessage = message });
+                return Json(new { exceptionMessage });
             }
         }
 
@@ -108,20 +102,13 @@ namespace PhotoB.Controllers
             }
             catch (Exception ex)
             {
-                var message = "Error retrieving photo path list";
+                var exceptionMessage = "Error retrieving photo path list";
 
-                Logger.Error(message, ex);
+                Logger.Error(exceptionMessage, ex);
 
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                return Json(new { exceptionMessage = message });
+                return Json(new { exceptionMessage });
             }
-        }
-
-
-        [HttpGet]
-        public ActionResult EditPhoto()
-        {
-            return View();
         }
 
 
@@ -151,7 +138,7 @@ namespace PhotoB.Controllers
                 Logger.Error(exceptionMessage, ex);
 
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                return Json(new { exceptionMessage = exceptionMessage });
+                return Json(new { exceptionMessage });
             }
         }
 
@@ -167,11 +154,11 @@ namespace PhotoB.Controllers
             }
             catch (Exception ex)
             {
-                var message = "Error deleting photo";
-                Logger.Error(message, ex);
+                var exceptionMessage = "Error deleting photo";
+                Logger.Error(exceptionMessage, ex);
 
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                return Json(new { exceptionMessage = message });
+                return Json(new { exceptionMessage });
             }
         }
 
