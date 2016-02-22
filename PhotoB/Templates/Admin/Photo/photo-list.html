@@ -1,7 +1,7 @@
 ﻿<div class="container" ng-init="search()">
 
     <h2>Photos</h2>
-    
+
     <h4 ng-show="sessionTimeoutSeconds <= 55 && sessionTimeoutSeconds !== 0">Session timeout: {{sessionTimeoutSeconds}}</h4>
     <h4 ng-show="sessionTimeoutSeconds === 0" class="text-danger">Session timed out</h4>
 
@@ -50,7 +50,7 @@
                     <td>{{photo.categoryName}}</td>
                     <td>{{photo.price | currency}}</td>
                     <td>{{photo.dateListed | date:'dd-MM-yyyy hh:mm'}} {{photo.dateListed | fromNow}}</td>
-                    <td><img ng-src="../../images/{{photo.imagePath}}" style="width: 40px;" /></td>
+                    <td><img ng-src="../../images/thumbs/{{photo.imagePath}}" style="width: 40px;" /></td>
                     <td>{{photo.author}}</td>
                     <td><a href="#/EditPhoto/{{photo.id}}"><i class="glyphicon glyphicon-edit" title="Edit"></i></a></td>
                     <td><a><i class="glyphicon glyphicon-remove" title="Delete" ng-click="confirmDeleteCategory(photo.id)"></i></a></td>

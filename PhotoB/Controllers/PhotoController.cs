@@ -95,7 +95,7 @@ namespace PhotoB.Controllers
             {
                 Logger.Debug("Retrieving photo path list");
 
-                var photoFolder = new DirectoryInfo(Server.MapPath("/") + "/images");
+                var photoFolder = new DirectoryInfo(Server.MapPath("/") + "/images/thumbs");
                 var photoPaths = photoFolder.GetFiles().Select(x => x.Name);
 
                 return JsonResult(photoPaths, JsonRequestBehavior.AllowGet);

@@ -6,7 +6,8 @@
         
         $scope.searchQuery = '';
         $scope.selectedCategoryId = '';
-        $scope.productSortOrder = '-dateListed';        
+        $scope.productSortOrder = '-dateListed';
+        $scope.selectedPhoto = {};
 
 
         // Load photo list
@@ -85,6 +86,29 @@
             $scope.search();
         });
 
+
+        $scope.showSelectedPhoto = function (photoId) {
+            for (var i = 0; i < $scope.photos.length; i++) {
+                if ($scope.photos[i].id === photoId) {
+                    $scope.selectedPhoto = $scope.photos[i];
+                }
+            }
+
+            if ($scope.selectedPhoto) {
+                $('#modalViewPhoto').modal('show');
+                
+            }
+        };
+
+
+        $('#modalViewPhoto').on('show', function () {
+
+            $(this).find('.modal-body').css({
+                width: 'auto',
+                height: 'auto',
+                'max-height': '100%'
+            });
+        });
 
 
         // Add photo to cart
