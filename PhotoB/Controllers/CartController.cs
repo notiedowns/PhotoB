@@ -34,6 +34,22 @@ namespace PhotoB.Controllers
             {
                 Logger.Debug("Retrieving cart");
                 var cart = Cart;
+
+                //var cartSummary = cart.Photos.GroupBy(x => x.Id)
+                //                    .Select(p => new PhotoSummaryVm
+                //                    {
+                //                        Id = p.Key,
+                //                        Number = p.First().Number,
+                //                        Name = p.First().Name,
+                //                        ImagePath = p.First().ImagePath,
+                //                        Price = p.First().Price.Value,
+                //                        Quantity = p.Count(),
+                //                        TotalPrice = p.Sum(s => s.Price.Value)
+                //                    }).ToList();
+
+
+                //return Json(new { cart = cart, cartSummary = cartSummary }, JsonRequestBehavior.AllowGet);
+
                 return JsonResult(cart, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)

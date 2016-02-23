@@ -7,6 +7,10 @@
         $scope.getCart = function () {
             cartRepository.getCart().then(function (data) {
                 $scope.cart = data;
+
+                //$scope.cart = data.cart;
+                //$scope.cartSummary = data.cartSummary;
+
             });
         };
 
@@ -31,6 +35,11 @@
 
         function onAddToCartError(response) {
             shopHelperFunctions.handleErrorResponse(response);
+        }
+
+
+        $scope.purchase = function() {
+            bootbox.alert("Thank you for your order!");
         }
     };
 

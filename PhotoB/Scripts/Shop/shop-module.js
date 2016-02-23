@@ -40,7 +40,12 @@
             .when("/AdminStart#/EditCategory", {
                 templateUrl: "/templates/admin/category/category-create.html",
                 controller: "CategoryEditController"
+            })
+            .when("/cart", {
+                templateUrl: "/templates/checkout/cart-list.html",
+                controller: "CartController"
             });
+
     });
 
 
