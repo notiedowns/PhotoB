@@ -2,9 +2,9 @@
 
     <div class="row">
         <h2 class="col-sm-6">Products</h2>
-        <div class="col-sm-3" style="margin-top: 20px; text-align: center;" ng-controller="CartController" ng-init="getCart()" ng-show="cart.count > 0">
+        <div class="col-sm-3" style="margin-top: 20px; text-align: center;" ng-controller="CartController" ng-init="getCart()" ng-show="cart.Count > 0">
             <span style="font-size: 20px; padding: 10px; border-radius: 10px; background-color: lightsteelblue;">
-                <i class="glyphicon glyphicon-shopping-cart"><span style="font-size: 15px; margin-bottom: 3px;">({{cart.count}}) {{cart.totalCost | currency}}</span></i>
+                <i class="glyphicon glyphicon-shopping-cart"><span style="font-size: 15px; margin-bottom: 3px;">({{cart.Count}}) {{cart.TotalCost | currency}}</span></i>
                 <a href="/Shop/Checkout#/cart" class="btn btn-default btn-xs"> Checkout</a>
             </span>
             

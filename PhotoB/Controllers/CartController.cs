@@ -1,6 +1,7 @@
 ﻿using PhotoB.Models;
 using PhotoB.Repositories;
 using System;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
@@ -35,22 +36,20 @@ namespace PhotoB.Controllers
                 Logger.Debug("Retrieving cart");
                 var cart = Cart;
 
-                //var cartSummary = cart.Photos.GroupBy(x => x.Id)
-                //                    .Select(p => new PhotoSummaryVm
-                //                    {
-                //                        Id = p.Key,
-                //                        Number = p.First().Number,
-                //                        Name = p.First().Name,
-                //                        ImagePath = p.First().ImagePath,
-                //                        Price = p.First().Price.Value,
-                //                        Quantity = p.Count(),
-                //                        TotalPrice = p.Sum(s => s.Price.Value)
-                //                    }).ToList();
+                var cartSummary = cart.Photos.GroupBy(x => x.Id)
+                                    .Select(p => new PhotoSummaryVm
+                                    {
+                                        Id = p.Key,
+                                        Number = p.First().Number,
+                                        Name = p.First().Name,
+                                        ImagePath = p.First().ImagePath,
+                                        Price = p.First().Price.Value,
+                                        Quantity = p.Count(),
+                                        TotalPrice = p.Sum(s => s.Price.Value)
+                                    }).ToList();
 
 
-                //return Json(new { cart = cart, cartSummary = cartSummary }, JsonRequestBehavior.AllowGet);
-
-                return JsonResult(cart, JsonRequestBehavior.AllowGet);
+                return Json(new { cart = cart, cartSummary = cartSummary }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
@@ -71,6 +70,29 @@ namespace PhotoB.Controllers
 
                 var photo = _photoRepository.GetPhotoById(photoId);
                 cart.Photos.Add(photo);
+
+                Cart = cart;
+
+                return Json(new { });
+            }
+            catch (Exception ex)
+            {
+                var message = "Error adding photo to cart";
+                Logger.Error(message, ex);
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage = message });
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult RemoveFromCart(int photoId)
+        {
+            try
+            {
+                var cart = Cart;
+
+                cart.Photos.RemoveAll(x => x.Id == photoId);
 
                 Cart = cart;
 

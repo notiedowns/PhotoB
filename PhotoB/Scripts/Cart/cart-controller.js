@@ -6,19 +6,10 @@
 
         $scope.getCart = function () {
             cartRepository.getCart().then(function (data) {
-                $scope.cart = data;
-
-                //$scope.cart = data.cart;
-                //$scope.cartSummary = data.cartSummary;
-
+                $scope.cart = data.cart;
+                $scope.cartSummary = data.cartSummary;
             });
         };
-
-        //TEST
-        $scope.$on('categoryFilterSelectedBroadcast', function () {
-            $scope.selectedCategoryId = notificationService.categoryId;
-            $scope.search();
-        });
 
         // Handle add to cart event
         $scope.$on('photoAddedToCartBroadcast', function () {
@@ -26,14 +17,46 @@
                 onAddToCartSuccess,
                 onAddToCartError
                 );
-        });
-        
+        });        
         function onAddToCartSuccess(response) {
             $log.info('Photo added to cart');
             $scope.getCart();
         }
-
         function onAddToCartError(response) {
+            shopHelperFunctions.handleErrorResponse(response);
+        }
+
+
+        // Delete selected photo
+        $scope.confirmRemoveFromCart = function (photoId) {
+            bootbox.dialog({
+                message: "Are you sure you want to remove this photo from you shopping cart?",
+                buttons: {
+                    yes: {
+                        label: "Yes",
+                        className: "btn-primary btn-sm",
+                        callback: function () {
+                            removeFromCart(photoId);
+                        }
+                    },
+                    cancel: {
+                        label: "Cancel",
+                        className: "btn-default btn-sm"
+                    }
+                }
+            });
+        };
+        function removeFromCart(photoId) {
+            cartRepository.removeFromCart(photoId).then(
+                onRemoveFromCartSuccess,
+                onRemoveFromCartError
+                );
+        }
+        function onRemoveFromCartSuccess(response) {
+            $log.info('Photo removed to cart');
+            $scope.getCart();
+        }
+        function onRemoveFromCartError(response) {
             shopHelperFunctions.handleErrorResponse(response);
         }
 

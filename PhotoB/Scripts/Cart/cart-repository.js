@@ -15,8 +15,14 @@
         };
 
 
+        var removeFromCart = function (photoId) {
+            return $http.post('/Cart/RemoveFromCart', { photoId: photoId });
+        };
+
+
         return {
             addToCart: addToCart,
+            removeFromCart: removeFromCart,
             getCart: getCart
         };
     };

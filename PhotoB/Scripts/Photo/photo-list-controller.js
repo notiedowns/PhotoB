@@ -53,7 +53,7 @@
                         label: "Yes",
                         className: "btn-primary btn-sm",
                         callback: function () {
-                            $scope.deletePhoto(photoId);
+                            deletePhoto(photoId);
                         }
                     },
                     cancel: {
@@ -63,8 +63,7 @@
                 }
             });
         };
-
-        $scope.deletePhoto = function (photoId) {
+        function deletePhoto(photoId) {
             photoRepository.deletePhoto(photoId).then(
                 onDeletePhotoSuccess,
                 onDeletePhotoError
