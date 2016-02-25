@@ -1,8 +1,11 @@
 ﻿using PhotoB.Models;
 using PhotoB.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Text;
 using System.Web.Mvc;
 
 namespace PhotoB.Controllers
@@ -25,6 +28,23 @@ namespace PhotoB.Controllers
             set
             {
                 Session["Cart"] = value;
+            }
+        }
+
+
+        private CustomerVm Customer
+        {
+            get
+            {
+                if (Session["Customer"] != null)
+                    return (CustomerVm)Session["Customer"];
+
+                return new CustomerVm();
+            }
+
+            set
+            {
+                Session["Customer"] = value;
             }
         }
 
@@ -61,7 +81,6 @@ namespace PhotoB.Controllers
         }
 
 
-        [HttpPost]
         public ActionResult AddToCart(int photoId)
         {
             try
@@ -85,7 +104,6 @@ namespace PhotoB.Controllers
         }
 
 
-        [HttpPost]
         public ActionResult RemoveFromCart(int photoId)
         {
             try
@@ -105,6 +123,74 @@ namespace PhotoB.Controllers
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 return Json(new { exceptionMessage = message });
             }
+        }
+
+        
+        public ActionResult SaveDeliveryAddress(CustomerVm customer)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    Customer = customer;
+                    return new JsonResult();
+                }
+
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return Json(new { validationErrors = GetErrorMessages() });
+            }
+            catch (Exception ex)
+            {
+                var exceptionMessage = "Error saving delivery address";
+                Logger.Error(exceptionMessage, ex);
+
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage });
+            }
+        }
+
+
+        public ActionResult GetDeliveryAddress()
+        {
+            try
+            {
+                var customer = Customer;
+                return Json(new { customer }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                var exceptionMessage = "Error retreiving delivery address";
+                Logger.Error(exceptionMessage, ex);
+
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage });
+            }
+        }
+
+
+        private List<KeyValuePair<string, string>> GetErrorMessages()
+        {
+            var errors = new List<KeyValuePair<string, string>>();
+
+            foreach (var modelProperty in ModelState)
+            {
+                if (!modelProperty.Value.Errors.Any())
+                    continue;
+
+                var errorMessage = new StringBuilder();
+
+                foreach (var error in modelProperty.Value.Errors)
+                {
+                    if (errorMessage.Length > 0)
+                        errorMessage.Append(". ");
+
+                    errorMessage.Append(error.ErrorMessage);
+                }
+
+                errors.Add(new KeyValuePair<string, string>(modelProperty.Key, errorMessage.ToString()));
+            }
+
+            return errors;
         }
     }
 }

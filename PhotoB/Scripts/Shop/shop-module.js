@@ -41,8 +41,16 @@
                 templateUrl: "/templates/admin/category/category-create.html",
                 controller: "CategoryEditController"
             })
-            .when("/cart", {
+            .when("/Cart", {
                 templateUrl: "/templates/checkout/cart-list.html",
+                controller: "CartController"
+            })
+            .when("/CartCustomerAddress", {
+                templateUrl: "/templates/checkout/cart-customer-address.html",
+                controller: "CartController"
+            })
+            .when("/CartCustomerPaymentMethod", {
+                templateUrl: "/templates/checkout/cart-customer-paymentmethod.html",
                 controller: "CartController"
             });
 

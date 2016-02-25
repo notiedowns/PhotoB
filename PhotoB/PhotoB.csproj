@@ -163,6 +163,7 @@
     <Compile Include="Models\Category.cs">
       <DependentUpon>PhotoBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerVm.cs" />
     <Compile Include="Models\MenuItemVm.cs" />
     <Compile Include="Models\Photo.cs">
       <DependentUpon>PhotoBModel.tt</DependentUpon>
@@ -294,6 +295,8 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Templates\Admin\Category\category-list.html" />
     <Content Include="Templates\Admin\Category\category-edit.html" />
+    <Content Include="Templates\Checkout\cart-customer-paymentmethod.html" />
+    <Content Include="Templates\Checkout\cart-customer-address.html" />
     <Content Include="Templates\Checkout\cart-list.html" />
     <Content Include="Templates\Nav\admin-side-navbar.html" />
     <Content Include="Templates\Admin\Photo\photo-bs-table.html" />
