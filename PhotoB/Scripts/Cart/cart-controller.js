@@ -15,9 +15,9 @@
 
         // Get customer address from session
         $scope.getDeliveryAddress = function () {
-            //cartRepository.getDeliveryAddress().then(function (data) {
-            //    $scope.customer = data;
-            //});
+            cartRepository.getDeliveryAddress().then(function (data) {
+                $scope.customer = data;
+            });
         };
 
 
@@ -78,15 +78,29 @@
 
         $scope.continuePaymentMethod = function () {
             cartRepository.saveDeliveryAddress($scope.customer).then(
-                    onSaveDeliveryAddressSuccess,
-                    onSaveDeliveryAddressError
+                    onContinuePaymentMethodSuccess,
+                    onError
                 );           
         };
-        function onSaveDeliveryAddressSuccess(response) {
+        function onContinuePaymentMethodSuccess(response) {
             $log.info('Delivery address saved');
             $location.path("/CartCustomerPaymentMethod");
         };
-        function onSaveDeliveryAddressError(response) {
+
+
+        $scope.backToCart = function () {
+            cartRepository.saveDeliveryAddress($scope.customer).then(
+                    onBackToCartSuccess,
+                    onError
+                );            
+        };
+        function onBackToCartSuccess(response) {
+            $log.info('Delivery address saved');
+            $location.path("/Cart");
+        };
+
+
+        function onError(response) {
             shopHelperFunctions.handleErrorResponse(response, createErrorMessage);
         };
 

@@ -155,7 +155,7 @@ namespace PhotoB.Controllers
             try
             {
                 var customer = Customer;
-                return Json(new { customer }, JsonRequestBehavior.AllowGet);
+                return Json(customer, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
