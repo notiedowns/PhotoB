@@ -17,6 +17,13 @@
         };
 
 
+        var getPaymentMethod = function () {
+            return $http.get('/Cart/GetPaymentMethod').then(function (response) {
+                return response.data;
+            });
+        };
+
+
         var addToCart = function (photoId) {
             return $http.post('/Cart/AddToCart', { photoId: photoId });
         };
@@ -32,12 +39,19 @@
         };
 
 
+        var savePaymentMethod = function (paymentMethod) {
+            return $http.post('/Cart/SavePaymentMethod', { paymentMethod: paymentMethod });
+        };
+
+
         return {
             getCart: getCart,
             getDeliveryAddress: getDeliveryAddress,
+            getPaymentMethod: getPaymentMethod,
             addToCart: addToCart,
             removeFromCart: removeFromCart,
-            saveDeliveryAddress: saveDeliveryAddress
+            saveDeliveryAddress: saveDeliveryAddress,
+            savePaymentMethod: savePaymentMethod
         };
     };
 

@@ -6,7 +6,3 @@ Side navbar placement/formatting
 pagination
 
 Photo results view - articles with image/name/price/description/reviews(pills)
-
-SignalR
-
-Shopping cart and checkout

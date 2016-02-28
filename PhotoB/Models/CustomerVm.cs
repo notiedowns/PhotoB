@@ -28,7 +28,6 @@ namespace PhotoB.Models
 
 
         // Payment details
-        [Required(ErrorMessage = "Please enter a Payment Method")]
-        public int PaymentMethod { get; set; }
+        public string PaymentMethod { get; set; }
     }
 }

@@ -21,6 +21,14 @@
         };
 
 
+        // Get customer payment method from session
+        $scope.getPaymentMethod = function () {
+            cartRepository.getPaymentMethod().then(function (data) {
+                $scope.paymentMethod = data;
+            });
+        };
+
+
         // Handle add to cart event
         $scope.$on('photoAddedToCartBroadcast', function () {
             cartRepository.addToCart(notificationService.photoId).then(
@@ -88,16 +96,34 @@
         };
 
 
-        $scope.backToCart = function () {
-            cartRepository.saveDeliveryAddress($scope.customer).then(
-                    onBackToCartSuccess,
+        $scope.submitOrder = function () {
+            cartRepository.savePaymentMethod($scope.paymentMethod).then(
+                    onSubmitOrderSuccess,
                     onError
-                );            
+                );                      
         };
-        function onBackToCartSuccess(response) {
-            $log.info('Delivery address saved');
+        function onSubmitOrderSuccess(response) {
+            $log.info('Order submitted');
+            $scope.validationErrors = {};
+
+            var val = $scope.paymentMethod;
+            if (val) {
+                bootbox.alert("Thank you for your order! Payment Method is: " + val);
+            }
+        };
+
+
+        $scope.backToCart = function () {
+            //cartRepository.saveDeliveryAddress($scope.customer).then(
+            //        onBackToCartSuccess,
+            //        onError
+            //    );    
             $location.path("/Cart");
         };
+        //function onBackToCartSuccess(response) {
+        //    $log.info('Delivery address saved');
+        //    $location.path("/Cart");
+        //};
 
 
         function onError(response) {
@@ -128,19 +154,6 @@
                 }
             }
         }
-
-
-
-       
-
-
-
-
-
-
-        $scope.purchase = function () {
-            bootbox.alert("Thank you for your order!");
-        };
     };
 
 

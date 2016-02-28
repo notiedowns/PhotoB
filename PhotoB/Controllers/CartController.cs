@@ -150,6 +150,35 @@ namespace PhotoB.Controllers
         }
 
 
+        public ActionResult SavePaymentMethod(string paymentMethod)
+        {
+            try
+            {
+                if(string.IsNullOrWhiteSpace(paymentMethod))
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    var validationErrors = new List<KeyValuePair<string, string>>();
+                    validationErrors.Add(new KeyValuePair<string, string>("PaymentMethod", "Payment Method is mandatory"));
+                    return Json(new { validationErrors });
+                }
+
+                var customer = Customer;
+                customer.PaymentMethod = paymentMethod;
+                Customer = customer;
+
+                return new JsonResult();      
+            }
+            catch (Exception ex)
+            {
+                var exceptionMessage = "Error saving payment method";
+                Logger.Error(exceptionMessage, ex);
+
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage });
+            }
+        }
+
+
         public ActionResult GetDeliveryAddress()
         {
             try
@@ -160,6 +189,24 @@ namespace PhotoB.Controllers
             catch (Exception ex)
             {
                 var exceptionMessage = "Error retreiving delivery address";
+                Logger.Error(exceptionMessage, ex);
+
+                Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                return Json(new { exceptionMessage });
+            }
+        }
+
+
+        public ActionResult GetPaymentMethod()
+        {
+            try
+            {
+                var customer = Customer;
+                return Json(customer.PaymentMethod, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                var exceptionMessage = "Error retreiving payment method";
                 Logger.Error(exceptionMessage, ex);
 
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
