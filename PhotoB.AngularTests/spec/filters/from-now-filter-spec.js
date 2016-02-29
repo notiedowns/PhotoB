@@ -47,4 +47,16 @@
         var baseDate = new angular.mock.TzDate(0, '2015-08-01T21:00:00.000Z');
         expect(fromNow(value, baseDate)).toBe(' (1 month ago)');
     });
+
+    it('should return value of days ago for given data object', function () {
+        var value = new angular.mock.TzDate(0, '2015-07-30T00:00:00.000Z');
+        var baseDate = new angular.mock.TzDate(0, '2015-08-01T00:00:00.000Z');
+        expect(fromNow(value, baseDate)).toBe(' (2 days ago)');
+    });
+
+    it('should return value of one day ago for given data object', function () {
+        var value = new angular.mock.TzDate(0, '2015-07-31T00:00:00.000Z');
+        var baseDate = new angular.mock.TzDate(0, '2015-08-01T21:00:00.000Z');
+        expect(fromNow(value, baseDate)).toBe(' (1 day ago)');
+    });
 });

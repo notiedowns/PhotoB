@@ -10,35 +10,35 @@
                 controller: "PhotolistController"
             })
             .when("/CategoryList", {
-                templateUrl: "/templates/admin/category/category-list.html",
+                templateUrl: "/templates/category/category-list.html",
                 controller: "CategoryListController"
             })
             .when("/EditCategory/:categoryId", {
-                templateUrl: "/templates/admin/category/category-edit.html",
+                templateUrl: "/templates/category/category-edit.html",
                 controller: "CategoryEditController"
             })
             .when("/EditCategory", {
-                templateUrl: "/templates/admin/category/category-edit.html",
+                templateUrl: "/templates/category/category-edit.html",
                 controller: "CategoryEditController"
             })
             .when("/PhotoList", {
-                templateUrl: "/templates/admin/photo/photo-list.html",
+                templateUrl: "/templates/photo/photo-list.html",
                 controller: "PhotolistController"
             })
             .when("/EditPhoto/:photoId", {
-                templateUrl: "/templates/admin/photo/photo-edit.html",
-                controller: "PhotoCreateController"
+                templateUrl: "/templates/photo/photo-edit.html",
+                controller: "PhotoEditController"
             })
             .when("/EditPhoto", {
-                templateUrl: "/templates/admin/photo/photo-edit.html",
-                controller: "PhotoCreateController"
+                templateUrl: "/templates/photo/photo-edit.html",
+                controller: "PhotoEditController"
             })
             .when("/BSTable", {
-                templateUrl: "/templates/admin/photo/photo-bs-table.html",
+                templateUrl: "/templates/photo/photo-bs-table.html",
                 controller: "PhotolistBSTableController"
             })
             .when("/AdminStart#/EditCategory", {
-                templateUrl: "/templates/admin/category/category-create.html",
+                templateUrl: "/templates/category/category-create.html",
                 controller: "CategoryEditController"
             })
             .when("/Cart", {

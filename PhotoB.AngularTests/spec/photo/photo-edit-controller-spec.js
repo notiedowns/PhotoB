@@ -1,4 +1,4 @@
-﻿describe('photo controller', function () {
+﻿describe('photo edit controller', function () {
 
     var $controller;
     var $q;
@@ -21,7 +21,7 @@
             $rootScope = _$rootScope_;
         });
 
-        $controller('PhotoCreateController', { $scope: $scope, photoRepository: photoRepository, $location: $location, $log: $log })
+        $controller('PhotoEditController', { $scope: $scope, photoRepository: photoRepository, $location: $location, $log: $log })
     });
 
 
@@ -37,37 +37,18 @@
             $scope.editPhoto('photo1');
             $rootScope.$apply();
         }).not.toThrow();
-
-        expect($log.info.logs[0]).toEqual(['New photo created']);
-    });
-
-
-    it('should thow exception', function () {
-
-        spyOn(photoRepository, 'editPhoto').and.callFake(function () {
-            var deferred = $q.defer();
-            deferred.reject();
-            return deferred.promise;
-        });
-
-        $scope.editPhoto('photo1');
-
-        expect(function () {
-            $rootScope.$apply();
-        }).toThrow('Something went wrong');
-
-        expect($log.info.logs[0]).toEqual(['Validation errors found']);
     });
 
 
     it('should return error list', function () {
 
-        var errors = {};
-        errors.data = [{ "key": "columnName1", "value": "errorDescription1" }, { "key": "columnName2", "value": "errorDescription2" }];
+        var response = {};
+        response.data = {};
+        response.data.validationErrors = [{ "Key": "columnName1", "Value": "errorDescription1" }, { "Key": "columnName2", "Value": "errorDescription2" }];
 
         spyOn(photoRepository, 'editPhoto').and.callFake(function () {
             var deferred = $q.defer();
-            deferred.reject(errors);
+            deferred.reject(response);
             return deferred.promise;
         });
 
@@ -76,6 +57,7 @@
 
         expect($scope.validationErrors['columnName1']).toEqual('errorDescription1');
         expect($scope.validationErrors['columnName2']).toEqual('errorDescription2');
+        expect($log.info.logs[0]).toEqual(['Validation errors found']);
     });
 
 });

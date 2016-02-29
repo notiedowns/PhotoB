@@ -2,7 +2,7 @@
 
     'use strict';
 
-    var categoryEditController = function ($scope, $routeParams, categoryRepository, shopHelperFunctions, $location, $log, $exceptionHandler) {
+    var categoryEditController = function ($scope, $routeParams, categoryRepository, shopHelperFunctions, $location, $log) {
 
         // Load selected category if an edit is requested
         $scope.categoryId = $routeParams.categoryId;
@@ -57,10 +57,12 @@
 
                     $scope.validationErrors[propertyName] += validationErrors[i].Value;
                 }
+
+                $log.info('Validation errors found');
             }
         }
     }
 
-    angular.module('shopModule').controller("CategoryEditController", ["$scope", "$routeParams", "categoryRepository", "shopHelperFunctions", "$location", "$log", "$exceptionHandler", categoryEditController]);
+    angular.module('shopModule').controller("CategoryEditController", ["$scope", "$routeParams", "categoryRepository", "shopHelperFunctions", "$location", "$log", categoryEditController]);
 
 })();

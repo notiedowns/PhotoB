@@ -1,33 +1,42 @@
-﻿describe('photo controller', function () {
+﻿describe('photo list controller', function () {
 
     var $controller;
     var $q;
     var $rootScope;
     var $scope;
+    var $interval;
     var $timeout;
     var $log;
     var photoRepository;
+    var notificationService;
 
     beforeEach(function () {
         angular.mock.module('shopModule');
 
-        angular.mock.inject(function (_$controller_, _photoRepository_, _$timeout_, _$log_, _$q_, _$rootScope_) {
+        angular.mock.inject(function (_$controller_, _photoRepository_, _notificationService_, _$interval_, _$timeout_, _$log_, _$q_, _$rootScope_) {
             $scope = _$rootScope_.$new();
             $controller = _$controller_;
             photoRepository = _photoRepository_;
+            notificationService = _notificationService_;
+            $interval = _$interval_;
             $timeout = _$timeout_;
             $log = _$log_;
             $q = _$q_;
             $rootScope = _$rootScope_;            
         });
 
-        $controller('PhotolistController', { $scope: $scope, photoRepository: photoRepository, $log: $log, $timeout: $timeout })
+        $controller('PhotolistController', { $scope: $scope, photoRepository: photoRepository, notificationService: notificationService, $interval: $interval, $log: $log, $timeout: $timeout })
     });
 
 
     it('should populate photos array on $scope', function () {
 
         var expectedResults = [{ "number": "1", "name": "Product 1", "price": 12.9, "dateListed": "2016-01-05T11:01:46.5203217+01:00", "author": "Wayne" }];
+
+        var eventEmitted = false;
+        $rootScope.$on("MY_EVENT_ID", function () {
+            eventEmitted = true;
+        });
 
         // Create a mock call to getPhotos
         spyOn(photoRepository, 'getPhotos').and.callFake(function () {
@@ -38,6 +47,12 @@
             deferred.resolve(expectedResults);
             return deferred.promise;
         });
+
+        //spyOn(scope, "$on").and.callFake(function () {});
+
+        
+        //run code to test
+        //expect(eventEmitted).toBe(true);
 
         $scope.search();
         
@@ -73,5 +88,22 @@
         $scope.keydown();
 
         expect($timeout.verifyNoPendingTasks).not.toThrow();
+    });
+
+
+    it('should count down 1 second', function () {
+
+        $scope.sessionTimeoutSeconds = 60; //1 min 
+
+        $scope.startSessionCountdown();
+
+        $interval.flush(1000);
+        expect($scope.sessionTimeoutSeconds).toBe(58); // Not sure why 2 seconds are flushed each time ??
+
+        $interval.flush(1000);
+        expect($scope.sessionTimeoutSeconds).toBe(56);
+
+        $interval.flush(1000);
+        expect($scope.sessionTimeoutSeconds).toBe(54);
     });
 });

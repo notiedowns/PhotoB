@@ -2,34 +2,37 @@
 
     'use strict';
 
-    var photoCreateController = function ($scope, $routeParams, photoRepository, categoryRepository, shopHelperFunctions, $exceptionHandler, $location, $log) {
+    var photoEditController = function ($scope, $routeParams, photoRepository, categoryRepository, shopHelperFunctions, $location, $log) {
 
         // Load selected photo if an edit is requested
         $scope.photoId = $routeParams.photoId;
         $scope.editTitle = "Create Photo";
         $scope.newPhotoImagePath = "";
 
-        if ($scope.photoId) {
-            photoRepository.getPhotoById($scope.photoId).then(function (photoData) {
-                $scope.selectedPhoto = photoData;
 
-                if ($scope.selectedPhoto) {
-                    $scope.editTitle = "Edit Photo";
-                }
+        $scope.initEdit = function () {
+            if ($scope.photoId) {
+                photoRepository.getPhotoById($scope.photoId).then(function (photoData) {
+                    $scope.selectedPhoto = photoData;
 
-                // Load categories list and set selected category
-                categoryRepository.getCategories().then(function (categoryData) {
-                    $scope.categories = categoryData;
+                    if ($scope.selectedPhoto) {
+                        $scope.editTitle = "Edit Photo";
+                    }
 
-                    setSelectedCategory();
+                    // Load categories list and set selected category
+                    categoryRepository.getCategories().then(function (categoryData) {
+                        $scope.categories = categoryData;
+
+                        setSelectedCategory();
+                    });
                 });
-            });
-        }
-        else {
-            categoryRepository.getCategories().then(function (data) {
-                $scope.categories = data;
-            });
-        }
+            }
+            else {
+                categoryRepository.getCategories().then(function (data) {
+                    $scope.categories = data;
+                });
+            }
+        };        
 
 
         var setSelectedCategory = function () {
@@ -76,7 +79,7 @@
 
         // Edit photo
         $scope.editPhoto = function () {
-
+            
             if ($scope.selectedCategory) {
                 $scope.selectedPhoto.categoryId = $scope.selectedCategory.id;
             }
@@ -117,6 +120,8 @@
 
                     $scope.validationErrors[propertyName] += validationErrors[i].Value;
                 }
+
+                $log.info('Validation errors found');
             }
         }
 
@@ -126,6 +131,6 @@
     // parameters without breaking dependecy injection.
     // $interval is an angular service that can replace the standard js interval function. Using services like this as
     // dependancies means that modules and services are more testable (can replace with mock)
-    angular.module('shopModule').controller("PhotoCreateController", ["$scope", "$routeParams", "photoRepository", "categoryRepository", "shopHelperFunctions", "$exceptionHandler", "$location", "$log", photoCreateController]);
+    angular.module('shopModule').controller("PhotoEditController", ["$scope", "$routeParams", "photoRepository", "categoryRepository", "shopHelperFunctions", "$location", "$log", photoEditController]);
 
 })();

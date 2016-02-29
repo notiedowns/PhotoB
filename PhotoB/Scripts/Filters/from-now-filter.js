@@ -15,6 +15,7 @@
 
             var yearInMs = 60 * 60 * 24 * 365;
             var monthInMs = 60 * 60 * 24 * 30;
+            var dayInMs = 60 * 60 * 24;
             var now = baseDate || new Date();
             var dateDiff = (now.getTime() - date.getTime()) / 1000;
             var tzDiff = (now.getTimezoneOffset() - date.getTimezoneOffset()) * 60;
@@ -22,6 +23,7 @@
 
             var yearsDiff = diffInMs / yearInMs;
             var monthsDiff = diffInMs / monthInMs;
+            var daysDiff = diffInMs / dayInMs;
 
             if (yearsDiff > 1) {
                 yearsDiff = Math.floor(yearsDiff);
@@ -29,6 +31,9 @@
             } else if(monthsDiff > 1) {
                 monthsDiff = Math.floor(monthsDiff);
                 return (monthsDiff === 1) ? ' (1 month ago)' : ' (' + monthsDiff + ' months ago)';
+            } else if (daysDiff > 1) {
+                daysDiff = Math.floor(daysDiff);
+                return (daysDiff === 1) ? ' (1 day ago)' : ' (' + daysDiff + ' days ago)';
             } else {
                 return '';
             }
