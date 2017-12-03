@@ -1,25 +1,27 @@
 ﻿(function () {
-    
+
+    'use strict';
+
     var categoryRepository = function ($http) {
-    
+
         var getCategories = function () {
             return $http.get('/Category/GetCategories').then(
-                    function (response) {
-                        return response.data;
-                    },
-                    function () {
-                        return 'Error while getting category data';
-                    });
+                function (response) {
+                    return response.data;
+                },
+                function () {
+                    return 'Error while getting category data';
+                });
         };
 
         var getCategoryById = function (categoryId) {
             return $http.get('/Category/GetCategoryById', { params: { categoryId: categoryId } }).then(
-                    function (response) {
-                        return response.data;
-                    },
-                    function (error) {
-                        return 'Error while getting category by id';
-                    });
+                function (response) {
+                    return response.data;
+                },
+                function (error) {
+                    return 'Error while getting category by id';
+                });
         };
 
         var editCategory = function (category) {

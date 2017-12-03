@@ -41,14 +41,14 @@ namespace PhotoB.Controllers
         {
             try
             {
-                if(!categoryId.HasValue)
+                if (!categoryId.HasValue)
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
                     return Json(new { exceptionMessage = "CategoryId not set" });
                 }
 
                 var category = _categoryRepository.GetCategoryById(categoryId.Value);
-                
+
                 return JsonResult(category, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
@@ -61,7 +61,6 @@ namespace PhotoB.Controllers
             }
         }
 
-
         [HttpPost]
         public ActionResult EditCategory(HttpRequestMessage request, CategoryVm category)
         {
@@ -69,7 +68,7 @@ namespace PhotoB.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    if(category.Id == 0)
+                    if (category.Id == 0)
                         _categoryRepository.EditCategory(category);
                     else
                         _categoryRepository.UpdateCategory(category);
@@ -90,7 +89,6 @@ namespace PhotoB.Controllers
             }
         }
 
-
         [HttpPost]
         public ActionResult DeleteCategory(HttpRequestMessage request, int categoryId)
         {
@@ -106,7 +104,7 @@ namespace PhotoB.Controllers
                 else
                 {
                     _categoryRepository.DeleteCategory(categoryId);
-                    return Json(new {});
+                    return Json(new { });
                 }
             }
             catch (Exception ex)
@@ -118,7 +116,6 @@ namespace PhotoB.Controllers
                 return Json(new { exceptionMessage = message });
             }
         }
-
 
         private List<KeyValuePair<string, string>> GetErrorMessages()
         {

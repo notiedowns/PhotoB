@@ -1,4 +1,6 @@
-﻿angular.module('shopModule')
+﻿'use strict';
+
+angular.module('shopModule')
     .filter('fromNow', function fromNowFilter() {
         return function (value, baseDate) {
             if (!value) { throw 'date value cannot be undefined'; }
@@ -28,7 +30,7 @@
             if (yearsDiff > 1) {
                 yearsDiff = Math.floor(yearsDiff);
                 return (yearsDiff === 1) ? ' (1 year ago)' : ' (' + yearsDiff + ' years ago)';
-            } else if(monthsDiff > 1) {
+            } else if (monthsDiff > 1) {
                 monthsDiff = Math.floor(monthsDiff);
                 return (monthsDiff === 1) ? ' (1 month ago)' : ' (' + monthsDiff + ' months ago)';
             } else if (daysDiff > 1) {

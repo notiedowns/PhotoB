@@ -20,7 +20,7 @@
             $log = _$log_;
             $location = _$location_;
             $q = _$q_;
-            $rootScope = _$rootScope_;            
+            $rootScope = _$rootScope_;
         });
 
         $controller('CategoryEditController', { $scope: $scope, categoryRepository: categoryRepository, shopHelperFunctions: shopHelperFunctions, $location: $location, $log: $log })
@@ -34,7 +34,7 @@
             deferred.resolve();
             return deferred.promise;
         });
-        
+
         spyOn($location, 'path');
 
         $scope.editCategory();
@@ -57,7 +57,7 @@
             return deferred.promise;
         });
 
-        spyOn(shopHelperFunctions, 'handleErrorResponse').and.callFake(function () {});
+        spyOn(shopHelperFunctions, 'handleErrorResponse').and.callFake(function () { });
 
         $scope.editCategory('category1');
         $rootScope.$apply();

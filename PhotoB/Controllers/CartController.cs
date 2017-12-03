@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Text;
 using System.Web.Mvc;
 
@@ -31,7 +30,6 @@ namespace PhotoB.Controllers
             }
         }
 
-
         private CustomerVm Customer
         {
             get
@@ -47,7 +45,6 @@ namespace PhotoB.Controllers
                 Session["Customer"] = value;
             }
         }
-
 
         public ActionResult GetCart()
         {
@@ -80,7 +77,6 @@ namespace PhotoB.Controllers
             }
         }
 
-
         public ActionResult AddToCart(int photoId)
         {
             try
@@ -103,7 +99,6 @@ namespace PhotoB.Controllers
             }
         }
 
-
         public ActionResult RemoveFromCart(int photoId)
         {
             try
@@ -125,7 +120,6 @@ namespace PhotoB.Controllers
             }
         }
 
-        
         public ActionResult SaveDeliveryAddress(CustomerVm customer)
         {
             try
@@ -149,12 +143,11 @@ namespace PhotoB.Controllers
             }
         }
 
-
         public ActionResult SavePaymentMethod(string paymentMethod)
         {
             try
             {
-                if(string.IsNullOrWhiteSpace(paymentMethod))
+                if (string.IsNullOrWhiteSpace(paymentMethod))
                 {
                     Response.StatusCode = (int)HttpStatusCode.BadRequest;
                     var validationErrors = new List<KeyValuePair<string, string>>();
@@ -166,7 +159,7 @@ namespace PhotoB.Controllers
                 customer.PaymentMethod = paymentMethod;
                 Customer = customer;
 
-                return new JsonResult();      
+                return new JsonResult();
             }
             catch (Exception ex)
             {
@@ -177,7 +170,6 @@ namespace PhotoB.Controllers
                 return Json(new { exceptionMessage });
             }
         }
-
 
         public ActionResult GetDeliveryAddress()
         {
@@ -196,7 +188,6 @@ namespace PhotoB.Controllers
             }
         }
 
-
         public ActionResult GetPaymentMethod()
         {
             try
@@ -213,7 +204,6 @@ namespace PhotoB.Controllers
                 return Json(new { exceptionMessage });
             }
         }
-
 
         private List<KeyValuePair<string, string>> GetErrorMessages()
         {

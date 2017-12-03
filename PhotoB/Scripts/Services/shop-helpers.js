@@ -1,5 +1,6 @@
-﻿
-(function () {
+﻿(function () {
+
+    'use strict';
 
     var shopHelperFunctions = function ($log, $exceptionHandler, alertService) {
 
@@ -25,7 +26,7 @@
             handleErrorResponse: handleErrorResponse
         }
     }
-    
+
     angular.module('shopModule').factory('shopHelperFunctions', shopHelperFunctions);
 
 })();

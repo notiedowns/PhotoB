@@ -18,7 +18,6 @@
             });
         }
 
-
         // Edit selected category
         $scope.editCategory = function () {
             categoryRepository.editCategory($scope.selectedCategory).then(

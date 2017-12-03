@@ -12,14 +12,12 @@
             });
         };
 
-
         // Get customer address from session
         $scope.getDeliveryAddress = function () {
             cartRepository.getDeliveryAddress().then(function (data) {
                 $scope.customer = data;
             });
         };
-
 
         // Get customer payment method from session
         $scope.getPaymentMethod = function () {
@@ -28,22 +26,22 @@
             });
         };
 
-
         // Handle add to cart event
         $scope.$on('photoAddedToCartBroadcast', function () {
             cartRepository.addToCart(notificationService.photoId).then(
                 onAddToCartSuccess,
                 onAddToCartError
-                );
-        });        
+            );
+        });
+
         function onAddToCartSuccess(response) {
             $log.info('Photo added to cart');
             $scope.getCart();
         };
+
         function onAddToCartError(response) {
             shopHelperFunctions.handleErrorResponse(response);
         };
-
 
         // Remove photo from cart
         $scope.confirmRemoveFromCart = function (photoId) {
@@ -64,44 +62,46 @@
                 }
             });
         };
+
         function removeFromCart(photoId) {
             cartRepository.removeFromCart(photoId).then(
                 onRemoveFromCartSuccess,
                 onRemoveFromCartError
-                );
+            );
         };
+
         function onRemoveFromCartSuccess(response) {
             $log.info('Photo removed to cart');
             $scope.getCart();
         };
+
         function onRemoveFromCartError(response) {
             shopHelperFunctions.handleErrorResponse(response);
         };
-
 
         $scope.continueDeliverAddress = function () {
             $location.path("/CartCustomerAddress");
         };
 
-
         $scope.continuePaymentMethod = function () {
             cartRepository.saveDeliveryAddress($scope.customer).then(
-                    onContinuePaymentMethodSuccess,
-                    onError
-                );           
+                onContinuePaymentMethodSuccess,
+                onError
+            );
         };
+
         function onContinuePaymentMethodSuccess(response) {
             $log.info('Delivery address saved');
             $location.path("/CartCustomerPaymentMethod");
         };
 
-
         $scope.submitOrder = function () {
             cartRepository.savePaymentMethod($scope.paymentMethod).then(
-                    onSubmitOrderSuccess,
-                    onError
-                );                      
+                onSubmitOrderSuccess,
+                onError
+            );
         };
+
         function onSubmitOrderSuccess(response) {
             $log.info('Order submitted');
             $scope.validationErrors = {};
@@ -112,24 +112,13 @@
             }
         };
 
-
         $scope.backToCart = function () {
-            //cartRepository.saveDeliveryAddress($scope.customer).then(
-            //        onBackToCartSuccess,
-            //        onError
-            //    );    
             $location.path("/Cart");
         };
-        //function onBackToCartSuccess(response) {
-        //    $log.info('Delivery address saved');
-        //    $location.path("/Cart");
-        //};
-
 
         function onError(response) {
             shopHelperFunctions.handleErrorResponse(response, createErrorMessage);
         };
-
 
         function createErrorMessage(validationErrors) {
             if (validationErrors && validationErrors.length > 0) {
@@ -155,7 +144,6 @@
             }
         }
     };
-
 
     angular.module('shopModule').controller("CartController", ["$scope", "cartRepository", "notificationService", "shopHelperFunctions", "$log", "$location", cartController]);
 

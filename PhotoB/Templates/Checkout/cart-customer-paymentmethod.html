@@ -1,29 +1,29 @@
-﻿<div class="container" ng-init="getPaymentMethod()">
+﻿<div ng-init="getPaymentMethod()">
 
-    <h2>Payment Method</h2>
+  <h2>Payment Method</h2>
 
-    <form novalidate>
-        <div class="row">
-            <div class="col-sm-4">
-                <div id="paymentMethod" class="form-group">
-                    <label>Select a Payment Method</label>
-                    <div class="radio">
-                        <label><input type="radio" ng-model="paymentMethod" value="Bank Account Transfer" name="rating">Bank Account Transfer</label>
-                    </div>
-                    <div class="radio">
-                        <label><input type="radio" ng-model="paymentMethod" value="Credit Card" name="rating">Credit Card</label>
-                    </div>
-                    <div class="text-danger">{{validationErrors.PaymentMethod}}</div>
-                </div>               
-            </div>
-        </div>
-    </form>
-
+  <form novalidate>
     <div class="row">
-        <div class="col-sm-8">
-            <button type="button" class="btn btn-primary btn-sm pull-left" ng-click="continueDeliverAddress()">Back</button>
-            <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="submitOrder()">Submit Order</button>
+      <div class="col-sm-4">
+        <div id="paymentMethod" class="form-group">
+          <label>Select a Payment Method</label>
+          <div class="radio">
+            <label><input type="radio" ng-model="paymentMethod" value="Bank Account Transfer" name="rating">Bank Account Transfer</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" ng-model="paymentMethod" value="Credit Card" name="rating">Credit Card</label>
+          </div>
+          <div class="text-danger">{{validationErrors.PaymentMethod}}</div>
         </div>
+      </div>
     </div>
+  </form>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <button type="button" class="btn btn-primary btn-sm pull-left" ng-click="continueDeliverAddress()">Back</button>
+      <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="submitOrder()">Submit Order</button>
+    </div>
+  </div>
 
 </div>

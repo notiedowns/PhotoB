@@ -1,5 +1,35 @@
-﻿@media (min-width: 1400px) {
-    .container{
-        max-width: 1300px;
-    }
+﻿.page-container {
+  margin-top: 70px;
+}
+
+.list-group-item-heading {
+  font-size: 1.3em;
+}
+
+.product-thumb {
+  height: 250px;
+}
+
+  .product-thumb img {
+    max-width: 130px;
+  }
+
+.product-thumb-name {
+  font-weight: bold;
+}
+
+.product-thumb-desc {
+  font-size: 0.7em;
+}
+
+.product-thumb-price {
+  font-style: italic;
+  color: dodgerblue;
+  display: inline;
+  margin-right: 10px;
+}
+
+#modalViewPhoto div.modal-dialog {
+  width: 850px;
+  text-align: center;
 }

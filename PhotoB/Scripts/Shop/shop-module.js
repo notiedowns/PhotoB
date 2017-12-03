@@ -1,5 +1,7 @@
 ﻿(function () {
 
+    'use strict';
+
     var shopModule = angular.module("shopModule", ['ngRoute']);
 
     shopModule.config(function ($routeProvider) {
@@ -53,9 +55,7 @@
                 templateUrl: "/templates/checkout/cart-customer-paymentmethod.html",
                 controller: "CartController"
             });
-
     });
-
 
     shopModule.directive('categorySideNavbar', function () {
         return {

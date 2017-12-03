@@ -7,7 +7,7 @@ namespace PhotoB.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Please enter a Number")]
+        [Required(ErrorMessage = "Please enter an article ID")]
         [MaxLength(10, ErrorMessage = "Number can be maximum 10 characters")]
         public string Number { get; set; }
 
@@ -25,7 +25,7 @@ namespace PhotoB.Models
 
         [Required(ErrorMessage = "Please enter a Price")]
         public decimal? Price { get; set; }
-        
+
         public DateTime? DateListed { get; set; }
 
         [MaxLength(50, ErrorMessage = "Author can be maximum 50 characters")]

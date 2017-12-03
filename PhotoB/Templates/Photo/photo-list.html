@@ -1,65 +1,65 @@
-﻿<div class="container" ng-init="search()">
+﻿<div ng-init="search()">
 
-    <h2>Photos</h2>
+  <h2>Photos</h2>
 
-    <h4 ng-show="sessionTimeoutSeconds <= 55 && sessionTimeoutSeconds !== 0">Session timeout: {{sessionTimeoutSeconds}}</h4>
-    <h4 ng-show="sessionTimeoutSeconds === 0" class="text-danger">Session timed out</h4>
+  <h4 ng-show="sessionTimeoutSeconds <= 55 && sessionTimeoutSeconds !== 0">Session timeout: {{sessionTimeoutSeconds}}</h4>
+  <h4 ng-show="sessionTimeoutSeconds === 0" class="text-danger">Session timed out</h4>
 
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label>Search</label>
-                <input type="text" class="form-control input-sm" ng-model="searchQuery" ng-keyup="keyup()" ng-keydown="keydown()" />
-            </div>
-        </div>
-
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label>Sort Order</label>
-                <select class="form-control input-sm" ng-model="productSortOrder">
-                    <option value="+number">Number ascending</option>
-                    <option value="-number">Number descending</option>
-                    <option value="+name">Name ascending</option>
-                    <option value="-name">Name descending</option>
-                    <option value="+price">Price ascending</option>
-                    <option value="-price">Price descending</option>
-                    <option value="+dateListed">Date listed ascending</option>
-                    <option value="-dateListed">Date listed descending</option>
-                </select>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label>Search</label>
+        <input type="text" class="form-control input-sm" ng-model="searchQuery" ng-keyup="keyup()" ng-keydown="keydown()" />
+      </div>
     </div>
 
-    <div class="row">
-        <div class="col-sm-8">
-            <table class="table table-condensed table-hover">
-                <tr>
-                    <th>Number</th>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Listed</th>
-                    <th>Image</th>
-                    <th>Author</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr ng-repeat="photo in photos | orderBy:productSortOrder">
-                    <td>{{photo.number}}</td>
-                    <td>{{photo.name}}</td>
-                    <td>{{photo.categoryName}}</td>
-                    <td>{{photo.price | currency}}</td>
-                    <td>{{photo.dateListed | date:'dd-MM-yyyy hh:mm'}} {{photo.dateListed | fromNow}}</td>
-                    <td><img ng-src="../../images/thumbs/{{photo.imagePath}}" style="width: 40px;" /></td>
-                    <td>{{photo.author}}</td>
-                    <td><a href="#/EditPhoto/{{photo.id}}"><i class="glyphicon glyphicon-edit" title="Edit"></i></a></td>
-                    <td><a><i class="glyphicon glyphicon-remove" title="Delete" ng-click="confirmDeleteCategory(photo.id)"></i></a></td>
-                </tr>
-            </table>
-        </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+        <label>Sort Order</label>
+        <select class="form-control input-sm" ng-model="productSortOrder">
+          <option value="+number">Article ID ascending</option>
+          <option value="-number">Article ID descending</option>
+          <option value="+name">Name ascending</option>
+          <option value="-name">Name descending</option>
+          <option value="+price">Price ascending</option>
+          <option value="-price">Price descending</option>
+          <option value="+dateListed">Date listed ascending</option>
+          <option value="-dateListed">Date listed descending</option>
+        </select>
+      </div>
     </div>
+  </div>
 
-    <div class="row">
-        <a href="#/EditPhoto" style="cursor: pointer;">Create Photo</a>
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-condensed table-hover">
+        <tr>
+          <th>Article ID</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Listed</th>
+          <th>Image</th>
+          <th>Author</th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr ng-repeat="photo in photos | orderBy:productSortOrder">
+          <td>{{photo.number}}</td>
+          <td>{{photo.name}}</td>
+          <td>{{photo.categoryName}}</td>
+          <td>{{photo.price | currency}}</td>
+          <td>{{photo.dateListed | date:'dd-MM-yyyy hh:mm'}} {{photo.dateListed | fromNow}}</td>
+          <td><img ng-src="../../images/thumbs/{{photo.imagePath}}" style="width: 40px;" /></td>
+          <td>{{photo.author}}</td>
+          <td><a href="#/EditPhoto/{{photo.id}}"><i class="glyphicon glyphicon-edit" title="Edit"></i></a></td>
+          <td><a><i class="glyphicon glyphicon-remove" title="Delete" ng-click="confirmDeleteCategory(photo.id)"></i></a></td>
+        </tr>
+      </table>
     </div>
+  </div>
+
+  <div class="row">
+    <a href="#/EditPhoto" style="cursor: pointer;">Create Photo</a>
+  </div>
 </div>

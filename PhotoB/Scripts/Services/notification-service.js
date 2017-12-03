@@ -1,9 +1,10 @@
-﻿
-(function(){
+﻿(function () {
+
+    'use strict';
 
     var notificationService = function ($rootScope) {
 
-        var service = {};    
+        var service = {};
         service.categoryId = '';
         service.photoId = '';
 
@@ -13,12 +14,10 @@
             $rootScope.$broadcast('categoryFilterSelectedBroadcast');
         };
 
-
         service.notifyPhotoAddedToCart = function (photoId) {
             this.photoId = photoId;
             $rootScope.$broadcast('photoAddedToCartBroadcast');
         };
-
 
         return service;
     }

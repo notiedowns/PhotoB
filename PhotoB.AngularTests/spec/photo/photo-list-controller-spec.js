@@ -22,7 +22,7 @@
             $timeout = _$timeout_;
             $log = _$log_;
             $q = _$q_;
-            $rootScope = _$rootScope_;            
+            $rootScope = _$rootScope_;
         });
 
         $controller('PhotolistController', { $scope: $scope, photoRepository: photoRepository, notificationService: notificationService, $interval: $interval, $log: $log, $timeout: $timeout })
@@ -50,12 +50,12 @@
 
         //spyOn(scope, "$on").and.callFake(function () {});
 
-        
+
         //run code to test
         //expect(eventEmitted).toBe(true);
 
         $scope.search();
-        
+
         // When we returned a promise from the fake call we added a new promise to an internal list of promises ready to be processed by angulars event cycle.
         // When run in the browser this is handled for us, but not always in tests.
         // Need to call $apply on $rootScope to trigger angulars event cycle and resolve the promise.

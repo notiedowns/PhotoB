@@ -3,14 +3,12 @@
     'use strict';
 
     var categoryListController = function ($scope, categoryRepository, shopHelperFunctions, $location, $log) {
-        
+
         $scope.getCategories = function () {
             categoryRepository.getCategories().then(function (data) {
                 $scope.categories = data;
             });
         };
-
-
 
         $scope.confirmDeleteCategory = function (categoryId) {
             bootbox.dialog({
@@ -35,7 +33,7 @@
             categoryRepository.deleteCategory(categoryId).then(
                 onDeleteCategorySuccess,
                 onDeleteCategoryError
-                );
+            );
         };
 
         function onDeleteCategorySuccess(response) {
@@ -45,7 +43,7 @@
 
         function onDeleteCategoryError(response) {
             shopHelperFunctions.handleErrorResponse(response);
-        }        
+        }
     }
 
     angular.module('shopModule').controller("CategoryListController", ["$scope", "categoryRepository", "shopHelperFunctions", "$location", "$log", categoryListController]);

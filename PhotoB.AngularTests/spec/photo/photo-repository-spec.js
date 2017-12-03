@@ -4,7 +4,7 @@
     var $httpBackend;
 
     beforeEach(function () {
-        // module and inject don't need to be qualified with 'angular.mock' if you want. 
+        // module and inject don't need to be qualified with 'angular.mock' if you want.
         angular.mock.module('shopModule');
 
         angular.mock.inject(function (_photoRepository_, _$httpBackend_) {
@@ -12,10 +12,10 @@
             $httpBackend = _$httpBackend_;
         });
     });
-    
+
 
     it('should retrieve a list of photos', function () {
-        var testPhotoData = { foo: 'bar' }; 
+        var testPhotoData = { foo: 'bar' };
         console.log(angular.mock.dump(testPhotoData));
 
         $httpBackend.when('GET', '/Photo/GetPhotos').respond(200, testPhotoData);
@@ -35,7 +35,7 @@
         $httpBackend.verifyNoOutstandingRequest();
     });
 
-    
+
     it('should handle error', function () {
         $httpBackend.when('GET', '/Photo/GetPhotos').respond(500);
 
@@ -48,7 +48,7 @@
 
         expect(responseData).toEqual('Error while getting photo data');
     });
-    
+
 
     it('should create new photo', function () {
         $httpBackend.when('POST', '/Photo/EditPhoto').respond(200);

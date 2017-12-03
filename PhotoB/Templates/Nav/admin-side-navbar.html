@@ -1,12 +1,8 @@
 ﻿<div class="well" ng-controller="MenuController">
-
-    <ul class="nav nav-stacked" id="sidebar">
-
-        <li class="list-group-item-heading" style="font-size: 1.3em;"><a>Admin</a></li>
-
-        <li ng-repeat="menuItem in adminMenuItems">
-            <a href="{{menuItem.url}}">{{menuItem.displayName}}</a>
-        </li>
-    </ul>
-
+  <ul class="nav nav-stacked" id="sidebar">
+    <li class="list-group-item-heading"><a>Admin</a></li>
+    <li ng-repeat="menuItem in adminMenuItems">
+      <a href="{{menuItem.url}}" title="{{menuItem.toolTip}}">{{menuItem.displayName}}</a>
+    </li>
+  </ul>
 </div>

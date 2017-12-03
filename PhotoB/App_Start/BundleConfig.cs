@@ -1,11 +1,9 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace PhotoB
 {
     public class BundleConfig
     {
-        // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -23,11 +21,15 @@ namespace PhotoB
             bundles.Add(new ScriptBundle("~/bundles/bootstrap-table").Include(
                       "~/Scripts/Bootstrap-table/bootstrap-table.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/bootbox").Include(
+                      "~/Scripts/bootbox.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                       "~/Scripts/angular.js",
                       "~/Scripts/angular-route.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/css/site.css",
                       "~/Content/bootstrap-sandstone.css",
                       "~/Scripts/Bootstrap-table/bootstrap-table.css"));
 

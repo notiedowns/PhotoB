@@ -9,7 +9,6 @@
         $scope.editTitle = "Create Photo";
         $scope.newPhotoImagePath = "";
 
-
         $scope.initEdit = function () {
             if ($scope.photoId) {
                 photoRepository.getPhotoById($scope.photoId).then(function (photoData) {
@@ -32,8 +31,7 @@
                     $scope.categories = data;
                 });
             }
-        };        
-
+        };
 
         var setSelectedCategory = function () {
             if ($scope.selectedPhoto) {
@@ -46,7 +44,6 @@
             }
         }
 
-
         // Select photo dialog
         $scope.openSelectionPhotoDialog = function () {
             photoRepository.getPhotoPaths().then(function (data) {
@@ -58,7 +55,6 @@
 
                 $('#modalSelectPhoto').modal('show');
             });
-
         };
 
         $scope.selectPhoto = function () {
@@ -75,11 +71,8 @@
             $('#modalSelectPhoto').modal('hide');
         };
 
-
-
         // Edit photo
         $scope.editPhoto = function () {
-            
             if ($scope.selectedCategory) {
                 $scope.selectedPhoto.categoryId = $scope.selectedCategory.id;
             }
@@ -87,7 +80,7 @@
             photoRepository.editPhoto($scope.selectedPhoto).then(
                 onEditPhotoSuccess,
                 onEditPhotoError
-                );
+            );
         };
 
         function onEditPhotoSuccess(response) {
@@ -124,7 +117,6 @@
                 $log.info('Validation errors found');
             }
         }
-
     }
 
     // Pass in the names of the dependencies e.g. "$scope", so that a minifier can change the names in the controller

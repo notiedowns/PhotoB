@@ -1,5 +1,7 @@
 ﻿(function () {
 
+    'use strict';
+
     var menuRepository = function ($http) {
 
         var getCategoryMenu = function () {
@@ -19,7 +21,6 @@
             getAdminMenu: getAdminMenu
         };
     };
-
 
     angular.module('shopModule').factory('menuRepository', menuRepository);
 

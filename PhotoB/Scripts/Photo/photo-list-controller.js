@@ -3,7 +3,7 @@
     'use strict';
 
     var photolistController = function ($scope, photoRepository, notificationService, shopHelperFunctions, $interval, $log, $location, $timeout) {
-        
+
         $scope.searchQuery = '';
         $scope.selectedCategoryId = '';
         $scope.productSortOrder = '-dateListed';
@@ -17,8 +17,6 @@
             });
         };
 
-
-
         // Handle search filter input
         var timeout;
         $scope.keyup = function () {
@@ -31,18 +29,14 @@
             $timeout.cancel(timeout);
         };
 
-                
-
         // Session timeout indicator
-        $scope.sessionTimeoutSeconds = 60 * 5; //5 min        
+        $scope.sessionTimeoutSeconds = 60 * 5; //5 min
 
         $scope.startSessionCountdown = function () {
             $interval(function () { $scope.sessionTimeoutSeconds -= 1 }, 1000, $scope.sessionTimeoutSeconds);
         }
 
         $scope.startSessionCountdown();
-
-
 
         // Delete selected photo
         $scope.confirmDeleteCategory = function (photoId) {
@@ -63,28 +57,28 @@
                 }
             });
         };
+
         function deletePhoto(photoId) {
             photoRepository.deletePhoto(photoId).then(
                 onDeletePhotoSuccess,
                 onDeletePhotoError
-                );
+            );
         };
+
         function onDeletePhotoSuccess(response) {
             $log.info('Photo deleted');
             $scope.search();
         }
+
         function onDeletePhotoError(response) {
             shopHelperFunctions.handleErrorResponse(response);
         }
-
-
 
         // Handle category filter selection event
         $scope.$on('categoryFilterSelectedBroadcast', function () {
             $scope.selectedCategoryId = notificationService.categoryId;
             $scope.search();
         });
-
 
         $scope.showSelectedPhoto = function (photoId) {
             for (var i = 0; i < $scope.photos.length; i++) {
@@ -95,10 +89,8 @@
 
             if ($scope.selectedPhoto) {
                 $('#modalViewPhoto').modal('show');
-                
             }
         };
-
 
         $('#modalViewPhoto').on('show', function () {
 
@@ -108,7 +100,6 @@
                 'max-height': '100%'
             });
         });
-
 
         // Add photo to cart
         $scope.addToCart = function (photoId) {

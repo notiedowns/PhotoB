@@ -1,4 +1,4 @@
-﻿describe('get categories', function(){
+﻿describe('get categories', function () {
 
     var categoryRepository = {};
     var $httpBackend;
@@ -13,7 +13,7 @@
     });
 
 
-    it('should return a list of categories', function(){
+    it('should return a list of categories', function () {
 
         var expectedResults = { foo: 'bar' };
         $httpBackend.when('GET', '/Category/GetCategories').respond(200, expectedResults);

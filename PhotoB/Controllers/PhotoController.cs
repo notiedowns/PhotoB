@@ -16,7 +16,6 @@ namespace PhotoB.Controllers
         private static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private readonly PhotoRepository _photoRepository = new PhotoRepository();
 
-
         [HttpGet]
         public JsonResult GetProductList()
         {
@@ -35,7 +34,6 @@ namespace PhotoB.Controllers
             }
         }
 
-        
         public ActionResult GetPhotos(string query, int? categoryId)
         {
             try
@@ -47,7 +45,7 @@ namespace PhotoB.Controllers
                 if (!string.IsNullOrWhiteSpace(query))
                     photos = photos.Where(x => x.Name.ToLower().Contains(query.ToLower())).ToArray();
 
-                if(categoryId.HasValue)
+                if (categoryId.HasValue)
                     photos = photos.Where(x => x.CategoryId == categoryId.Value).ToArray();
 
                 return JsonResult(photos, JsonRequestBehavior.AllowGet);
@@ -62,7 +60,6 @@ namespace PhotoB.Controllers
                 return Json(new { exceptionMessage });
             }
         }
-
 
         public ActionResult GetPhotoById(int? photoId)
         {
@@ -88,7 +85,6 @@ namespace PhotoB.Controllers
             }
         }
 
-
         public ActionResult GetPhotoPaths()
         {
             try
@@ -110,7 +106,6 @@ namespace PhotoB.Controllers
                 return Json(new { exceptionMessage });
             }
         }
-
 
         [HttpPost]
         public ActionResult EditPhoto(HttpRequestMessage request, PhotoVm photo)
@@ -142,7 +137,6 @@ namespace PhotoB.Controllers
             }
         }
 
-
         [HttpPost]
         public ActionResult DeletePhoto(HttpRequestMessage request, int photoId)
         {
@@ -150,7 +144,7 @@ namespace PhotoB.Controllers
             {
                 _photoRepository.DeleteCategory(photoId);
 
-                return Json(new {});
+                return Json(new { });
             }
             catch (Exception ex)
             {
@@ -161,7 +155,6 @@ namespace PhotoB.Controllers
                 return Json(new { exceptionMessage });
             }
         }
-
 
         private List<KeyValuePair<string, string>> GetErrorMessages()
         {

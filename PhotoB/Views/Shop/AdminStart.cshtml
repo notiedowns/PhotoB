@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Admin";
+}
+
+<script src="~/Scripts/Shop/shop-module.js"></script>
+<script src="~/Scripts/Services/shop-helpers.js"></script>
+<script src="~/Scripts/Services/alert-service.js"></script>
+<script src="~/Scripts/Services/notification-service.js"></script>
+<script src="~/Scripts/Category/category-repository.js"></script>
+<script src="~/Scripts/Category/category-list-controller.js"></script>
+<script src="~/Scripts/Category/category-edit-controller.js"></script>
+<script src="~/Scripts/Photo/photo-repository.js"></script>
+<script src="~/Scripts/Photo/photo-list-controller.js"></script>
+<script src="~/Scripts/Photo/photo-edit-controller.js"></script>
+<script src="~/Scripts/Photo/photolist-bs-table-controller.js"></script>
+<script src="~/Scripts/Menu/menu-controller.js"></script>
+<script src="~/Scripts/Menu/menu-repository.js"></script>
+<script src="~/Scripts/Filters/from-now-filter.js"></script>
+
+<div ng-app="shopModule" class="page-container">
+  <div class="row">
+    <div class="col-sm-3">
+      <admin-side-navbar></admin-side-navbar>
+    </div>
+    <div class="col-sm-9">
+      <div ng-view></div>
+    </div>
+  </div>
+</div>
+

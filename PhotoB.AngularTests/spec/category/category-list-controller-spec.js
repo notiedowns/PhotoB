@@ -20,7 +20,7 @@
             $log = _$log_;
             $location = _$location_;
             $q = _$q_;
-            $rootScope = _$rootScope_;            
+            $rootScope = _$rootScope_;
         });
 
         $controller('CategoryListController', { $scope: $scope, categoryRepository: categoryRepository, $location: $location, $log: $log })
@@ -37,7 +37,7 @@
             return deferred.promise;
         });
 
-        $scope.getCategories();        
+        $scope.getCategories();
         $rootScope.$apply();
 
         expect($scope.categories).toBe(expectedResults);
@@ -74,11 +74,11 @@
             return deferred.promise;
         });
 
-        spyOn(shopHelperFunctions, 'handleErrorResponse').and.callFake(function () {});
+        spyOn(shopHelperFunctions, 'handleErrorResponse').and.callFake(function () { });
 
         $scope.deleteCategory();
         $rootScope.$apply();
 
         expect(shopHelperFunctions.handleErrorResponse).toHaveBeenCalled();
-    });    
+    });
 });

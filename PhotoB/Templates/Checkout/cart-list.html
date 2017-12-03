@@ -1,43 +1,43 @@
-﻿<div class="container" ng-init="getCart()">
+﻿<div ng-init="getCart()">
 
-    <h2>Shopping Cart</h2>
+  <h2>Shopping Cart</h2>
 
-    <div ng-show="cartSummary.length === 0">
-        <h3 class="text-info">Your shopping cart is empty!</h3>
+  <div ng-show="cartSummary.length === 0">
+    <h3 class="text-info">Your shopping cart is empty!</h3>
+  </div>
+
+  <div ng-show="cartSummary.length > 0">
+    <div class="row">
+      <div class="col-sm-8">
+        <table class="table table-condensed table-hover">
+          <tr>
+            <th>Article ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+          <tr ng-repeat="photo in cartSummary | orderBy:productSortOrder">
+            <td>{{photo.Id}}</td>
+            <td>{{photo.Number}}</td>
+            <td>{{photo.Name}}</td>
+            <td>{{photo.Price | currency}}</td>
+            <td><img ng-src="../../images/thumbs/{{photo.ImagePath}}" style="width: 40px;" /></td>
+            <td>{{photo.Quantity}}</td>
+            <td>{{photo.TotalPrice | currency}}</td>
+            <td><a><i class="glyphicon glyphicon-remove" title="Remove" ng-click="confirmRemoveFromCart(photo.Id)"></i></a></td>
+          </tr>
+        </table>
+      </div>
     </div>
 
-    <div ng-show="cartSummary.length > 0">
-        <div class="row">
-            <div class="col-sm-8">
-                <table class="table table-condensed table-hover">
-                    <tr>
-                        <th>Number</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Image</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                        <th></th>
-                    </tr>
-                    <tr ng-repeat="photo in cartSummary | orderBy:productSortOrder">
-                        <td>{{photo.Id}}</td>
-                        <td>{{photo.Number}}</td>
-                        <td>{{photo.Name}}</td>
-                        <td>{{photo.Price | currency}}</td>
-                        <td><img ng-src="../../images/thumbs/{{photo.ImagePath}}" style="width: 40px;" /></td>
-                        <td>{{photo.Quantity}}</td>
-                        <td>{{photo.TotalPrice | currency}}</td>
-                        <td><a><i class="glyphicon glyphicon-remove" title="Remove" ng-click="confirmRemoveFromCart(photo.Id)"></i></a></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-8" style="text-align: right;">
-                <button type="button" class="btn btn-primary btn-sm" ng-click="continueDeliverAddress()">Continue to Delivery Address</button>
-            </div>
-        </div>
+    <div class="row">
+      <div class="col-sm-8" style="text-align: right;">
+        <button type="button" class="btn btn-primary btn-sm" ng-click="continueDeliverAddress()">Continue to Delivery Address</button>
+      </div>
     </div>
+  </div>
 
 </div>

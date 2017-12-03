@@ -55,7 +55,7 @@ namespace PhotoB.Repositories
             using (var model = new PhotoBEntities())
             {
                 var photo = model.Photos.FirstOrDefault(x => x.Id == photoVm.Id);
-                if(photo != null)
+                if (photo != null)
                 {
                     photo.Name = photoVm.Name;
                     photo.Number = photoVm.Number;
@@ -66,7 +66,7 @@ namespace PhotoB.Repositories
                     photo.LastChangedBy = "System";
                     photo.LastChanged = DateTime.Now;
                 }
-                    
+
                 model.SaveChanges();
             }
         }

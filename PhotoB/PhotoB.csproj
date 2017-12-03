@@ -26,6 +26,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -215,46 +216,88 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="images\large\Aboda Klint 2010 005.jpg" />
-    <Content Include="images\large\Aboda Klint 2010 011.jpg" />
+    <Content Include="images\large\Akaroa Trip 2009 046.jpg" />
+    <Content Include="images\large\Anna - Queen Elizabeth Park 088.JPG" />
+    <Content Include="images\large\Annas NZ 2013 330.JPG" />
+    <Content Include="images\large\Annas NZ 2013 410.JPG" />
+    <Content Include="images\large\Annas NZ 2013 483.JPG" />
     <Content Include="images\large\Castle Point 2005 016.jpg" />
+    <Content Include="images\large\Castle Point 2005 043.jpg" />
+    <Content Include="images\large\Coast 2004 001.jpg" />
+    <Content Include="images\large\Coast 2004 006.jpg" />
+    <Content Include="images\large\Coast 2004 040.jpg" />
+    <Content Include="images\large\Coast 2004 042.jpg" />
+    <Content Include="images\large\Coast 2004 061.jpg" />
+    <Content Include="images\large\Coast 2004 068.jpg" />
+    <Content Include="images\large\Coast 2004 070.jpg" />
+    <Content Include="images\large\Coast 2004 089.jpg" />
+    <Content Include="images\large\Coast 2004 114.jpg" />
     <Content Include="images\large\Hokio Beach 2004 005.jpg" />
-    <Content Include="images\large\Hornsö 2010 029.jpg" />
-    <Content Include="images\large\Napier - Rotorua Trip 2004 009.jpg" />
-    <Content Include="images\large\Napier - Rotorua Trip 2004 012.jpg" />
-    <Content Include="images\large\Napier - Rotorua Trip 2004 035.jpg" />
-    <Content Include="images\large\Napier - Rotorua Trip 2004 037.jpg" />
+    <Content Include="images\large\IMG_4095.JPG" />
+    <Content Include="images\large\IMG_4096.JPG" />
+    <Content Include="images\large\Kapiti 2004.jpg" />
+    <Content Include="images\large\Moeraki Road 2006 035.jpg" />
+    <Content Include="images\large\Moeraki Road 2006 036.jpg" />
+    <Content Include="images\large\Napier - Rotorua Trip 2004 027.jpg" />
+    <Content Include="images\large\Napier 2004.jpg" />
+    <Content Include="images\large\New Zealand Trip 2013 147.jpg" />
+    <Content Include="images\large\New Zealand Trip 2013 197.jpg" />
     <Content Include="images\large\North Island 2006 035.jpg" />
+    <Content Include="images\large\nzdjur3.JPG" />
+    <Content Include="images\large\nzdjur4.JPG" />
+    <Content Include="images\large\nzdjur5.JPG" />
     <Content Include="images\large\Paramata 2004 002.jpg" />
-    <Content Include="images\large\Timmernabben 2010 035.jpg" />
-    <Content Include="images\large\Timmernabben 2010 057.jpg" />
+    <Content Include="images\large\Petone 2004 020.jpg" />
+    <Content Include="images\large\Petone 2004 043.jpg" />
+    <Content Include="images\large\Petone 2004 059.jpg" />
+    <Content Include="images\large\South Island 2010 091.jpg" />
     <Content Include="images\large\Upper Hutt 001.jpg" />
     <Content Include="images\large\Upper Hutt 2006 002.jpg" />
     <Content Include="images\large\Wellington 002.jpg" />
-    <Content Include="images\large\Ålem 2008 005.jpg" />
-    <Content Include="images\large\Öland 2010 093.jpg" />
-    <Content Include="images\large\Öland 2010 121.jpg" />
-    <Content Include="images\large\Öland 2010 129.jpg" />
-    <Content Include="images\thumbs\Aboda Klint 2010 005.jpg" />
-    <Content Include="images\thumbs\Aboda Klint 2010 011.jpg" />
+    <Content Include="images\large\Wellington 2004 011.jpg" />
+    <Content Include="images\large\Wellington 2004 012.jpg" />
+    <Content Include="images\large\Wellington 2007 001.jpg" />
+    <Content Include="images\thumbs\Akaroa Trip 2009 046.jpg" />
+    <Content Include="images\thumbs\Anna - Queen Elizabeth Park 088.JPG" />
+    <Content Include="images\thumbs\Annas NZ 2013 330.JPG" />
+    <Content Include="images\thumbs\Annas NZ 2013 410.JPG" />
+    <Content Include="images\thumbs\Annas NZ 2013 483.JPG" />
     <Content Include="images\thumbs\Castle Point 2005 016.jpg" />
+    <Content Include="images\thumbs\Castle Point 2005 043.jpg" />
+    <Content Include="images\thumbs\Coast 2004 001.jpg" />
+    <Content Include="images\thumbs\Coast 2004 006.jpg" />
+    <Content Include="images\thumbs\Coast 2004 040.jpg" />
+    <Content Include="images\thumbs\Coast 2004 042.jpg" />
+    <Content Include="images\thumbs\Coast 2004 061.jpg" />
+    <Content Include="images\thumbs\Coast 2004 068.jpg" />
+    <Content Include="images\thumbs\Coast 2004 070.jpg" />
+    <Content Include="images\thumbs\Coast 2004 089.jpg" />
+    <Content Include="images\thumbs\Coast 2004 114.jpg" />
     <Content Include="images\thumbs\Hokio Beach 2004 005.jpg" />
-    <Content Include="images\thumbs\Hornsö 2010 029.jpg" />
-    <Content Include="images\thumbs\Napier - Rotorua Trip 2004 009.jpg" />
-    <Content Include="images\thumbs\Napier - Rotorua Trip 2004 012.jpg" />
-    <Content Include="images\thumbs\Napier - Rotorua Trip 2004 035.jpg" />
-    <Content Include="images\thumbs\Napier - Rotorua Trip 2004 037.jpg" />
+    <Content Include="images\thumbs\IMG_4095.JPG" />
+    <Content Include="images\thumbs\IMG_4096.JPG" />
+    <Content Include="images\thumbs\Kapiti 2004.jpg" />
+    <Content Include="images\thumbs\Moeraki Road 2006 035.jpg" />
+    <Content Include="images\thumbs\Moeraki Road 2006 036.jpg" />
+    <Content Include="images\thumbs\Napier - Rotorua Trip 2004 027.jpg" />
+    <Content Include="images\thumbs\Napier 2004.jpg" />
+    <Content Include="images\thumbs\New Zealand Trip 2013 147.jpg" />
+    <Content Include="images\thumbs\New Zealand Trip 2013 197.jpg" />
     <Content Include="images\thumbs\North Island 2006 035.jpg" />
+    <Content Include="images\thumbs\nzdjur3.JPG" />
+    <Content Include="images\thumbs\nzdjur4.JPG" />
+    <Content Include="images\thumbs\nzdjur5.JPG" />
     <Content Include="images\thumbs\Paramata 2004 002.jpg" />
-    <Content Include="images\thumbs\Timmernabben 2010 035.jpg" />
-    <Content Include="images\thumbs\Timmernabben 2010 057.jpg" />
+    <Content Include="images\thumbs\Petone 2004 020.jpg" />
+    <Content Include="images\thumbs\Petone 2004 043.jpg" />
+    <Content Include="images\thumbs\Petone 2004 059.jpg" />
+    <Content Include="images\thumbs\South Island 2010 091.jpg" />
     <Content Include="images\thumbs\Upper Hutt 001.jpg" />
     <Content Include="images\thumbs\Upper Hutt 2006 002.jpg" />
     <Content Include="images\thumbs\Wellington 002.jpg" />
-    <Content Include="images\thumbs\Ålem 2008 005.jpg" />
-    <Content Include="images\thumbs\Öland 2010 093.jpg" />
-    <Content Include="images\thumbs\Öland 2010 121.jpg" />
-    <Content Include="images\thumbs\Öland 2010 129.jpg" />
+    <Content Include="images\thumbs\Wellington 2004 011.jpg" />
+    <Content Include="images\thumbs\Wellington 2004 012.jpg" />
+    <Content Include="images\thumbs\Wellington 2007 001.jpg" />
     <Content Include="Models\PhotoBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PhotoBModel.edmx</DependentUpon>
@@ -292,6 +335,7 @@
     <Content Include="Scripts\Photo\photo-list-controller.js" />
     <Content Include="Scripts\Shop\shop-module.js" />
     <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\Menu\menu-set-bootstrap-style.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Templates\Category\category-list.html" />
     <Content Include="Templates\Category\category-edit.html" />
@@ -304,7 +348,6 @@
     <Content Include="Templates\Photo\photo-list.html" />
     <Content Include="Templates\Nav\category-side-navbar.html" />
     <Content Include="Templates\Product\product-list.html" />
-    <Content Include="TODO.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -321,9 +364,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Cart\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config">
       <SubType>Designer</SubType>
@@ -335,7 +376,6 @@
     <Content Include="Models\PhotoBModel.edmx.diagram">
       <DependentUpon>PhotoBModel.edmx</DependentUpon>
     </Content>
-    <None Include="Project_Readme.html" />
     <Content Include="Views\Shop\ProductStart.cshtml" />
     <Content Include="Views\Shop\AdminStart.cshtml" />
     <Content Include="Views\Shop\Checkout.cshtml" />

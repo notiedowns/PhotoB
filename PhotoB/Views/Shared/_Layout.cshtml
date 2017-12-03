@@ -1,107 +1,68 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PhotoB - @ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/Scripts/Bootstrap-table")
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/angular")
-    @Scripts.Render("~/bundles/bootstrap-table")
-    <script src="~/Scripts/bootbox.js"></script>
-    @RenderSection("scripts", required: false)
-    <link href="~/Content/css/site.css" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhotoB - @ViewBag.Title</title>
+  @Styles.Render("~/Content/css")
+  @Scripts.Render("~/bundles/modernizr")
+  @Scripts.Render("~/bundles/jquery")
+  @Scripts.Render("~/bundles/bootstrap")
+  @Scripts.Render("~/bundles/angular")
+  @Scripts.Render("~/bundles/bootstrap-table")
+  @Scripts.Render("~/bundles/bootbox")
+  @RenderSection("scripts", required: false)
 </head>
 <body>
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("PhotoB", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="/Shop/ProductStart#/ProductList">Products</a></li>
-                    <li><a href="/Shop/AdminStart#/CategoryList">Admin</a></li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bootstrap Styles<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="styleMenuItem" data-styleName="">default</a></li>
-                            <li><a class="styleMenuItem" data-styleName="-cerulean">cerulean</a></li>
-                            <li><a class="styleMenuItem" data-styleName="-cosmo">cosmo</a></li>
-                            <li><a class="styleMenuItem" data-styleName="-flatly">flatly</a></li>
-                            <li><a class="styleMenuItem" data-styleName="-lumen">lumen</a></li>
-                            <li><a class="styleMenuItem" data-styleName="-paper">paper</a></li>
-                            <li><a class="styleMenuItem" data-styleName="-readable">readable</a></li>
-                            <li><a class="styleMenuItem" data-styleName="-sandstone">sandstone</a></li>
-                            <li><a class="styleMenuItem" data-styleName="-simplex">simplex</a></li>
-                            <li><a class="styleMenuItem" data-styleName="-slate">slate</a></li>
-                            <li><a class="styleMenuItem" data-styleName="-superhero">superhero</a></li>
-                            <li><a class="styleMenuItem" data-styleName="-yeti">yeti</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/Shop/ProductStart#/ProductList" class="navbar-brand">PhotoB</a>
+      </div>
+
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/Shop/ProductStart#/ProductList">Products</a></li>
+          <li><a href="/Shop/AdminStart#/CategoryList">Admin</a></li>
+          <li>@Html.ActionLink("About", "About", "Home")</li>
+          <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bootstrap Styles<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a class="styleMenuItem" data-styleName="">default</a></li>
+              <li><a class="styleMenuItem" data-styleName="-cerulean">cerulean</a></li>
+              <li><a class="styleMenuItem" data-styleName="-cosmo">cosmo</a></li>
+              <li><a class="styleMenuItem" data-styleName="-flatly">flatly</a></li>
+              <li><a class="styleMenuItem" data-styleName="-lumen">lumen</a></li>
+              <li><a class="styleMenuItem" data-styleName="-paper">paper</a></li>
+              <li><a class="styleMenuItem" data-styleName="-readable">readable</a></li>
+              <li><a class="styleMenuItem" data-styleName="-sandstone">sandstone</a></li>
+              <li><a class="styleMenuItem" data-styleName="-simplex">simplex</a></li>
+              <li><a class="styleMenuItem" data-styleName="-slate">slate</a></li>
+              <li><a class="styleMenuItem" data-styleName="-superhero">superhero</a></li>
+              <li><a class="styleMenuItem" data-styleName="-yeti">yeti</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - PhotoB by Wayne Holmes</p>
-        </footer>
-    </div>    
-    
-    
+  </div>
+
+  <div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+      <p>&copy; @DateTime.Now.Year - PhotoB by Wayne Holmes</p>
+    </footer>
+  </div>
+
+  <script src="~/Scripts/Menu/menu-set-bootstrap-style.js"></script>
 </body>
 </html>
-
-<script>
-    $(document).ready(function () {
-
-        $('.styleMenuItem').click(function () {
-            var styleName = $(this).attr('data-styleName');
-            setStyle(styleName);
-            setCookie("photob-style-name", styleName, 5);
-        });       
-
-
-        function setStyle(styleName) {
-            var stylePath = "/Content/bootstrap" + styleName + ".css";
-            $('link[href*="bootstrap"]').attr('href', stylePath);
-        };
-
-
-        var styleNameCookieValue = getCookie("photob-style-name");
-        setStyle(styleNameCookieValue);
-
-
-        function setCookie(cname, cvalue, exdays) {
-            var date = new Date();
-            date.setTime(date.getTime() + (exdays * 24 * 60 * 60 * 1000));
-            var expires = "expires=" + date.toUTCString();
-            document.cookie = cname + "=" + cvalue + "; path=/" + "; " + expires;
-        }
-
-        function getCookie(cname) {
-            var name = cname + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1);
-                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-            }
-            return "";
-        }
-
-    });
-</script>

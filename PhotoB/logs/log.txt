@@ -1,0 +1,251 @@
+Date:2017-12-03 11:29:29,870 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:29:30,317 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:29:30,385 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:29:40,044 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:29:40,583 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:29:43,510 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:32:15,411 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:32:15,453 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:32:15,912 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:32:15,977 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:32:22,774 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:32:23,280 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:37:52,657 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:37:53,170 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:37:54,827 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:37:54,878 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:37:55,329 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:37:55,383 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:39:25,745 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:39:25,806 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:39:26,252 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:39:26,309 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:40:16,780 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:40:16,818 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:40:17,284 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:40:17,320 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:40:47,954 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:40:48,001 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:40:48,457 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:40:48,502 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:42:10,093 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:42:10,133 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:42:10,597 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:42:10,634 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:44:07,148 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:44:07,195 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:44:07,667 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:44:07,697 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:44:32,656 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:44:34,679 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:44:34,779 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:44:35,345 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:44:37,114 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:44:37,624 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:44:38,767 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:44:38,821 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:44:39,272 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:44:39,334 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:44:45,400 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:44:54,560 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:44:55,074 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:44:55,919 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:44:55,960 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:44:56,429 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:44:56,461 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:45:00,445 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:45:01,366 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:45:02,001 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:45:03,767 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:47:11,284 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:47:11,363 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:47:11,796 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:47:11,868 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:47:25,349 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:47:25,399 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:47:25,859 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:47:25,911 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:47:28,288 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:47:28,323 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:47:28,795 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:47:28,825 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:48:29,085 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:48:29,123 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:48:29,588 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:48:29,640 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:48:33,049 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:48:33,557 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:48:35,466 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:48:35,978 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:51:45,252 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:51:45,855 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:51:46,281 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:51:46,314 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:51:50,427 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:51:50,448 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:51:50,931 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:51:50,959 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 11:59:24,856 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 11:59:25,360 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 11:59:25,422 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 11:59:25,918 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:00:01,945 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:00:01,983 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:00:02,450 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:00:02,491 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:02:23,042 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:02:23,094 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:02:23,587 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:02:24,100 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:02:24,747 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:02:27,457 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:02:27,502 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:02:27,964 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:02:28,010 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:02:37,729 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:02:37,773 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:02:38,238 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:02:38,279 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:04:06,621 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:04:06,656 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:04:07,129 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:04:07,162 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:04:14,361 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:04:14,414 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:04:14,881 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:04:14,930 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:05:04,349 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:05:04,411 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:05:04,852 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:05:04,914 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:05:24,303 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:05:24,359 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:05:24,820 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:05:24,871 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:06:27,618 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:06:27,688 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:06:28,132 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:06:28,206 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:06:30,543 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:06:30,593 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:06:31,066 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:06:31,115 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:08:11,319 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:08:11,354 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:08:11,837 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:08:11,867 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:11:37,515 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:11:37,584 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:11:38,017 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:11:38,090 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:12:12,886 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:12:13,393 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:12:13,417 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:12:13,431 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:12:46,240 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:12:46,292 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:12:46,754 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:12:46,793 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:13:13,736 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:13:13,780 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:13:14,256 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:13:14,294 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:13:47,373 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:13:47,449 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:13:47,875 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:13:47,950 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:13:53,591 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:13:53,644 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:13:54,100 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:13:54,153 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:14:13,350 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:14:13,425 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:14:13,854 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:14:13,954 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:14:29,066 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:14:29,103 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:14:29,580 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:14:29,616 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:14:50,601 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:14:50,702 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:14:51,113 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:14:51,215 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:15:06,995 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:15:07,040 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:15:07,503 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:15:07,540 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:15:29,992 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:15:30,074 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:15:30,519 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:15:30,580 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:16:27,450 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:16:27,511 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:16:27,952 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:16:28,012 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:16:39,849 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:16:39,940 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:16:40,369 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:16:40,482 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:17:52,761 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:17:52,881 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:17:53,267 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:17:53,388 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:18:26,895 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:18:58,131 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:18:58,184 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:18:58,650 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:18:58,701 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:21:13,744 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:21:13,850 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:21:14,249 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:21:14,369 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:22:10,407 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:22:10,537 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:22:10,909 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:22:11,044 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:25:23,983 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:25:24,014 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:25:24,497 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:25:24,523 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:25:32,673 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:25:32,730 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:25:33,202 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:25:33,236 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:25:34,670 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:25:34,718 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:25:35,178 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:25:35,234 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:26:00,856 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:26:00,926 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:26:01,375 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:26:01,433 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:33:11,668 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:33:13,195 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:33:13,248 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:33:13,803 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:34:27,667 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:34:27,716 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:34:28,173 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:34:28,223 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:34:59,743 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:35:00,264 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:35:03,665 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:35:15,820 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:35:15,860 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:35:16,320 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:35:16,370 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:35:29,322 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:35:29,832 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:35:33,965 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:35:34,011 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:35:34,466 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:35:34,514 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:35:47,315 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:35:49,412 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:35:51,093 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart
+Date:2017-12-03 12:35:54,548 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:35:55,063 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:35:57,017 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving category menu
+Date:2017-12-03 12:35:57,058 Level:DEBUG PhotoB.Controllers.PhotoController - Retrieving photo list
+Date:2017-12-03 12:35:57,519 Level:DEBUG PhotoB.Controllers.MenuController - Retrieving admin menu
+Date:2017-12-03 12:35:57,558 Level:DEBUG PhotoB.Controllers.CartController - Retrieving cart

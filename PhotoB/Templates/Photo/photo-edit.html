@@ -1,74 +1,74 @@
-﻿<div class="container" ng-init="initEdit()">
+﻿<div ng-init="initEdit()">
 
-    <h2>{{editTitle}}</h2>
+  <h2>{{editTitle}}</h2>
 
-    <form name="editPhotoForm" novalidate>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label>Number</label>
-                    <input type="text" name="number" ng-model="selectedPhoto.number" class="form-control input-sm" autocomplete="off" autofocus />
-                    <div class="text-danger">{{validationErrors.Number}}</div>
-                </div>
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" name="name" ng-model="selectedPhoto.name" class="form-control input-sm" autocomplete="off" />
-                    <div class="text-danger">{{validationErrors.Name}}</div>
-                </div>
-                <div class="form-group">
-                    <label>Category</label>
-                    <select class="form-control input-sm" ng-options="c.name for c in categories" ng-model="selectedCategory"></select>
-                    <div class="text-danger">{{validationErrors.CategoryId}}</div>
-                </div>
-                <div class="form-group">
-                    <label>Price</label>
-                    <input type="number" name="name" ng-model="selectedPhoto.price" class="form-control input-sm" autocomplete="off" />
-                    <div class="text-danger">{{validationErrors.Price}}</div>
-                </div>
-                <div class="form-group">
-                    <label>Image Path</label>
-                    <button type="button" class="btn btn-success btn-xs" style="margin-left: 30px;" ng-click="openSelectionPhotoDialog()">Select Photo</button>
-                    <input type="text" name="name" ng-model="selectedPhoto.imagePath" class="form-control input-sm" readonly />
-                    <div class="text-danger">{{validationErrors.ImagePath}}</div>
-                </div>
-                <div class="form-group">
-                    <label>Author</label>
-                    <input type="text" name="author" ng-model="selectedPhoto.author" class="form-control input-sm" autocomplete="off" />
-                    <div class="text-danger">{{validationErrors.Author}}</div>
-                </div>
-                <button class="btn btn-sm btn-primary" ng-click="editPhoto(photo)">Save</button>
-                <a href="/Shop/AdminStart#/PhotoList" class="btn btn-sm btn-default">Cancel</a>
-            </div>
+  <form name="editPhotoForm" novalidate>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label>Article ID</label>
+          <input type="text" name="number" ng-model="selectedPhoto.number" class="form-control input-sm" autocomplete="off" autofocus />
+          <div class="text-danger">{{validationErrors.Number}}</div>
         </div>
-    </form>
-
-    <div id="modalSelectPhoto" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" ng-click="cancelSelectPhotoDialog()">&times;</button>
-                    <h4 class="modal-title">Select photo</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <select class="form-control input-sm" ng-options="i for i in images" ng-model="newPhotoImagePath"></select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <img ng-src="../../images/thumbs/{{newPhotoImagePath}}" ng-show="newPhotoImagePath" style="width: 250px;" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn-sm" ng-click="selectPhoto()">OK</button>
-                    <button type="button" class="btn btn-default btn-sm" ng-click="cancelSelectPhotoDialog()">Cancel</button>
-                </div>
-            </div>
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" name="name" ng-model="selectedPhoto.name" class="form-control input-sm" autocomplete="off" />
+          <div class="text-danger">{{validationErrors.Name}}</div>
         </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select class="form-control input-sm" ng-options="c.name for c in categories" ng-model="selectedCategory"></select>
+          <div class="text-danger">{{validationErrors.CategoryId}}</div>
+        </div>
+        <div class="form-group">
+          <label>Price</label>
+          <input type="number" name="name" ng-model="selectedPhoto.price" class="form-control input-sm" autocomplete="off" />
+          <div class="text-danger">{{validationErrors.Price}}</div>
+        </div>
+        <div class="form-group">
+          <label>Image Path</label>
+          <button type="button" class="btn btn-success btn-xs" style="margin-left: 30px;" ng-click="openSelectionPhotoDialog()">Select Photo</button>
+          <input type="text" name="name" ng-model="selectedPhoto.imagePath" class="form-control input-sm" readonly />
+          <div class="text-danger">{{validationErrors.ImagePath}}</div>
+        </div>
+        <div class="form-group">
+          <label>Author</label>
+          <input type="text" name="author" ng-model="selectedPhoto.author" class="form-control input-sm" autocomplete="off" />
+          <div class="text-danger">{{validationErrors.Author}}</div>
+        </div>
+        <button class="btn btn-sm btn-primary" ng-click="editPhoto(photo)">Save</button>
+        <a href="/Shop/AdminStart#/PhotoList" class="btn btn-sm btn-default">Cancel</a>
+      </div>
     </div>
+  </form>
+
+  <div id="modalSelectPhoto" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" ng-click="cancelSelectPhotoDialog()">&times;</button>
+          <h4 class="modal-title">Select photo</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <select class="form-control input-sm" ng-options="i for i in images" ng-model="newPhotoImagePath"></select>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <img ng-src="../../images/thumbs/{{newPhotoImagePath}}" ng-show="newPhotoImagePath" style="width: 250px;" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-sm" ng-click="selectPhoto()">OK</button>
+          <button type="button" class="btn btn-default btn-sm" ng-click="cancelSelectPhotoDialog()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>

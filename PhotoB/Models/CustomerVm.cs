@@ -26,7 +26,6 @@ namespace PhotoB.Models
         [MaxLength(100, ErrorMessage = "Email Address can be maximum 100 characters")]
         public string EmailAddress { get; set; }
 
-
         // Payment details
         public string PaymentMethod { get; set; }
     }

@@ -15,7 +15,7 @@ namespace PhotoB.Repositories
             {
                 new MenuItemVm { DisplayName = "Category List", Url = "/Shop/AdminStart#/CategoryList/"},
                 new MenuItemVm { DisplayName = "Photo List", Url = "/Shop/AdminStart#/PhotoList/"},
-                new MenuItemVm { DisplayName = "BS Table", Url = "/Shop/AdminStart#/BSTable"}
+                new MenuItemVm { DisplayName = "Photo List (testing)", Url = "/Shop/AdminStart#/BSTable", ToolTip = "Show the photo list using Bootstrap Table"}
             };
         }
 

@@ -1,10 +1,6 @@
 ﻿using PhotoB.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Text;
 using System.Web.Mvc;
 
 namespace PhotoB.Controllers
@@ -12,9 +8,7 @@ namespace PhotoB.Controllers
     public class MenuController : BaseController
     {
         private static readonly log4net.ILog Logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
         private readonly MenuRepository _menuRepository = new MenuRepository();
-               
 
         public ActionResult GetCategoryMenu()
         {
@@ -34,7 +28,6 @@ namespace PhotoB.Controllers
             }
         }
 
-
         public ActionResult GetAdminMenu()
         {
             try
@@ -53,6 +46,6 @@ namespace PhotoB.Controllers
                 Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 return Json(new { exceptionMessage = message });
             }
-        }       
+        }
     }
 }

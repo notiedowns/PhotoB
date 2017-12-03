@@ -1,13 +1,9 @@
 ﻿<div class="well" ng-controller="MenuController">
-
-    <ul class="nav nav-stacked" id="sidebar">
-
-        <li class="list-group-item-heading" style="font-size: 1.3em;"><a>Categories</a></li>
-        <li><a style="cursor: pointer;" ng-click="filterByCategory('')">All</a></li>
-
-        <li ng-repeat="menuItem in categoryMenuItems">
-            <a style="cursor: pointer;" ng-click="filterByCategory(menuItem.targetId)">{{menuItem.displayName}}</a>
-        </li>
-    </ul>
-
+  <ul class="nav nav-stacked" id="sidebar">
+    <li class="list-group-item-heading"><a>Categories</a></li>
+    <li><a style="cursor: pointer;" ng-click="filterByCategory('')">All</a></li>
+    <li ng-repeat="menuItem in categoryMenuItems">
+      <a style="cursor: pointer;" ng-click="filterByCategory(menuItem.targetId)">{{menuItem.displayName}}</a>
+    </li>
+  </ul>
 </div>

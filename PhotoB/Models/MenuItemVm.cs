@@ -6,5 +6,6 @@
         public string DisplayName { get; set; }
         public string Number { get; internal set; }
         public int TargetId { get; set; }
+        public string ToolTip { get; set; }
     }
 }
