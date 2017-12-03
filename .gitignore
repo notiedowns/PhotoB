@@ -185,9 +185,9 @@ Backup*/
 UpgradeLog*.XML
 UpgradeLog*.htm
 
-# SQL Server files
-*.mdf
-*.ldf
+# Allow SQL Server files for time being
+#*.mdf
+#*.ldf
 
 # Business Intelligence projects
 *.rdl.data
